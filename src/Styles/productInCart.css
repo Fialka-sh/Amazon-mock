@@ -1,0 +1,33 @@
+.productInCartContainer {
+  display: flex;
+  height: 150px;
+  border: 2px solid gray;
+}
+.product_img {
+  width: 150px;
+  height: 100%;
+  border: 1px solid rgb(201, 53, 53);
+}
+.product_info {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  width: 70%;
+  border: 1px solid rgb(141, 75, 172);
+  padding: 10px;
+}
+#inStock {
+  color: green;
+}
+.product_price {
+  width: 10%;
+  border: 1px solid blue;
+  padding: 10px;
+  text-align: right;
+}
+.product__removeBtn_btn {
+  width: 100px;
+  border: none;
+  background-color: transparent;
+  margin-top: 60px;
+}

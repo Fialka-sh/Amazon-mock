@@ -51,3 +51,8 @@
   text-align: right;
   padding: 5px 10px 10px 10px;
 }
+.checkoutBtn {
+  width: 200px;
+  padding: 5px;
+  border: none;
+}

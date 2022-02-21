@@ -2,7 +2,15 @@ import React from 'react';
 import Star from './Star';
 import 'Styles/product.css';
 
-export default function Product({ title, price, rating, imgSrc, imgAlt }) {
+export default function Product({
+  id,
+  title,
+  price,
+  rating,
+  imgSrc,
+  imgAlt,
+  addToCart,
+}) {
   return (
     <div className="productContainer">
       <div className="product__info">
@@ -19,7 +27,14 @@ export default function Product({ title, price, rating, imgSrc, imgAlt }) {
         <img width="250" height="150" src={imgSrc} alt={imgAlt} />
       </div>
       <div className="product__addBtn centerIt">
-        <button className="btn">Add to cart</button>
+        <button
+          className="btn"
+          onClick={() => {
+            addToCart(id);
+          }}
+        >
+          Add to cart
+        </button>
       </div>
     </div>
   );

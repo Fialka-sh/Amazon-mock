@@ -43,6 +43,9 @@
   font-size: 13px;
   font-weight: 800;
 }
+.header__cart_icon {
+  color: white;
+}
 .header__cart p {
   padding: 5px;
 }

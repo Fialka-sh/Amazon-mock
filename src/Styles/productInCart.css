@@ -1,33 +1,44 @@
 .productInCartContainer {
-  display: flex;
-  height: 150px;
-  border: 2px solid gray;
+	display: flex;
+	height: 200px;
+	border-bottom: 1px solid gray;
+	margin-bottom: 10px;
 }
 .product_img {
-  width: 150px;
-  height: 100%;
-  border: 1px solid rgb(201, 53, 53);
+	margin: 10px;
+}
+.product_img img {
+	width: 200px;
+	height: 150px;
+	object-fit: contain;
 }
 .product_info {
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  width: 70%;
-  border: 1px solid rgb(141, 75, 172);
-  padding: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	width: 70%;
+
+	padding: 10px;
+}
+.product_info_text {
+	height: 70%;
 }
 #inStock {
-  color: green;
+	color: green;
+}
+#quantity_select {
+	width: 30px;
+	margin-right: 5px;
+	background-color: rgb(245, 227, 157);
+	border-color: #a99734 #9c7e31 #846a29;
+}
+.removeProductBtn_btn {
+	width: 120px;
+	background-color: rgb(250, 216, 76);
+	border-color: #a99734 #9c7e31 #846a29;
 }
 .product_price {
-  width: 10%;
-  border: 1px solid blue;
-  padding: 10px;
-  text-align: right;
-}
-.product__removeBtn_btn {
-  width: 100px;
-  border: none;
-  background-color: transparent;
-  margin-top: 60px;
+	width: 10%;
+	padding: 10px;
+	text-align: right;
 }

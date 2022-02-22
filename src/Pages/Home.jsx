@@ -65,7 +65,6 @@ export default function Home({ cart, setCart, numOfProducts, setNumOfProducts, t
 		let flag = false;
 		flag = cart.find(function (product) {
 			if (product.id === id) {
-				// console.log(product.amount);
 				product.amount++;
 				setCart([...cart]);
 				return true;

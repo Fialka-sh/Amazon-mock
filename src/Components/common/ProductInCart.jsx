@@ -10,7 +10,7 @@ export default function ProductInCart({ product, i, updateProductAmount, removeF
 			</div>
 			<div className='product_info'>
 				<div className='product_info_text'>
-					<p> {product.title}</p>
+					<p className='product_info_title'> {product.title}</p>
 					<p>
 						<small id='inStock'>In Stock</small>
 					</p>
@@ -24,13 +24,14 @@ export default function ProductInCart({ product, i, updateProductAmount, removeF
 							updateProductAmount(e, product);
 						}}
 					>
-						<option value='1'> 1</option>
-						<option value='2'> 2</option>
-						<option value='3'> 3</option>
-						<option value='4'> 4</option>
+						<option value='1'>1</option>
+						<option value='2'>2</option>
+						<option value='3'>3</option>
+						<option value='4'>4</option>
 					</select>
+					<span className='product_info_btn_span'>|</span>
 					<button
-						className='removeProductBtn_btn btn'
+						className='removeProductBtn_btn'
 						onClick={() => {
 							removeFromCart(i, product);
 						}}

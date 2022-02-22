@@ -1,21 +1,22 @@
 * {
-  padding: 0px;
-  margin: 0px;
-  box-sizing: content-box;
+	padding: 0px;
+	margin: 0px;
+	box-sizing: border-box;
 }
 .centerIt {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
-.app {
-  background-color: rgb(234, 237, 237);
+body {
+	width: 100%;
+	overflow: visible;
+	background-color: rgb(234, 237, 237);
 }
 .btn {
-  background-color: rgb(250, 216, 76);
-  border: 1px solid;
-  border-color: #a99734 #9c7e31 #846a29;
-  border-radius: 3px;
-  padding: 2px 3px;
-  font-weight: 600;
+	background-color: rgb(255, 216, 20);
+	border-radius: 5px;
+	padding: 6px 3px;
+	font-size: 10px;
+	font-weight: 300;
 }

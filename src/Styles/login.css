@@ -1,0 +1,90 @@
+.loginContainer {
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	background-color: white;
+	height: 100vh;
+}
+.login {
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: column;
+	/* width: 400px; */
+	margin-top: 15px;
+}
+.login__header {
+}
+.login__header_img {
+	object-fit: contain;
+	width: 100px;
+	height: 60px;
+}
+.login__form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	width: 300px;
+	border: 1px solid rgb(211, 210, 210);
+	margin-bottom: 50px;
+
+	padding: 20px;
+}
+.login__form h2 {
+	font-size: 28px;
+	font-weight: 300;
+	margin-bottom: 15px;
+}
+
+#passwordInput,
+#emailInput {
+	width: 260px;
+	margin-bottom: 10px;
+	border-radius: 3px;
+	border: 1px solid gray;
+	padding: 5px;
+}
+
+.login__btn {
+	width: 260px;
+	border: 1px solid rgb(211, 210, 210);
+	margin-bottom: 15px;
+	padding: 5px;
+}
+.pPolicy {
+	font-size: 12px;
+	margin-bottom: 12px;
+}
+.divider_txt {
+	width: 100%;
+	text-align: center;
+}
+h5 {
+	display: inline-block;
+	background-color: white;
+	padding: 0 8px 0 7px;
+	color: #767676;
+	font-weight: 400;
+}
+.divider_txt::after {
+	content: "";
+	display: block;
+	width: 100%;
+	height: 1px;
+	margin-bottom: 15px;
+	margin-top: -8px;
+	border-top: 2px solid #e7e7e7;
+	background-color: transparent;
+}
+.create_acount_btn {
+	background-color: black transparent;
+	border-radius: 4px;
+}
+
+#divHr {
+	width: 150%;
+	height: 44px;
+	/* border: 1px solid rgb(138, 59, 59); */
+	background: linear-gradient(to bottom, rgb(0, 0, 0, 0.14), rgb(0, 0, 0, 0.03) 3px, transparent);
+	/* box-shadow: 0 0px 15px -1px black; */
+}

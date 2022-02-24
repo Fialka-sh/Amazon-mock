@@ -1,13 +1,14 @@
 // Core
 import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { createProductsList } from "redux/slices/productsSlice";
+// import { useDispatch } from "react-redux";
+// import { createProductsList } from "redux/slices/productsSlice";
 
 // Components
 import Header from "./Components/header/Header";
 import Home from "./Pages/Home";
 import Cart from "./Pages/Cart";
+import Login from "Pages/Login";
 
 // Styles
 import "./Styles/app.css";
@@ -138,6 +139,7 @@ export const App = () => {
 			<Routes>
 				<Route exact path='/' element={<Home products={products} />} />
 				<Route exact path='/checkout' element={<Cart />} />
+				<Route exact path='/login' element={<Login />} />
 			</Routes>
 		</div>
 	);

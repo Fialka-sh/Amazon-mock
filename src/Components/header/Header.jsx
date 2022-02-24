@@ -28,7 +28,9 @@ export default function Header() {
 				<div className='header__nav'>
 					<div className='header__navOption centerIt'>
 						<span className='header__navOption_LineOne'>Hello</span>
-						<span className='header__navOption_LineTwo'>Sign In</span>
+						<span className='header__navOption_LineTwo'>
+							<Link to='/Login'>Sign In</Link>
+						</span>
 					</div>
 					<div className='header__navOption centerIt'>
 						<span className='header__navOption_LineOne'>Returns</span>

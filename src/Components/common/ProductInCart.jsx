@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { removeFromCart } from "redux/slices/cartSlice";
-import { updateProductAmount } from "redux/slices/cartSlice";
+import { updateProductQuantity } from "redux/slices/cartSlice";
 
 import "Styles/productInCart.css";
 
@@ -10,7 +10,7 @@ export default function ProductInCart({ product, i }) {
 
 	const getNewAmount = (e) => {
 		let quantity = e.target.value;
-		dispatch(updateProductAmount({ quantity, product }));
+		dispatch(updateProductQuantity({ quantity, product }));
 	};
 
 	return (

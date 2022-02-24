@@ -21,7 +21,7 @@ const cartSlice = createSlice({
 			}
 		},
 
-		updateProductAmount: (state = this.initialState, action) => {
+		updateProductQuantity: (state = this.initialState, action) => {
 			let chosenProduct = action.payload.product;
 			let newAmount = parseInt(action.payload.quantity);
 			let tempCart = state.cart.map((product, i) => {
@@ -56,5 +56,5 @@ export const updateTotaleToPay = (state) => {
 	return tempTotal;
 };
 
-export const { addToCart, removeFromCart, updateProductAmount } = cartSlice.actions;
+export const { addToCart, removeFromCart, updateProductQuantity } = cartSlice.actions;
 export default cartSlice.reducer;

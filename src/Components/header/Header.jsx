@@ -1,11 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { updatTotalProducts } from "../../redux/slices/cartSlice";
+import { useSelector } from "react-redux";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 import "../../Styles/header.css";
 
-export default function Header({ numOfProducts }) {
+export default function Header() {
+	const numOfProducts = useSelector(updatTotalProducts);
 	return (
 		<div id='header'>
 			<div className='header__top'>
@@ -53,5 +56,3 @@ export default function Header({ numOfProducts }) {
 		</div>
 	);
 }
-
-// blockName-elemName_modName_modVal

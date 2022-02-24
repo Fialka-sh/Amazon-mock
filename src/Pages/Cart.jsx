@@ -1,44 +1,15 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { updatTotalProducts, updateTotaleToPay } from "../redux/slices/cartSlice";
 
 import ProductInCart from "Components/common/ProductInCart";
 
 import "../Styles/cart.css";
 
-export default function Cart({ cart, setCart, numOfProducts, setNumOfProducts, totalToPay, setTotalToPay }) {
-	const removeFromCart = (index, productToRemove) => {
-		let tempCart = cart.filter((product, i) => i !== index);
-		setCart([...tempCart]);
-		updatTotalProducts(0, productToRemove.amount);
-		updateTotaleToPay(tempCart);
-	};
-
-	const updateProductAmount = (e, productToUpdate) => {
-		let formetAmount = productToUpdate.amount;
-		let newAmount = parseInt(e.target.value);
-
-		let tempCart = cart.map((product, i) => {
-			if (product.id === productToUpdate.id) {
-				productToUpdate.amount = newAmount;
-				return productToUpdate;
-			} else return product;
-		});
-		setCart([...tempCart]);
-		updatTotalProducts(newAmount, formetAmount);
-		updateTotaleToPay(tempCart);
-	};
-
-	const updatTotalProducts = (newAmount, formetAmount) => {
-		numOfProducts = numOfProducts - formetAmount + newAmount;
-		setNumOfProducts(numOfProducts);
-	};
-
-	const updateTotaleToPay = (cart) => {
-		let tempTotal = 0;
-		cart.forEach((product) => {
-			tempTotal += product.amount * product.price;
-		});
-		setTotalToPay(tempTotal);
-	};
+export default function Cart() {
+	const cart = useSelector((state) => state.cart.cart);
+	const totalToPay = useSelector(updateTotaleToPay);
+	const numOfProducts = useSelector(updatTotalProducts);
 
 	return (
 		<div className='cartContainer'>
@@ -55,15 +26,7 @@ export default function Cart({ cart, setCart, numOfProducts, setNumOfProducts, t
 				<span className='pPrice'>Price</span>
 				<hr />
 				{cart.map((product, i) => {
-					return (
-						<ProductInCart
-							product={product}
-							key={i}
-							i={i}
-							updateProductAmount={updateProductAmount}
-							removeFromCart={removeFromCart}
-						/>
-					);
+					return <ProductInCart product={product} key={i} i={i} />;
 				})}
 
 				<div className='cartContainer__total'>

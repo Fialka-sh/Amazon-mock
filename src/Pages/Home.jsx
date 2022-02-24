@@ -60,90 +60,21 @@ export default function Home({ cart, setCart, numOfProducts, setNumOfProducts, t
 		},
 	];
 
-	const addToCart = (id) => {
-		let chosenProduct = products.filter((product) => product.id === id);
-		let flag = false;
-		flag = cart.find(function (product) {
-			if (product.id === id) {
-				product.amount++;
-				setCart([...cart]);
-				return true;
-			} else return false;
-		});
-		if (!flag) {
-			chosenProduct[0].amount = 1;
-			let tempCart = [...chosenProduct, ...cart];
-			setCart([...tempCart]);
-		}
-		numOfProducts++;
-		setNumOfProducts(numOfProducts);
-		totalToPay += chosenProduct[0].price;
-		setTotalToPay(totalToPay);
-	};
-
 	return (
 		<div className='homeContainer'>
 			<img className='home__banner' src={topBanner} alt='top-banner' />
 			<div className='home__rows'>
 				<div className='centerIt home__rows_row'>
-					<Product
-						id={products[0].id}
-						title={products[0].title}
-						price={products[0].price}
-						rating={products[0].rating}
-						imgSrc={products[0].imgSrc}
-						imgAlt={products[0].imgAlt}
-						addToCart={addToCart}
-					/>
-					<Product
-						id={products[1].id}
-						title={products[1].title}
-						price={products[1].price}
-						rating={products[1].rating}
-						imgSrc={products[1].imgSrc}
-						imgAlt={products[1].imgAlt}
-						addToCart={addToCart}
-					/>
+					<Product product={products[0]} />
+					<Product product={products[1]} />
 				</div>
 				<div className='centerIt home__rows_row'>
-					<Product
-						id={products[2].id}
-						title={products[2].title}
-						price={products[2].price}
-						rating={products[2].rating}
-						imgSrc={products[2].imgSrc}
-						imgAlt={products[2].imgAlt}
-						addToCart={addToCart}
-					/>
-					<Product
-						id={products[3].id}
-						title={products[3].title}
-						price={products[3].price}
-						rating={products[3].rating}
-						imgSrc={products[3].imgSrc}
-						imgAlt={products[3].imgAlt}
-						addToCart={addToCart}
-					/>
-					<Product
-						id={products[4].id}
-						title={products[4].title}
-						price={products[4].price}
-						rating={products[4].rating}
-						imgSrc={products[4].imgSrc}
-						imgAlt={products[4].imgAlt}
-						addToCart={addToCart}
-					/>
+					<Product product={products[2]} />
+					<Product product={products[3]} />
+					<Product product={products[4]} />
 				</div>
 				<div className='home__rows_row centerIt'>
-					<Product
-						id={products[5].id}
-						title={products[5].title}
-						price={products[5].price}
-						rating={products[5].rating}
-						imgSrc={products[5].imgSrc}
-						imgAlt={products[5].imgAlt}
-						addToCart={addToCart}
-					/>
+					<Product product={products[5]} />
 				</div>
 			</div>
 		</div>

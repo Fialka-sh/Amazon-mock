@@ -1,8 +1,12 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { addToCart } from "redux/slices/cartSlice";
+
 import Star from "./Star";
 import "Styles/product.css";
 
-export default function Product({ id, title, price, rating, imgSrc, imgAlt, addToCart }) {
+export default function Product({ product, product: { title, price, rating, imgSrc, imgAlt } }) {
+	const dispatch = useDispatch();
 	return (
 		<div className='productContainer'>
 			<div className='product__info'>
@@ -22,7 +26,7 @@ export default function Product({ id, title, price, rating, imgSrc, imgAlt, addT
 				<button
 					className='btn'
 					onClick={() => {
-						addToCart(id);
+						dispatch(addToCart(product));
 					}}
 				>
 					Add to cart

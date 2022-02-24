@@ -1,8 +1,18 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { removeFromCart } from "redux/slices/cartSlice";
+import { updateProductAmount } from "redux/slices/cartSlice";
 
 import "Styles/productInCart.css";
 
-export default function ProductInCart({ product, i, updateProductAmount, removeFromCart }) {
+export default function ProductInCart({ product, i }) {
+	const dispatch = useDispatch();
+
+	const getNewAmount = (e) => {
+		let quantity = e.target.value;
+		dispatch(updateProductAmount({ quantity, product }));
+	};
+
 	return (
 		<div className='productInCartContainer' key={i}>
 			<div className='product_img'>
@@ -19,9 +29,9 @@ export default function ProductInCart({ product, i, updateProductAmount, removeF
 					<select
 						name='quantity '
 						id='quantity_select'
-						value={product.amount}
+						value={product.quantity}
 						onChange={(e) => {
-							updateProductAmount(e, product);
+							getNewAmount(e);
 						}}
 					>
 						<option value='1'>1</option>
@@ -33,7 +43,7 @@ export default function ProductInCart({ product, i, updateProductAmount, removeF
 					<button
 						className='removeProductBtn_btn'
 						onClick={() => {
-							removeFromCart(i, product);
+							dispatch(removeFromCart(i));
 						}}
 					>
 						Remove from cart
@@ -42,7 +52,7 @@ export default function ProductInCart({ product, i, updateProductAmount, removeF
 			</div>
 			<div className='product_price'>
 				<strong>$</strong>
-				<strong>{product.price * product.amount}</strong>
+				<strong>{product.price * product.quantity}</strong>
 			</div>
 		</div>
 	);

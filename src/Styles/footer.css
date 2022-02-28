@@ -1,0 +1,23 @@
+.footerHr {
+	background-color: aqua;
+	display: flex;
+	justify-content: center;
+	width: 105%;
+	height: 3px;
+	background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.03) 30px, transparent);
+}
+.footerHr::after {
+	display: block;
+	height: 44px;
+	width: 100%;
+	background-color: transparent;
+	background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0), #fff);
+	content: "";
+}
+#rights {
+	/* min-height: 40px; */
+	margin-top: 20px;
+	text-align: center;
+	font-size: 14px;
+	color: #767676;
+}

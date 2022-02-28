@@ -33,7 +33,7 @@ const cartSlice = createSlice({
 			state.cart = [...tempCart];
 		},
 
-		removeFromCart: (state = this.initiralState, action) => {
+		removeFromCart: (state = this.initialState, action) => {
 			let tempCart = state.cart.filter((product, i) => i !== action.payload);
 			state.cart = [...tempCart];
 		},

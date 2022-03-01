@@ -10,14 +10,9 @@ import "../Styles/sign.css";
 
 export default function Login() {
 	const navigate = useNavigate();
-	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 
-	const saveName = (e) => {
-		setName(e.target.value);
-		console.log(name);
-	};
 	const checkEmail = (e) => {
 		setEmail(e.target.value);
 	};
@@ -64,18 +59,6 @@ export default function Login() {
 				</div>
 				<div className='acountForm__form'>
 					<h2>Create account</h2>
-					<label htmlFor='nameInput'>
-						<small>Your name</small>
-					</label>
-					<input
-						id='nameInput'
-						className='acountForm__form_input'
-						onBlur={(e) => {
-							saveName(e);
-						}}
-						name='nameInput'
-						type='text'
-					/>
 
 					<label htmlFor='emailInput'>
 						<small>Email</small>

@@ -17,7 +17,7 @@ const cartSlice = createSlice({
 			});
 			if (!flag) {
 				chosenProduct.quantity = 1;
-				state.cart = [chosenProduct, ...state.cart];
+				state.cart = [{ ...chosenProduct, quantity: 1 }, ...state.cart];
 			}
 		},
 

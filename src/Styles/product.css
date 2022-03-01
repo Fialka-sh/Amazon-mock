@@ -3,6 +3,11 @@
 	height: 100%;
 	width: 100%;
 	background-color: white;
+	box-sizing: border-box;
+}
+.productContainer:hover {
+	transform: scale(1.05);
+	box-shadow: 0 0 5px 2px gray;
 }
 .product__info {
 	display: flex;

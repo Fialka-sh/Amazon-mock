@@ -11,6 +11,10 @@ export const store = configureStore({
 });
 
 export default store;
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
+
 //=====  2nd way
 //===  create store and configure Redux DevTools extension
 // export default configureStore({

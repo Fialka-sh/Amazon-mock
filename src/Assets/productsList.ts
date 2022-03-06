@@ -1,4 +1,14 @@
-const products = [
+interface ProductData {
+	id: string;
+	title: string;
+	price: number;
+	rating: number;
+	imgSrc: string;
+	imgAlt: string;
+	quantity: number;
+}
+
+const products: ProductData[] = [
 	{
 		id: "11",
 		title:
@@ -7,6 +17,7 @@ const products = [
 		rating: 4,
 		imgSrc: "https://m.media-amazon.com/images/I/71rXSVqET9L._AC_UL640_QL65_.jpg",
 		imgAlt: "T.V screen",
+		quantity: 0,
 	},
 	{
 		id: "22",
@@ -16,6 +27,7 @@ const products = [
 		rating: 5,
 		imgSrc: "https://m.media-amazon.com/images/I/51kgTjI3RBL._AC_UL640_QL65_.jpg",
 		imgAlt: "Gaming chair",
+		quantity: 0,
 	},
 	{
 		id: "33",
@@ -24,6 +36,7 @@ const products = [
 		rating: 5,
 		imgSrc: "https://m.media-amazon.com/images/I/71iNwni9TsL._AC_UL640_QL65_.jpg",
 		imgAlt: "Webcam",
+		quantity: 0,
 	},
 	{
 		id: "44",
@@ -32,6 +45,7 @@ const products = [
 		rating: 1,
 		imgSrc: "https://m.media-amazon.com/images/I/61sXk7iPfYL._AC_UY436_QL65_.jpg",
 		imgAlt: "Fitness Tracker Watch",
+		quantity: 0,
 	},
 	{
 		id: "55",
@@ -40,6 +54,7 @@ const products = [
 		rating: 3,
 		imgSrc: "https://m.media-amazon.com/images/I/71NMrhZel6L._AC_UL640_QL65_.jpg",
 		imgAlt: "circles",
+		quantity: 0,
 	},
 	{
 		id: "66",
@@ -48,6 +63,7 @@ const products = [
 		rating: 2,
 		imgSrc: "https://m.media-amazon.com/images/I/61pUul1oDlL._AC_UL640_QL65_.jpg",
 		imgAlt: "wireless keyboard",
+		quantity: 0,
 	},
 ];
 

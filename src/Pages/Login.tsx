@@ -4,14 +4,18 @@ import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../Config/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
-import Footer from "Components/footer/Footer";
+import Footer from "../Components/footer/Footer";
 
 import "../Styles/sign.css";
 
+function getErrorMessage(error: unknown) {
+	if (error instanceof Error) return error.message;
+	return String(error);
+}
 export default function Login() {
 	const navigate = useNavigate();
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
+	const [email, setEmail] = useState<string>("");
+	const [password, setPassword] = useState<string>("");
 
 	const LogInToAccount = async () => {
 		try {
@@ -21,7 +25,7 @@ export default function Login() {
 				navigate("/");
 			}
 		} catch (error) {
-			alert(error.message);
+			alert({ message: getErrorMessage(error) });
 		}
 	};
 	return (

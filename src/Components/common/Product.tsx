@@ -1,12 +1,24 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { addToCart } from "redux/slices/cartSlice";
+import { useAppDispatch } from "../../hooks";
+import { addToCart } from "../../redux/slices/cartSlice";
 
 import Star from "./Star";
-import "Styles/product.css";
+import "../../Styles/product.css";
 
-export default function Product({ product, product: { title, price, rating, imgSrc, imgAlt } }) {
-	const dispatch = useDispatch();
+interface ProductData {
+	id: string;
+	title: string;
+	price: number;
+	rating: number;
+	imgSrc: string;
+	imgAlt: string;
+	quantity: number;
+}
+
+export default function Product(product: ProductData) {
+	const { title, price, rating, imgSrc, imgAlt } = product;
+
+	const dispatch = useAppDispatch();
 	return (
 		<div className='productContainer'>
 			<div className='product__info'>
@@ -16,7 +28,7 @@ export default function Product({ product, product: { title, price, rating, imgS
 					<strong>{price}</strong>
 				</p>
 				<div className='product__info_rating'>
-					<Star rating={rating} />
+					<Star {...rating} />
 				</div>
 			</div>
 			<div className='product__img'>

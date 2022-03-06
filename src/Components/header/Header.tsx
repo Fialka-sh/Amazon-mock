@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { useSelector } from "react-redux";
+import { useAppSelector } from "../../hooks";
 import { updatTotalProducts } from "../../redux/slices/cartSlice";
 import { toggleSignText } from "../../redux/slices/userSlice";
 
@@ -14,9 +14,9 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import "../../Styles/header.css";
 
 export default function Header() {
-	const user = useSelector((state) => state.user.currentUser);
-	const toggle = useSelector(toggleSignText);
-	const numOfProducts = useSelector(updatTotalProducts);
+	const user = useAppSelector((state) => state.user.currentUser);
+	const toggle: string = useAppSelector(toggleSignText);
+	const numOfProducts: number = useAppSelector(updatTotalProducts);
 
 	const handelAcountLog = async () => {
 		if (user) {

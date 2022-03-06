@@ -4,26 +4,31 @@ import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../Config/firebase";
 import { createUserWithEmailAndPassword, signOut } from "firebase/auth";
 
-import Footer from "Components/footer/Footer";
+import Footer from "../Components/footer/Footer";
 
 import "../Styles/sign.css";
 
+function getErrorMessage(error: unknown) {
+	if (error instanceof Error) return error.message;
+	return String(error);
+}
+
 export default function Login() {
 	const navigate = useNavigate();
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
+	const [email, setEmail] = useState<string>("");
+	const [password, setPassword] = useState<string>("");
 
-	const checkEmail = (e) => {
-		setEmail(e.target.value);
+	const checkEmail = (value: string) => {
+		setEmail(value);
 	};
-	const checkPassword = (e) => {
-		let passwordEnterd = e.target.value;
+	const checkPassword = (value: string) => {
+		let passwordEnterd: string = value;
 		// if (passwordEnterd.length === 6) {
 		setPassword(passwordEnterd);
 		// }
 	};
-	const checkRePassword = (e) => {
-		let rePassword = e.target.value;
+	const checkRePassword = (value: string) => {
+		let rePassword: string = value;
 
 		if (password === "") {
 			console.log("no password");
@@ -43,7 +48,7 @@ export default function Login() {
 				navigate("/login");
 			}
 		} catch (error) {
-			alert(error.message);
+			alert({ message: getErrorMessage(error) });
 		}
 	};
 
@@ -67,7 +72,7 @@ export default function Login() {
 						id='emailInput'
 						className='acountForm__form_input'
 						onBlur={(e) => {
-							checkEmail(e);
+							checkEmail(e.target.value);
 						}}
 						name='emailInput'
 						type='text'
@@ -80,7 +85,7 @@ export default function Login() {
 						id='passwordInput'
 						className='acountForm__form_input'
 						onBlur={(e) => {
-							checkPassword(e);
+							checkPassword(e.target.value);
 						}}
 						name='passwordInput'
 						type='text'
@@ -94,7 +99,7 @@ export default function Login() {
 						id='rePasswordInput'
 						className='acountForm__form_input'
 						onBlur={(e) => {
-							checkRePassword(e);
+							checkRePassword(e.target.value);
 						}}
 						name='rePasswordInput'
 						type='text'

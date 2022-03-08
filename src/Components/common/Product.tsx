@@ -3,7 +3,10 @@ import { useAppDispatch } from "../../hooks";
 import { addToCart } from "../../redux/slices/cartSlice";
 
 import Star from "./Star";
-import "../../Styles/product.css";
+
+import StyledButton from "../../Styles/Button.style";
+import StyledProductContainer, { StyledProductInfo } from "../../Styles/Product.style";
+import StyledProductImage from "../../Styles/Image.style";
 
 interface ProductData {
 	id: string;
@@ -19,32 +22,52 @@ export default function Product(product: ProductData) {
 	const { title, price, rating, imgSrc, imgAlt } = product;
 
 	const dispatch = useAppDispatch();
+
 	return (
-		<div className='productContainer'>
-			<div className='product__info'>
-				<p className='product__info_title'> {title}</p>
-				<p className='product__info_price'>
+		<StyledProductContainer>
+			{/* <div className='productContainer'> */}
+			<StyledProductInfo>
+				{/* <div
+				 className='product__info'
+				> */}
+				<p
+				// className='product__info_title'
+				>
+					{" "}
+					{title}
+				</p>
+				<p
+				// className='product__info_price'
+				>
 					<small>$</small>
 					<strong>{price}</strong>
 				</p>
-				<div className='product__info_rating'>
-					<Star {...rating} />
-				</div>
-			</div>
-			<div className='product__img'>
-				<img width='250' height='150' src={imgSrc} alt={imgAlt} />
-			</div>
-			<div className='product__addBtn centerIt'>
-				<button
-					className='btn'
-					onClick={() => {
-						dispatch(addToCart(product));
-					}}
-				>
-					Add to cart
-				</button>
-			</div>
-		</div>
+
+				{/* <div className='product__info_rating'> */}
+				<Star productRating={rating} />
+				{/* </div> */}
+
+				{/* </div> */}
+			</StyledProductInfo>
+
+			{/* <div className='product__img'> */}
+			<StyledProductImage>
+				<img src={imgSrc} alt={imgAlt} />
+			</StyledProductImage>
+			{/* </div> */}
+			{/* <div className='product__addBtn centerIt'> */}
+			<StyledButton
+				// className='btn'
+				onClick={() => {
+					dispatch(addToCart(product));
+				}}
+				type='button'
+			>
+				Add to cart
+			</StyledButton>
+			{/* </div> */}
+			{/* </div> */}
+		</StyledProductContainer>
 	);
 }
 

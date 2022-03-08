@@ -2,15 +2,15 @@ import React, { useState } from "react";
 
 import Product from "../Components/common/Product";
 import Slider from "../Components/common/Slider";
+import Footer from "../Components/footer/Footer";
 
-// import topBanner from "../Assets/topBanner.jpg";
-// import topBanner2 from "../Assets/topBanner2.jpg";
-// import purimBanner from "../Assets/purimBanner.jpg";
 import bannersList from "../Assets/bannersList";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 import "../Styles/home.css";
+import StyledHome, { StyledProductsContainer, StyledRow } from "../Styles/Home.style";
+import StyledBannerContainer, { StyledArrowsContainer } from "../Styles/Banner.style";
 
 type ProductData = {
 	id: string;
@@ -34,14 +34,20 @@ export default function Home(products: ProductData[]) {
 		} else setBannerIToShow(bannerIToShow + i);
 	};
 	return (
-		<div className='homeContainer'>
-			<div className='home__topBanner'>
-				<div className='home__topBanner_banner'>
-					<Slider banner={chosenBanner} />
-				</div>
-				<div className='home__topBanner_arrows'>
+		<StyledHome>
+			{/* <div className='homeContainer'> */}
+
+			<StyledBannerContainer>
+				{/* <div className='home__topBanner'> */}
+
+				{/* <div className='home__topBanner_banner'> */}
+				<Slider banner={chosenBanner} />
+				{/* </div> */}
+
+				<StyledArrowsContainer>
+					{/* <div className='home__topBanner_arrows'> */}
 					<span
-						className='home__topBanner_arrow'
+						// className='home__topBanner_arrow'
 						onClick={() => {
 							changeBanner(1);
 						}}
@@ -50,29 +56,49 @@ export default function Home(products: ProductData[]) {
 					</span>
 
 					<span
-						className='home__topBanner_arrow'
+						// className='home__topBanner_arrow'
 						onClick={() => {
 							changeBanner(-1);
 						}}
 					>
 						<ArrowForwardIosIcon />{" "}
 					</span>
-				</div>
-			</div>
-			<div className='home__rows'>
-				<div className='centerIt home__rows_row'>
+					{/* </div> */}
+				</StyledArrowsContainer>
+				{/* </div> */}
+			</StyledBannerContainer>
+
+			<StyledProductsContainer>
+				{/* <div className='home__rows'> */}
+				{/* <div */}
+				{/* className='centerIt home__rows_row' */}
+				{/* > */}
+				<StyledRow>
 					<Product {...products[0]} />
 					<Product {...products[1]} />
-				</div>
-				<div className='centerIt home__rows_row'>
+					{/* </div> */}
+				</StyledRow>
+				<StyledRow>
+					{/* <div */}
+					{/* className='centerIt home__rows_row' */}
+					{/* > */}
 					<Product {...products[2]} />
 					<Product {...products[3]} />
 					<Product {...products[4]} />
-				</div>
-				<div className='home__rows_row centerIt'>
+					{/* </div> */}
+				</StyledRow>
+				<StyledRow>
+					{/* <div */}
+					{/* className='home__rows_row centerIt' */}
+					{/* > */}
 					<Product {...products[5]} />
-				</div>
-			</div>
-		</div>
+					<Product {...products[6]} />
+					{/* </div> */}
+				</StyledRow>
+				{/* </div> */}
+			</StyledProductsContainer>
+			<Footer />
+			{/* </div> */}
+		</StyledHome>
 	);
 }

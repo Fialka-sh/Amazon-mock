@@ -7,6 +7,10 @@ import { createUserWithEmailAndPassword, signOut } from "firebase/auth";
 import Footer from "../Components/footer/Footer";
 
 import "../Styles/sign.css";
+import StyledAccountFormButton from "../Styles/Button.style";
+import StyledInput from "../Styles/Input.style";
+import StyledAccountContainer, { StyledRegisterDivider, StyledFormContainer } from "../Styles/AccountForm.style";
+import { StyledAccountImage } from "../Styles/Image.style";
 
 function getErrorMessage(error: unknown) {
 	if (error instanceof Error) return error.message;
@@ -53,73 +57,101 @@ export default function Login() {
 	};
 
 	return (
-		<div className='acountFormContainer'>
-			<div className='acountForm centerIt'>
-				<div className='acountForm__header'>
+		<StyledAccountContainer>
+			<StyledAccountContainer acountForm>
+				{/* <div className='acountFormContainer'> */}
+				{/* <div className='acountForm centerIt'> */}
+
+				<StyledAccountImage>
+					{/* <div className='acountForm__header'> */}
 					<img
 						className='acountForm__header_img'
 						src='https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg'
 						alt='amazon logo'
 					/>
-				</div>
-				<div className='acountForm__form'>
+					{/* </div> */}
+				</StyledAccountImage>
+
+				<StyledFormContainer>
+					{/* <div className='acountForm__form'> */}
 					<h2>Create account</h2>
 
 					<label htmlFor='emailInput'>
 						<small>Email</small>
 					</label>
-					<input
+					<StyledInput
 						id='emailInput'
-						className='acountForm__form_input'
-						onBlur={(e) => {
-							checkEmail(e.target.value);
+						// className='acountForm__form_input'
+						onBlur={(e: React.FormEvent<HTMLInputElement>) => {
+							checkEmail(e.currentTarget.value);
 						}}
 						name='emailInput'
 						type='text'
-					/>
+					></StyledInput>
 
 					<label htmlFor='passwordInput'>
 						<small>Password</small>
 					</label>
-					<input
+
+					<StyledInput
 						id='passwordInput'
-						className='acountForm__form_input'
-						onBlur={(e) => {
-							checkPassword(e.target.value);
+						// className='acountForm__form_input'
+						onBlur={(e: React.FormEvent<HTMLInputElement>) => {
+							checkPassword(e.currentTarget.value);
 						}}
 						name='passwordInput'
 						type='text'
 						placeholder='At least 6 characters'
-					/>
+					></StyledInput>
 
 					<label htmlFor='rePasswordInput'>
 						<small>Re-enter password</small>
 					</label>
-					<input
+
+					<StyledInput
 						id='rePasswordInput'
-						className='acountForm__form_input'
-						onBlur={(e) => {
-							checkRePassword(e.target.value);
+						// className='acountForm__form_input'
+						onBlur={(e: React.FormEvent<HTMLInputElement>) => {
+							checkRePassword(e.currentTarget.value);
 						}}
 						name='rePasswordInput'
 						type='text'
-					/>
-
-					<button className='acountForm__btn btn' onClick={() => createAcount()}>
+					></StyledInput>
+					<StyledAccountFormButton
+						acountFormButton
+						// className='acountForm__btn'
+						onClick={() => createAcount()}
+						type='button'
+					>
 						Create
-					</button>
+					</StyledAccountFormButton>
 
-					<p className='pPolicy'>By creating an account, you agree to Amazon's conditions of use and Privacy Notice</p>
+					<p
+					// className='pPolicy'
+					>
+						By creating an account, you agree to Amazon's conditions of use and Privacy Notice
+					</p>
 
-					<div className='register__divider_txt'></div>
+					<StyledRegisterDivider>
+						{/* <div className='divider_txt'> */}
 
-					<p className='pGoToSignIn'>
+						{/* </div> */}
+					</StyledRegisterDivider>
+
+					{/* <div className='register__divider_txt'></div> */}
+
+					<p
+					// className='pGoToSignIn'
+					>
 						Already have an account? <Link to='/login'>Sign-in</Link>
 					</p>
-				</div>
-			</div>
 
-			<Footer />
-		</div>
+					{/* </div> */}
+					{/* </div> */}
+				</StyledFormContainer>
+				<Footer />
+				{/* </div> */}
+			</StyledAccountContainer>
+		</StyledAccountContainer>
 	);
 }

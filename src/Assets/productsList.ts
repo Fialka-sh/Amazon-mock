@@ -65,6 +65,16 @@ const products: ProductData[] = [
 		imgAlt: "wireless keyboard",
 		quantity: 0,
 	},
+	{
+		id: "77",
+		title:
+			"ProBody Pilates Ball Exercise Ball Yoga Ball, Multiple Sizes. Fitness, Balance, Workout at Home, Office and Physical Therapy w/ Pump",
+		price: 50,
+		rating: 3,
+		imgSrc: "https://m.media-amazon.com/images/I/817GBemAdHL._AC_UL320_.jpg",
+		imgAlt: "wireless keyboard",
+		quantity: 0,
+	},
 ];
 
 export default products;

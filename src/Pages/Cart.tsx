@@ -5,6 +5,9 @@ import { updatTotalProducts, updateTotaleToPay } from "../redux/slices/cartSlice
 import ProductInCart from "../Components/common/ProductInCart";
 
 import "../Styles/cart.css";
+import StyledButton from "../Styles/Button.style";
+import StyledCartContainer from "../Styles/Cart.style";
+import { StyledCart, StyledCartCheckOut, StyledCartTotal } from "../Styles/Cart.style";
 
 export default function Cart() {
 	const cart = useAppSelector((state) => state.cart.cart);
@@ -12,29 +15,51 @@ export default function Cart() {
 	const numOfProducts = useAppSelector(updatTotalProducts);
 
 	return (
-		<div className='cartContainer'>
-			<div className='cartContainer__checkOut '>
-				<p className='cartContainer__checkOut_subtotal'>
+		<StyledCartContainer>
+			{/* <div className='cartContainer'>  */}
+			<StyledCartCheckOut>
+				{/* <div className='cartContainer__checkOut '> */}
+				<p
+				// className='cartContainer__checkOut_subtotal'
+				>
 					Subtotel ({numOfProducts} items) : <strong>${totalToPay}</strong>
 				</p>
 				<div className='cartContainer__checkOut_btn'>
-					<button className='checkoutBtn btn'>Proceed to checkout</button>
+					<StyledButton
+						checkoutButton
+						//  className='checkoutBtn'
+						type='button'
+					>
+						Proceed to checkout
+					</StyledButton>
 				</div>
-			</div>
-			<div className='cartConainer__cart'>
+				{/* </div> */}
+			</StyledCartCheckOut>
+
+			<StyledCart>
+				{/* <div className='cartConainer__cart'> */}
 				<h1>Shopping Cart</h1>
-				<span className='pPrice'>Price</span>
+				<span
+				// className='pPrice'
+				>
+					Price
+				</span>
 				<hr />
 				{cart.map((product, i) => {
 					return <ProductInCart product={product} key={i} i={i} />;
 				})}
 
-				<div className='cartContainer__total'>
+				<StyledCartTotal>
+					{/* <div className='cartContainer__total'> */}
 					<p>
 						Subtotel ({numOfProducts} items) : <strong>${totalToPay}</strong>
 					</p>
-				</div>
-			</div>
-		</div>
+					{/* </div> */}
+				</StyledCartTotal>
+				{/* </div> */}
+			</StyledCart>
+
+			{/* </div> */}
+		</StyledCartContainer>
 	);
 }

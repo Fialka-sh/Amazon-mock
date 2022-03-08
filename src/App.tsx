@@ -9,6 +9,7 @@ import { auth } from "./Config/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 
 import products from "./Assets/productsList";
+import { GlobleStyles } from "./Styles/GlobalStyles";
 // Components
 import Header from "./Components/header/Header";
 import Home from "./Pages/Home";
@@ -18,16 +19,6 @@ import Register from "./Pages/Register";
 
 // Styles
 import "./Styles/app.css";
-
-// type ProductData = {
-// 	id: string;
-// 	title: string;
-// 	price: number;
-// 	rating: number;
-// 	imgSrc: string;
-// 	imgAlt: string;
-// 	quantity: number;
-// };
 
 export const App: React.FC = () => {
 	const user = useAppSelector((state) => state.user.currentUser);
@@ -43,7 +34,8 @@ export const App: React.FC = () => {
 	}, [dispatch, user]);
 
 	return (
-		<div className='app'>
+		<div>
+			<GlobleStyles />
 			<Header />
 
 			<Routes>

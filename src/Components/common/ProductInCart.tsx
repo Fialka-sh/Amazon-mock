@@ -3,9 +3,18 @@ import { useAppDispatch } from "../../hooks";
 
 import { removeFromCart } from "../../redux/slices/cartSlice";
 import { updateProductQuantity } from "../../redux/slices/cartSlice";
+import { StyledProductInCartImage } from "../../Styles/Image.style";
 
 import "../../Styles/productInCart.css";
-
+import StyledProductInCartContainer, {
+	StyledProductInCartInfo,
+	StyledProductInCartPrice,
+	StyledProductInCartPrInfoText,
+	StyledInStockText,
+	StyledProductInCartBtns,
+} from "../../Styles/ProductInCart.style";
+import { StyledQuantitySelect } from "../../Styles/Select.style";
+import StyledButton from "../../Styles/Button.style";
 type ProductData = {
 	id: string;
 	title: string;
@@ -35,24 +44,37 @@ export default function ProductInCart(props: { product: ProductData; i: number }
 	};
 
 	return (
-		<div className='productInCartContainer' key={i}>
-			<div className='product_img'>
+		<StyledProductInCartContainer key={i}>
+			{/* <div className='productInCartContainer' key={i}> */}
+			<StyledProductInCartImage>
+				{/* <div className='product_img'> */}
 				<img src={product?.imgSrc} alt={product?.imgAlt} />
-			</div>
-			<div className='product_info'>
-				<div className='product_info_text'>
-					<p className='product_info_title'> {product?.title}</p>
-					<p>
-						<small id='inStock'>In Stock</small>
-					</p>
-				</div>
-				<div className='product_info_btns'>
-					<select
+
+				{/* </div> */}
+			</StyledProductInCartImage>
+
+			<StyledProductInCartInfo>
+				{/* <div className='product_info'> */}
+				{/* <div className='product_info_text'> */}
+				<StyledProductInCartPrInfoText>
+					{/* <p className='product_info_title'>  */}
+					{product?.title}
+					{/* </p> */}
+				</StyledProductInCartPrInfoText>
+				{/* <p> */}
+				<StyledInStockText>In Stock</StyledInStockText>
+				{/* </p> */}
+				{/* </div> */}
+				<StyledProductInCartBtns>
+					{/* <div className='product_info_btns'> */}
+
+					<StyledQuantitySelect
+						// <select
 						name='quantity '
-						id='quantity_select'
+						// id='quantity_select'
 						value={product?.quantity}
-						onChange={(e) => {
-							getNewAmount(e.target.value);
+						onChange={(e: React.FormEvent<HTMLSelectElement>) => {
+							getNewAmount(e.currentTarget.value);
 						}}
 					>
 						<option value='1'>1</option>
@@ -60,22 +82,35 @@ export default function ProductInCart(props: { product: ProductData; i: number }
 						<option value='3'>3</option>
 						<option value='4'>4</option>
 						<option value='5'>5</option>
-					</select>
+						{/* </select> */}
+					</StyledQuantitySelect>
+
 					<span className='product_info_btn_span'>|</span>
-					<button
-						className='removeProductBtn_btn'
+
+					<StyledButton
+						removeProductButton
+						//   <button
+						//  className='removeProductBtn_btn'
 						onClick={() => {
 							dispatch(removeFromCart(i));
 						}}
 					>
 						Remove from cart
-					</button>
-				</div>
-			</div>
-			<div className='product_price'>
+						{/* </button> */}
+					</StyledButton>
+					{/* </div> */}
+				</StyledProductInCartBtns>
+
+				{/* </div> */}
+			</StyledProductInCartInfo>
+
+			<StyledProductInCartPrice>
+				{/* <div className='product_price'> */}
 				<strong>$</strong>
 				<strong>{product?.price * product?.quantity}</strong>
-			</div>
-		</div>
+				{/* </div> */}
+			</StyledProductInCartPrice>
+			{/* </div> */}
+		</StyledProductInCartContainer>
 	);
 }

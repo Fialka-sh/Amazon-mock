@@ -6,8 +6,6 @@ import { BrowserRouter } from "react-router-dom";
 import { App } from "./App";
 import reportWebVitals from "./Utils/reportWebVitals";
 
-import "./Styles/index.css";
-
 const rootElement = document.getElementById("root");
 ReactDOM.render(
 	<React.StrictMode>

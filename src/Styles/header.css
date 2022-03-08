@@ -1,47 +1,47 @@
-#header {
+/* #header {
 	position: sticky;
 	top: 0;
 	flex-direction: column;
 	z-index: 100;
 	height: 90px;
 	background: rgb(0, 0, 0);
-}
-.header__top {
+} */
+/* .header__top {
 	display: flex;
 	justify-content: space-between;
 	height: 60px;
-}
-.header__logo {
+} */
+/* .header__logo {
 	width: 100px;
 	object-fit: contain;
 	margin: 0 20px;
 	margin-top: 16px;
-}
-.header__search {
+} */
+/* .header__search {
 	width: 60%;
-}
-.header__search_input {
+} */
+/* .header__search_input {
 	width: 95%;
 	padding: 10px 10px;
 	border: none;
 	border-radius: 5px 0px 0px 5px;
-}
+} */
 
-.header__search_icon {
+/* .header__search_icon {
 	transform: scale(1.5);
 	padding: 3px;
 	background-color: #e9aa5a;
 	border-radius: 4px;
 	margin: -7px;
-}
-.header__nav {
+} */
+/* .header__nav {
 	max-width: 30%;
 	display: flex;
 	justify-content: space-around;
 	margin: 10px;
 	color: white;
-}
-.header__navOption {
+} */
+/* .header__navOption {
 	flex-direction: column;
 	width: 80px;
 }
@@ -51,47 +51,48 @@
 .header__navOption_LineTwo {
 	font-size: 13px;
 	font-weight: 800;
-}
+} */
 
 @media screen and (max-width: 786px) {
-	.header__logo {
+	/* .header__logo {
 		height: 30px;
 		margin-top: 20px;
-	}
-	.header__search {
+	} */
+	/* .header__search {
 		width: 60%;
-	}
-	.header__search_input {
+	} */
+	/* .header__search_input {
 		padding: 8px;
-	}
-	.header__search_icon {
+	} */
+	/* .header__search_icon {
 		transform: scale(1.35);
 		margin: -5px;
-	}
-	.header__nav {
+	} */
+	/* .header__nav {
 		display: none;
-	}
-	.header__menuStripe p {
+	} */
+	/* .header__menuStripe p {
 		display: none;
-	}
+	} */
 }
 
-.header__cart {
+/* .header__cart {
 	flex-direction: column;
 	margin: 0px 15px;
 	color: white;
-}
-.header__cart_icon {
+}*/
+/* .header__cart_icon {
 	color: white;
-}
-.header__cart p {
+} */
+/*.header__cart p {
 	margin-top: 3px;
 	margin-bottom: -3px;
 	color: rgb(255, 216, 20);
 	font-weight: 600;
-}
+} */
+
 /* ==== */
-.header__menuStripe {
+/* .header__menuStripe {
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
@@ -100,7 +101,7 @@
 	background-color: rgb(35, 47, 62);
 	color: white;
 	font-size: 12px;
-}
-.header__menuStripe p {
+} */
+/* .header__menuStripe p {
 	margin: 2px 6px;
-}
+} */

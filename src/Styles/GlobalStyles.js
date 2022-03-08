@@ -2,14 +2,14 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobleStyles = createGlobalStyle`
 * {
-	padding: 0px;
-	margin: 0px;
 	box-sizing: border-box;
+	margin: 0px;
+	padding: 0px;
 }
 
 body {
-	width: 100%;
 	overflow: visible;
+	width: 100%;
 	background-color: rgb(234, 237, 237);
 }
 .centerIt {

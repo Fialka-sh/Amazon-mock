@@ -17,9 +17,6 @@ import Cart from "./Pages/Cart";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 
-// Styles
-import "./Styles/app.css";
-
 export const App: React.FC = () => {
 	const user = useAppSelector((state) => state.user.currentUser);
 	const dispatch = useAppDispatch();

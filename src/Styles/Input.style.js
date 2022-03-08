@@ -37,9 +37,3 @@ const StyledInput = styled.input`
 `;
 
 export default StyledInput;
-
-// ${(props) =>
-//     props.acountForm &&
-//     css`
-
-//     `}

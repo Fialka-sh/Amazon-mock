@@ -6,7 +6,6 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 
 import Footer from "../Components/footer/Footer";
 
-import "../Styles/sign.css";
 import StyledButton from "../Styles/Button.style";
 import StyledAccountContainer, { StyledLoginDivider, StyledFormContainer } from "../Styles/AccountForm.style";
 import StyledInput from "../Styles/Input.style";
@@ -35,21 +34,11 @@ export default function Login() {
 	return (
 		<StyledAccountContainer>
 			<StyledAccountContainer acountForm>
-				{/* <div className='acountFormContainer'> */}
-				{/* <div className='acountForm centerIt'> */}
-				{/* <div className='acountForm__header'> */}
-
 				<StyledAccountImage>
-					<img
-						// className='acountForm__header_img'
-						src='https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg'
-						alt='amazon logo'
-					/>
+					<img src='https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg' alt='amazon logo' />
 				</StyledAccountImage>
-				{/* </div> */}
 
 				<StyledFormContainer>
-					{/* <div className='acountForm__form'> */}
 					<h2>SignIn</h2>
 					<label htmlFor='acountForm__form_emailInput'>
 						<small>Email</small>
@@ -57,7 +46,6 @@ export default function Login() {
 
 					<StyledInput
 						id='emailInput'
-						// className='acountForm__form_input'
 						onBlur={(e: React.FormEvent<HTMLInputElement>) => {
 							setEmail(e.currentTarget.value);
 						}}
@@ -71,7 +59,6 @@ export default function Login() {
 
 					<StyledInput
 						id='passwordInput'
-						// className='acountForm__form_input'
 						onBlur={(e: React.FormEvent<HTMLInputElement>) => {
 							setPassword(e.currentTarget.value);
 						}}
@@ -89,27 +76,18 @@ export default function Login() {
 						Sign In
 					</StyledButton>
 
-					<p
-					// className='pPolicy'
-					>
-						By signin-In I agree to Amazon's conditions of use and Privacy Notice
-					</p>
+					<p>By signin-In I agree to Amazon's conditions of use and Privacy Notice</p>
 
 					<StyledLoginDivider>
-						{/* <div className='divider_txt'> */}
 						<h5>New To Amazon</h5>
-						{/* </div> */}
 					</StyledLoginDivider>
 					<StyledButton createAccountButton>
 						<Link to='/register'>Create your Account</Link>
 					</StyledButton>
-					{/* </div> */}
 				</StyledFormContainer>
 
-				{/* </div> */}
 				<Footer />
 			</StyledAccountContainer>
-			{/* </div> */}
 		</StyledAccountContainer>
 	);
 }

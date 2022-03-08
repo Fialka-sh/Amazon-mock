@@ -17,8 +17,8 @@ const StyledAccountContainer = styled.div`
 		`}
 
 	p {
-		font-size: 12px;
 		margin-bottom: 12px;
+		font-size: 12px;
 	}
 `;
 export default StyledAccountContainer;
@@ -29,14 +29,14 @@ export const StyledFormContainer = styled.div`
 	justify-content: center;
 	align-items: flex-start;
 	width: 300px;
-	border: 1px solid rgb(211, 210, 210);
 	margin-bottom: 50px;
+	border: 1px solid rgb(211, 210, 210);
 	padding: 20px;
 
 	h2 {
+		margin-bottom: 15px;
 		font-size: 28px;
 		font-weight: 300;
-		margin-bottom: 15px;
 	}
 `;
 
@@ -45,8 +45,8 @@ export const StyledLoginDivider = styled.div`
 	text-align: center;
 	h5 {
 		display: inline-block;
-		background-color: white;
 		padding: 0 8px 0 7px;
+		background-color: white;
 		color: #767676;
 		font-weight: 400;
 	}
@@ -63,13 +63,13 @@ export const StyledLoginDivider = styled.div`
 `;
 
 export const StyledRegisterDivider = styled.div`
-	background-color: aqua;
 	display: flex;
 	justify-content: center;
 	width: 105%;
 	height: 3px;
-	background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.03) 30px, transparent);
 	margin: 15px auto;
+	background-color: aqua;
+	background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.03) 30px, transparent);
 
 	&:after {
 		display: block;

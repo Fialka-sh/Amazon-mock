@@ -3,10 +3,9 @@ import styled from "styled-components";
 const StyledProductImage = styled.div`
 	height: 51%;
 	& > img {
-		width: 250px;
+		width: 100%;
 		height: 150px;
 		max-height: 200px;
-		width: 100%;
 		object-fit: contain;
 	}
 
@@ -33,8 +32,8 @@ export const StyledProductInCartImage = styled.div`
 
 export const StyledAccountImage = styled.div`
 	& > img {
-		object-fit: contain;
 		width: 100px;
 		height: 60px;
+		object-fit: contain;
 	}
 `;

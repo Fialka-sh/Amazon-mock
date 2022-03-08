@@ -27,25 +27,25 @@ const StyledCartCheckOut = styled.div`
 	}
 	@media (max-width: 786px) {
 		height: 90px;
-		padding: 12px;
 		margin-bottom: 15px;
+		padding: 12px;
 	}
 `;
 
 const StyledCart = styled.div`
 	width: 80%;
 	margin-right: 15px;
-	background-color: white;
 	padding: 10px;
+	background-color: white;
 
 	h1 {
+		margin-bottom: -8px;
 		font-size: 24px;
 		font-weight: 80;
-		margin-bottom: -8px;
 	}
 	span {
-		text-align: right;
 		display: block;
+		text-align: right;
 	}
 	hr {
 		margin-bottom: 10px;
@@ -57,8 +57,8 @@ const StyledCart = styled.div`
 `;
 
 const StyledCartTotal = styled.div`
-	text-align: right;
 	padding: 5px 10px 10px 10px;
+	text-align: right;
 `;
 
 export default StyledCartContainer;

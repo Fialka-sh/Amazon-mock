@@ -3,10 +3,10 @@ import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 const StyledHeader = styled.div`
+	z-index: 100;
 	position: sticky;
 	top: 0;
 	flex-direction: column;
-	z-index: 100;
 	height: 90px;
 	background: rgb(0, 0, 0);
 `;
@@ -17,9 +17,9 @@ const StyledHeaderTop = styled.div`
 `;
 const StyledHeaderTopLogo = styled.img`
 	width: 100px;
-	object-fit: contain;
 	margin: 0 20px;
 	margin-top: 16px;
+	object-fit: contain;
 
 	@media (max-width: 786px) {
 		height: 30px;
@@ -38,10 +38,10 @@ const StyledHeaderTopSearch = styled.div`
 `;
 const StyledHeaderTopcostumizedSearchIcon = styled(SearchIcon)`
 	transform: scale(1.5);
+	margin: -7px;
+	border-radius: 4px;
 	padding: 3px;
 	background-color: #e9aa5a;
-	border-radius: 4px;
-	margin: -7px;
 
 	@media screen and (max-width: 786px) {
 		transform: scale(1.35);
@@ -49,9 +49,9 @@ const StyledHeaderTopcostumizedSearchIcon = styled(SearchIcon)`
 	}
 `;
 const StyledHeaderTopNav = styled.div`
-	max-width: 30%;
 	display: flex;
 	justify-content: space-around;
+	max-width: 30%;
 	margin: 10px;
 	color: white;
 
@@ -65,6 +65,7 @@ const StyleHeaderTopNavOptions = styled.div`
 	justify-content: center;
 	align-items: center;
 	width: 80px;
+	color: white;
 
 	span {
 		font-size: 10px;

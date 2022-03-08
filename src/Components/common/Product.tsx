@@ -25,39 +25,21 @@ export default function Product(product: ProductData) {
 
 	return (
 		<StyledProductContainer>
-			{/* <div className='productContainer'> */}
 			<StyledProductInfo>
-				{/* <div
-				 className='product__info'
-				> */}
-				<p
-				// className='product__info_title'
-				>
-					{" "}
-					{title}
-				</p>
-				<p
-				// className='product__info_price'
-				>
+				<p>{title}</p>
+				<p>
 					<small>$</small>
 					<strong>{price}</strong>
 				</p>
 
-				{/* <div className='product__info_rating'> */}
 				<Star productRating={rating} />
-				{/* </div> */}
-
-				{/* </div> */}
 			</StyledProductInfo>
 
-			{/* <div className='product__img'> */}
 			<StyledProductImage>
 				<img src={imgSrc} alt={imgAlt} />
 			</StyledProductImage>
-			{/* </div> */}
-			{/* <div className='product__addBtn centerIt'> */}
+
 			<StyledButton
-				// className='btn'
 				onClick={() => {
 					dispatch(addToCart(product));
 				}}
@@ -65,8 +47,6 @@ export default function Product(product: ProductData) {
 			>
 				Add to cart
 			</StyledButton>
-			{/* </div> */}
-			{/* </div> */}
 		</StyledProductContainer>
 	);
 }

@@ -20,8 +20,8 @@ export const StyledProductInCartInfo = styled.div`
 `;
 
 export const StyledProductInCartPrInfoText = styled.p`
-	line-height: 1.5em;
 	height: 3em;
+	line-height: 1.5em;
 	overflow: hidden;
 `;
 
@@ -32,9 +32,8 @@ export const StyledProductInCartBtns = styled.div`
 	margin-top: 15px;
 
 	span {
-		color: rgb(212, 200, 200);
 		margin-right: 10px;
-		background: #1124;
+		color: rgb(212, 200, 200);
 	}
 `;
 

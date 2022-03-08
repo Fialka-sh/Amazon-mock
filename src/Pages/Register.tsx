@@ -6,7 +6,6 @@ import { createUserWithEmailAndPassword, signOut } from "firebase/auth";
 
 import Footer from "../Components/footer/Footer";
 
-import "../Styles/sign.css";
 import StyledAccountFormButton from "../Styles/Button.style";
 import StyledInput from "../Styles/Input.style";
 import StyledAccountContainer, { StyledRegisterDivider, StyledFormContainer } from "../Styles/AccountForm.style";
@@ -59,21 +58,15 @@ export default function Login() {
 	return (
 		<StyledAccountContainer>
 			<StyledAccountContainer acountForm>
-				{/* <div className='acountFormContainer'> */}
-				{/* <div className='acountForm centerIt'> */}
-
 				<StyledAccountImage>
-					{/* <div className='acountForm__header'> */}
 					<img
 						className='acountForm__header_img'
 						src='https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg'
 						alt='amazon logo'
 					/>
-					{/* </div> */}
 				</StyledAccountImage>
 
 				<StyledFormContainer>
-					{/* <div className='acountForm__form'> */}
 					<h2>Create account</h2>
 
 					<label htmlFor='emailInput'>
@@ -81,7 +74,6 @@ export default function Login() {
 					</label>
 					<StyledInput
 						id='emailInput'
-						// className='acountForm__form_input'
 						onBlur={(e: React.FormEvent<HTMLInputElement>) => {
 							checkEmail(e.currentTarget.value);
 						}}
@@ -95,7 +87,6 @@ export default function Login() {
 
 					<StyledInput
 						id='passwordInput'
-						// className='acountForm__form_input'
 						onBlur={(e: React.FormEvent<HTMLInputElement>) => {
 							checkPassword(e.currentTarget.value);
 						}}
@@ -110,47 +101,25 @@ export default function Login() {
 
 					<StyledInput
 						id='rePasswordInput'
-						// className='acountForm__form_input'
 						onBlur={(e: React.FormEvent<HTMLInputElement>) => {
 							checkRePassword(e.currentTarget.value);
 						}}
 						name='rePasswordInput'
 						type='text'
 					></StyledInput>
-					<StyledAccountFormButton
-						acountFormButton
-						// className='acountForm__btn'
-						onClick={() => createAcount()}
-						type='button'
-					>
+					<StyledAccountFormButton acountFormButton onClick={() => createAcount()} type='button'>
 						Create
 					</StyledAccountFormButton>
 
-					<p
-					// className='pPolicy'
-					>
-						By creating an account, you agree to Amazon's conditions of use and Privacy Notice
-					</p>
+					<p>By creating an account, you agree to Amazon's conditions of use and Privacy Notice</p>
 
-					<StyledRegisterDivider>
-						{/* <div className='divider_txt'> */}
+					<StyledRegisterDivider></StyledRegisterDivider>
 
-						{/* </div> */}
-					</StyledRegisterDivider>
-
-					{/* <div className='register__divider_txt'></div> */}
-
-					<p
-					// className='pGoToSignIn'
-					>
+					<p>
 						Already have an account? <Link to='/login'>Sign-in</Link>
 					</p>
-
-					{/* </div> */}
-					{/* </div> */}
 				</StyledFormContainer>
 				<Footer />
-				{/* </div> */}
 			</StyledAccountContainer>
 		</StyledAccountContainer>
 	);

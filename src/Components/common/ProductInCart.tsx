@@ -3,9 +3,8 @@ import { useAppDispatch } from "../../hooks";
 
 import { removeFromCart } from "../../redux/slices/cartSlice";
 import { updateProductQuantity } from "../../redux/slices/cartSlice";
-import { StyledProductInCartImage } from "../../Styles/Image.style";
 
-import "../../Styles/productInCart.css";
+import { StyledProductInCartImage } from "../../Styles/Image.style";
 import StyledProductInCartContainer, {
 	StyledProductInCartInfo,
 	StyledProductInCartPrice,
@@ -15,6 +14,7 @@ import StyledProductInCartContainer, {
 } from "../../Styles/ProductInCart.style";
 import { StyledQuantitySelect } from "../../Styles/Select.style";
 import StyledButton from "../../Styles/Button.style";
+
 type ProductData = {
 	id: string;
 	title: string;
@@ -45,7 +45,6 @@ export default function ProductInCart(props: { product: ProductData; i: number }
 
 	return (
 		<StyledProductInCartContainer key={i}>
-			{/* <div className='productInCartContainer' key={i}> */}
 			<StyledProductInCartImage>
 				{/* <div className='product_img'> */}
 				<img src={product?.imgSrc} alt={product?.imgAlt} />
@@ -54,20 +53,15 @@ export default function ProductInCart(props: { product: ProductData; i: number }
 			</StyledProductInCartImage>
 
 			<StyledProductInCartInfo>
-				{/* <div className='product_info'> */}
-				{/* <div className='product_info_text'> */}
 				<StyledProductInCartPrInfoText>
 					{/* <p className='product_info_title'>  */}
 					{product?.title}
 					{/* </p> */}
 				</StyledProductInCartPrInfoText>
-				{/* <p> */}
-				<StyledInStockText>In Stock</StyledInStockText>
-				{/* </p> */}
-				{/* </div> */}
-				<StyledProductInCartBtns>
-					{/* <div className='product_info_btns'> */}
 
+				<StyledInStockText>In Stock</StyledInStockText>
+
+				<StyledProductInCartBtns>
 					<StyledQuantitySelect
 						// <select
 						name='quantity '
@@ -89,19 +83,13 @@ export default function ProductInCart(props: { product: ProductData; i: number }
 
 					<StyledButton
 						removeProductButton
-						//   <button
-						//  className='removeProductBtn_btn'
 						onClick={() => {
 							dispatch(removeFromCart(i));
 						}}
 					>
 						Remove from cart
-						{/* </button> */}
 					</StyledButton>
-					{/* </div> */}
 				</StyledProductInCartBtns>
-
-				{/* </div> */}
 			</StyledProductInCartInfo>
 
 			<StyledProductInCartPrice>
@@ -110,7 +98,6 @@ export default function ProductInCart(props: { product: ProductData; i: number }
 				<strong>{product?.price * product?.quantity}</strong>
 				{/* </div> */}
 			</StyledProductInCartPrice>
-			{/* </div> */}
 		</StyledProductInCartContainer>
 	);
 }

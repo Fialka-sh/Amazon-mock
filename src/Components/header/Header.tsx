@@ -8,10 +8,6 @@ import { toggleSignText } from "../../redux/slices/userSlice";
 import { auth } from "../../Config/firebase";
 import { signOut } from "firebase/auth";
 
-// import SearchIcon from "@mui/icons-material/Search";
-// import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-
-import "../../Styles/header.css";
 import StyledInput from "../../Styles/Input.style";
 import StyledHeader, {
 	StyledHeaderMenuStripe,
@@ -38,107 +34,46 @@ export default function Header() {
 
 	return (
 		<StyledHeader>
-			{/* <div id='header'> */}
-
 			<StyledHeaderTop>
-				{/* <div className='header__top'> */}
 				<Link to='/'>
 					<StyledHeaderTopLogo
-						// <img
-						// 	className='header__logo'
 						width='150'
 						height='35'
 						src='http://pngimg.com/uploads/amazon/amazon_PNG11.png'
 						alt='Amazon logo'
-						//  />
 					></StyledHeaderTopLogo>
 				</Link>
 
 				<StyledHeaderTopSearch>
-					{/* <div className='header__search centerIt'> */}
-					<StyledInput
-						searchInput
-						type='text'
-						// className='header__search_input'
-					></StyledInput>
+					<StyledInput searchInput type='text'></StyledInput>
 
-					<StyledHeaderTopcostumizedSearchIcon>
-						{/* <SearchIcon */}
-						{/* className='header__search_icon' */}
-						{/* /> */}
-					</StyledHeaderTopcostumizedSearchIcon>
-					{/* </div> */}
+					<StyledHeaderTopcostumizedSearchIcon></StyledHeaderTopcostumizedSearchIcon>
 				</StyledHeaderTopSearch>
 
+				<StyleHeaderTopNavOptions>
+					<span>Hello</span>
+
+					<Link to='/Login'>
+						<span onClick={handelAcountLog}>{toggle}</span>
+					</Link>
+				</StyleHeaderTopNavOptions>
 				<StyledHeaderTopNav>
-					{/* <div className='header__nav'> */}
-
 					<StyleHeaderTopNavOptions>
-						{/* <div className='header__navOption centerIt'> */}
-						<span
-						// className='header__navOption_LineOne'
-						>
-							Hello
-						</span>
-
-						<Link to='/Login'>
-							<span
-								onClick={handelAcountLog}
-								//  className='header__navOption_LineTwo'
-							>
-								{toggle}
-							</span>
-						</Link>
-						{/* </div> */}
+						<span>Returns</span>
+						<span>& Orders</span>
 					</StyleHeaderTopNavOptions>
 					<StyleHeaderTopNavOptions>
-						{/* <div className='header__navOption centerIt'> */}
-						<span
-						// className='header__navOption_LineOne'
-						>
-							Returns
-						</span>
-						<span
-						// className='header__navOption_LineTwo'
-						>
-							& Orders
-						</span>
-						{/* </div> */}
+						<span>Your</span>
+						<span>Prime</span>
 					</StyleHeaderTopNavOptions>
-					<StyleHeaderTopNavOptions>
-						{/* <div 
-						className='header__navOption centerIt'
-						> */}
-						<span
-						// className='header__navOption_LineOne'
-						>
-							Your
-						</span>
-						<span
-						// className='header__navOption_LineTwo'
-						>
-							Prime
-						</span>
-						{/* </div> */}
-					</StyleHeaderTopNavOptions>
-					{/* </div> */}
 				</StyledHeaderTopNav>
 
 				<StyledHeaderTopCart>
-					{/* <div className='header__cart centerIt'> */}
 					<p>{numOfProducts}</p>
-					<Link to='checkout'>
-						{
-							<StyledHeaderTopCostumizedCartIcon></StyledHeaderTopCostumizedCartIcon>
-							// <ShoppingCartIcon className='header__cart_icon' />
-						}
-					</Link>
-					{/* </div> */}
+					<Link to='checkout'>{<StyledHeaderTopCostumizedCartIcon></StyledHeaderTopCostumizedCartIcon>}</Link>
 				</StyledHeaderTopCart>
-				{/* </div> */}
 			</StyledHeaderTop>
 			<StyledHeaderMenuStripe>
-				{/* <div className='header__menuStripe'> */}
 				<p>All</p>
 				<p>Today's Deals</p>
 				<p>Customer Service</p>
@@ -146,9 +81,7 @@ export default function Header() {
 				<p>Gift Cards</p>
 				<p>Sell</p>
 				<p>Local Dellivery In Israel</p>
-				{/* </div> */}
 			</StyledHeaderMenuStripe>
-			{/* </div> */}
 		</StyledHeader>
 	);
 }

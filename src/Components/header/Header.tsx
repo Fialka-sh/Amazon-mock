@@ -54,7 +54,9 @@ export default function Header() {
 					<span>Hello</span>
 
 					<Link to='/Login'>
-						<span onClick={handelAcountLog}>{toggle}</span>
+						<span style={{ color: "white" }} onClick={handelAcountLog}>
+							{toggle}
+						</span>
 					</Link>
 				</StyleHeaderTopNavOptions>
 				<StyledHeaderTopNav>

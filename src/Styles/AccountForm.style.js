@@ -38,6 +38,13 @@ export const StyledFormContainer = styled.div`
 		font-size: 28px;
 		font-weight: 300;
 	}
+	@media (max-width: 786px) {
+		margin-bottom: 30px;
+		padding: 15px;
+		h2 {
+			margin-bottom: 10px;
+		}
+	}
 `;
 
 export const StyledLoginDivider = styled.div`

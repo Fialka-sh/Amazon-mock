@@ -23,6 +23,7 @@ const StyledHeaderTopLogo = styled.img`
 
 	@media (max-width: 786px) {
 		height: 30px;
+		margin: 0 10px;
 		margin-top: 20px;
 	}
 `;

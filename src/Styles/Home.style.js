@@ -7,6 +7,9 @@ const StyledHome = styled.div`
 
 const StyledProductsContainer = styled.div`
 	position: relative;
+	@media (max-width: 786px) {
+		margin-top: 100px;
+	}
 `;
 
 const StyledRow = styled.div`
@@ -17,8 +20,9 @@ const StyledRow = styled.div`
 	margin: 15px 10px;
 
 	@media (max-width: 786px) {
-		height: 250px;
-		margin: 15px 10px;
+		flex-direction: column;
+		/* height: 250px;
+		margin: 15px 10px; */
 	}
 `;
 

@@ -128,12 +128,13 @@ const StyledHeaderMenuStripe = styled.div`
 	align-items: center;
 	width: 100vw;
 	height: 30px;
+	padding-left: 15px;
 	background-color: rgb(35, 47, 62);
 	color: white;
 	font-size: 12px;
 
 	p {
-		margin: 2px 6px;
+		margin: 2px 7px;
 	}
 	@media screen and (max-width: 786px) {
 		p {

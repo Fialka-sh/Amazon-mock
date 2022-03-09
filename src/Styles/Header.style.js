@@ -23,7 +23,7 @@ const StyledHeaderTopLogo = styled.img`
 
 	@media (max-width: 786px) {
 		height: 30px;
-		margin: 0 10px;
+		margin: 0px;
 		margin-top: 20px;
 	}
 `;
@@ -109,6 +109,13 @@ const StyledHeaderTopCart = styled.div`
 	& > div > span {
 		margin-bottom: 3px;
 		margin-left: -2px;
+	}
+	@media screen and (max-width: 786px) {
+		margin-right: 7px;
+
+		& > div > span {
+			display: none;
+		}
 	}
 `;
 

@@ -80,7 +80,7 @@ export default function Login() {
 					<h2>Create account</h2>
 
 					<label htmlFor='nameInput'>
-						<small>Name</small>
+						<small>First Name</small>
 					</label>
 					<StyledInput
 						id='nameInput'

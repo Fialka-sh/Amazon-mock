@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useAppDispatch } from "../../hooks";
 import { addToCart } from "../../redux/slices/cartSlice";
 
-import Star from "./Star";
+import StyledStarContainer, { StyledStar } from "../../Styles/Star.style";
 
 import StyledButton from "../../Styles/Button.style";
 import StyledProductContainer, { StyledProductInfo } from "../../Styles/Product.style";
@@ -23,6 +23,18 @@ export default function Product(product: ProductData) {
 
 	const dispatch = useAppDispatch();
 
+	const [stars, setStars] = useState<string[]>([]);
+
+	useEffect(() => {
+		let tempStars: string[] = [];
+		for (let i = 0; i < rating; i++) {
+			tempStars.push("0");
+		}
+
+		setStars(tempStars);
+		console.log(tempStars);
+	}, [rating]);
+
 	return (
 		<StyledProductContainer>
 			<StyledProductInfo>
@@ -32,7 +44,11 @@ export default function Product(product: ProductData) {
 					<strong>{price}</strong>
 				</p>
 
-				<Star productRating={rating} />
+				<StyledStarContainer>
+					{stars.map((star, i) => {
+						return <StyledStar />;
+					})}
+				</StyledStarContainer>
 			</StyledProductInfo>
 
 			<StyledProductImage>

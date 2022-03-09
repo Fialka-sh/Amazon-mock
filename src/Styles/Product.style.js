@@ -11,7 +11,7 @@ const StyledProductContainer = styled.div`
 
 	:hover {
 		transform: scale(1.01);
-		box-shadow: 0 0 5px 2px gray;
+		box-shadow: 0 0 5px 0.5px gray;
 	}
 `;
 export default StyledProductContainer;

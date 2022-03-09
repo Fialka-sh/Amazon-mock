@@ -6,6 +6,9 @@ import { createUserWithEmailAndPassword, signOut } from "firebase/auth";
 
 import Footer from "../Components/footer/Footer";
 
+import { useAppDispatch } from "../hooks";
+import { SAVE_LOGGED_USER_NAME } from "../redux/slices/userSlice";
+
 import StyledAccountFormButton from "../Styles/Button.style";
 import StyledInput from "../Styles/Input.style";
 import StyledAccountContainer, { StyledRegisterDivider, StyledFormContainer } from "../Styles/AccountForm.style";
@@ -17,10 +20,15 @@ function getErrorMessage(error: unknown) {
 }
 
 export default function Login() {
+	const dispatch = useAppDispatch();
 	const navigate = useNavigate();
+	const [name, setName] = useState<string>("");
 	const [email, setEmail] = useState<string>("");
 	const [password, setPassword] = useState<string>("");
 
+	const saveName = (value: string) => {
+		setName(value);
+	};
 	const checkEmail = (value: string) => {
 		setEmail(value);
 	};
@@ -45,8 +53,10 @@ export default function Login() {
 	const createAcount = async () => {
 		try {
 			const user = await createUserWithEmailAndPassword(auth, email, password);
+			dispatch(SAVE_LOGGED_USER_NAME(name));
 
 			if (user) {
+				dispatch(SAVE_LOGGED_USER_NAME(""));
 				signOut(auth);
 				navigate("/login");
 			}
@@ -69,6 +79,17 @@ export default function Login() {
 				<StyledFormContainer>
 					<h2>Create account</h2>
 
+					<label htmlFor='nameInput'>
+						<small>First Name</small>
+					</label>
+					<StyledInput
+						id='nameInput'
+						onBlur={(e: React.FormEvent<HTMLInputElement>) => {
+							saveName(e.currentTarget.value);
+						}}
+						name='emailInput'
+						type='text'
+					></StyledInput>
 					<label htmlFor='emailInput'>
 						<small>Email</small>
 					</label>

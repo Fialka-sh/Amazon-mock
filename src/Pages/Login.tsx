@@ -12,7 +12,9 @@ import StyledInput from "../Styles/Input.style";
 import { StyledAccountImage } from "../Styles/Image.style";
 
 function getErrorMessage(error: unknown) {
-	if (error instanceof Error) return error.message;
+	if (error instanceof Error) {
+		return error.message;
+	}
 	return String(error);
 }
 export default function Login() {
@@ -28,7 +30,9 @@ export default function Login() {
 				navigate("/");
 			}
 		} catch (error) {
-			alert({ message: getErrorMessage(error) });
+			console.log({ message: getErrorMessage(error) });
+			alert("message: Plese, First create your account");
+			navigate("/register");
 		}
 	};
 	return (
@@ -67,7 +71,6 @@ export default function Login() {
 					></StyledInput>
 					<StyledButton
 						acountFormButton
-						// className='acountForm__btn'
 						onClick={() => {
 							LogInToAccount();
 						}}

@@ -36,7 +36,7 @@ const StyledArrowsContainer = styled.div`
 
 	span {
 		margin: 15px;
-		transform: scale(1.7);
+		transform: scale(1.5);
 	}
 
 	@media (max-width: 786px) {

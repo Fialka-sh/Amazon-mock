@@ -1,8 +1,8 @@
 // Core
-import React, { useEffect } from "react";
+import React from "react";
 import { Routes, Route } from "react-router-dom";
 
-import { useAppSelector, useAppDispatch } from "./hooks";
+import { useAppDispatch } from "./hooks";
 import { LOGIN_USER, LOGOUT_USER } from "./redux/slices/userSlice";
 
 import { auth } from "./Config/firebase";
@@ -18,17 +18,16 @@ import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 
 export const App: React.FC = () => {
-	const user = useAppSelector((state) => state.user.currentUser);
 	const dispatch = useAppDispatch();
-	useEffect(() => {
-		onAuthStateChanged(auth, (currentUser) => {
-			if (currentUser) {
-				dispatch(LOGIN_USER(currentUser.email));
-			} else {
-				dispatch(LOGOUT_USER(null));
-			}
-		});
-	}, [dispatch, user]);
+
+	onAuthStateChanged(auth, (currentUser) => {
+		if (currentUser) {
+			dispatch(LOGIN_USER(currentUser.email));
+		} else {
+			// dispatch(LOGOUT_USER(null));
+			dispatch(LOGOUT_USER("USER"));
+		}
+	});
 
 	return (
 		<div>

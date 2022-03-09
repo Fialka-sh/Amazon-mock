@@ -26,6 +26,8 @@ export default function Header() {
 	const toggle: string = useAppSelector(toggleSignText);
 	const numOfProducts: number = useAppSelector(updatTotalProducts);
 
+	// console.log(user);
+
 	const handelAcountLog = async () => {
 		if (user) {
 			await signOut(auth);
@@ -51,13 +53,13 @@ export default function Header() {
 				</StyledHeaderTopSearch>
 
 				<StyleHeaderTopNavOptions>
-					<span>Hello</span>
+					<span>Hello {user.name}</span>
 
-					<Link to='/Login'>
-						<span style={{ color: "white" }} onClick={handelAcountLog}>
+					<span onClick={handelAcountLog}>
+						<Link to='/Login' style={{ color: "white", textDecoration: "none" }}>
 							{toggle}
-						</span>
-					</Link>
+						</Link>
+					</span>
 				</StyleHeaderTopNavOptions>
 				<StyledHeaderTopNav>
 					<StyleHeaderTopNavOptions>
@@ -72,7 +74,10 @@ export default function Header() {
 
 				<StyledHeaderTopCart>
 					<p>{numOfProducts}</p>
-					<Link to='checkout'>{<StyledHeaderTopCostumizedCartIcon></StyledHeaderTopCostumizedCartIcon>}</Link>
+					<div>
+						<Link to='checkout'>{<StyledHeaderTopCostumizedCartIcon></StyledHeaderTopCostumizedCartIcon>}</Link>
+						<span>Cart</span>
+					</div>
 				</StyledHeaderTopCart>
 			</StyledHeaderTop>
 			<StyledHeaderMenuStripe>

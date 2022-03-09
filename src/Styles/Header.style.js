@@ -33,16 +33,15 @@ const StyledHeaderTopSearch = styled.div`
 	align-items: center;
 	width: 60%;
 
-	@media screen and (max-width: 786px) {
-		width: 60%;
+	@media screen and (min-width: 1000px) {
+		width: 75%;
 	}
 `;
 const StyledHeaderTopcostumizedSearchIcon = styled(SearchIcon)`
 	transform: scale(1.5);
-	margin: -7px;
-	border-radius: 4px;
+	border-radius: 0px 4px 4px 0px;
 	padding: 3px;
-	background-color: #e9aa5a;
+	background-color: #febd69;
 
 	@media screen and (max-width: 786px) {
 		transform: scale(1.35);
@@ -51,9 +50,7 @@ const StyledHeaderTopcostumizedSearchIcon = styled(SearchIcon)`
 `;
 const StyledHeaderTopNav = styled.div`
 	display: flex;
-	justify-content: space-around;
 	max-width: 30%;
-	margin: 10px;
 	color: white;
 
 	@media screen and (max-width: 786px) {
@@ -64,8 +61,11 @@ const StyleHeaderTopNavOptions = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	align-items: flex-start;
 	align-items: center;
 	width: 80px;
+	margin: 2px 0px;
+	border-radius: 3px;
 	color: white;
 
 	span {
@@ -74,24 +74,44 @@ const StyleHeaderTopNavOptions = styled.div`
 
 	span:nth-child(2) {
 		font-size: 13px;
-		font-weight: 800;
+		font-weight: 700;
+		:hover {
+			transform: scale(1.05);
+		}
+	}
+	:hover {
+		border: 1px solid white;
 	}
 `;
 const StyledHeaderTopCart = styled.div`
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	justify-content: space-around;
 	flex-direction: column;
-	margin: 0px 15px;
+	margin: 2px 15px 2px 0px;
+	border-radius: 3px;
+	padding: 0px 4px 10px 4px;
 	color: white;
+	:hover {
+		border: 1px solid white;
+	}
 
 	p {
-		margin-top: 3px;
-		margin-bottom: -3px;
-		color: rgb(255, 216, 20);
+		position: relative;
+		top: 3px;
+		left: 7px;
+		color: #f08804;
 		font-weight: 600;
 	}
+	& > div {
+		display: flex;
+		align-items: flex-end;
+	}
+	& > div > span {
+		margin-bottom: 3px;
+		margin-left: -2px;
+	}
 `;
+
 const StyledHeaderTopCostumizedCartIcon = styled(ShoppingCartIcon)`
 	color: white;
 `;

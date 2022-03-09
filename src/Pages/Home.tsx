@@ -75,6 +75,36 @@ export default function Home(products: ProductData[]) {
 					<Product {...products[5]} />
 					<Product {...products[6]} />
 				</StyledRow>
+				<StyledRow>
+					<Product {...products[7]} />
+					<Product {...products[8]} />
+					<Product {...products[9]} />
+				</StyledRow>
+				<StyledRow>
+					<Product {...products[10]} />
+					<Product {...products[11]} />
+				</StyledRow>
+				<StyledRow>
+					<Product {...products[12]} />
+					<Product {...products[13]} />
+				</StyledRow>
+				<StyledRow>
+					<Product {...products[14]} />
+				</StyledRow>
+
+				<StyledRow>
+					<Product {...products[15]} />
+				</StyledRow>
+				<StyledRow>
+					<Product {...products[16]} />
+					<Product {...products[17]} />
+				</StyledRow>
+				<StyledRow>
+					<Product {...products[18]} />
+				</StyledRow>
+				<StyledRow>
+					<Product {...products[19]} />
+				</StyledRow>
 			</StyledProductsContainer>
 			<Footer />
 		</StyledHome>

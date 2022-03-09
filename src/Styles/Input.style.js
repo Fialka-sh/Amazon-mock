@@ -22,13 +22,14 @@ const StyledInput = styled.input`
 	${(props) =>
 		props.searchInput &&
 		css`
-			width: 95%;
+			width: 100%;
 			margin-bottom: 0px;
 			border: none;
 			border-radius: 5px 0px 0px 5px;
 			padding: 10px 10px;
 
 			@media (max-width: 786px) {
+				width: 85%;
 				& {
 					padding: 8px;
 				}

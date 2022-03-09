@@ -9,12 +9,8 @@ export default function Star(props: RatingProps): JSX.Element {
 	const [stars, setStars] = useState<string>("");
 
 	useEffect(() => {
-		console.log(props.productRating);
-
 		let tempStars: string = "";
 		for (let i = 0; i < props.productRating; i++) {
-			console.log("enter 🌟");
-
 			tempStars += "🌟";
 		}
 

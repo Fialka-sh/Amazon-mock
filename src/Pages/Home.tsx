@@ -1,28 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 
 import Product from "../Components/common/Product";
 import Slider from "../Components/common/Slider";
 import Footer from "../Components/footer/Footer";
 
 import bannersList from "../Assets/bannersList";
+import products from "../Assets/productsList";
 
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
-import StyledHome, { StyledProductsContainer, StyledRow } from "../Styles/Home.style";
+import StyledHome, { StyledProductsContainer } from "../Styles/Home.style";
 import StyledBannerContainer, { StyledArrowsContainer } from "../Styles/Banner.style";
 
-type ProductData = {
-	id: string;
-	title: string;
-	price: number;
-	rating: number;
-	imgSrc: string;
-	imgAlt: string;
-	quantity: number;
-};
-
-export default function Home(products: ProductData[]) {
+export default function Home() {
 	const [bannerIToShow, setBannerIToShow] = useState<number>(0);
 	let chosenBanner: string = bannersList[bannerIToShow];
 
@@ -33,15 +24,28 @@ export default function Home(products: ProductData[]) {
 			setBannerIToShow(bannersList.length - 1);
 		} else setBannerIToShow(bannerIToShow + i);
 	};
+
+	const shuffledProductsList = useMemo(() => {
+		let tempProducts = [...products];
+
+		let currentIndex = tempProducts.length;
+		let randomIndex = 0;
+		while (currentIndex !== 0) {
+			randomIndex = Math.floor(Math.random() * currentIndex);
+			currentIndex--;
+
+			[tempProducts[currentIndex], tempProducts[randomIndex]] = [tempProducts[randomIndex], tempProducts[currentIndex]];
+		}
+		return tempProducts;
+	}, []);
+
 	return (
 		<StyledHome>
 			<StyledBannerContainer>
 				<Slider banner={chosenBanner} />
 
 				<StyledArrowsContainer>
-					{/* <div className='home__topBanner_arrows'> */}
 					<span
-						// className='home__topBanner_arrow'
 						onClick={() => {
 							changeBanner(1);
 						}}
@@ -50,61 +54,19 @@ export default function Home(products: ProductData[]) {
 					</span>
 
 					<span
-						// className='home__topBanner_arrow'
 						onClick={() => {
 							changeBanner(-1);
 						}}
 					>
 						<ArrowForwardIosIcon />{" "}
 					</span>
-					{/* </div> */}
 				</StyledArrowsContainer>
 			</StyledBannerContainer>
 
 			<StyledProductsContainer>
-				<StyledRow>
-					<Product {...products[0]} />
-					<Product {...products[1]} />
-				</StyledRow>
-				<StyledRow>
-					<Product {...products[2]} />
-					<Product {...products[3]} />
-					<Product {...products[4]} />
-				</StyledRow>
-				<StyledRow>
-					<Product {...products[5]} />
-					<Product {...products[6]} />
-				</StyledRow>
-				<StyledRow>
-					<Product {...products[7]} />
-					<Product {...products[8]} />
-					<Product {...products[9]} />
-				</StyledRow>
-				<StyledRow>
-					<Product {...products[10]} />
-					<Product {...products[11]} />
-				</StyledRow>
-				<StyledRow>
-					<Product {...products[12]} />
-					<Product {...products[13]} />
-				</StyledRow>
-				<StyledRow>
-					<Product {...products[14]} />
-				</StyledRow>
-
-				<StyledRow>
-					<Product {...products[15]} />
-				</StyledRow>
-				<StyledRow>
-					<Product {...products[16]} />
-					<Product {...products[17]} />
-				</StyledRow>
-				<StyledRow>
-					<Product {...products[18]} />
-				</StyledRow>
-				<StyledRow>
-					<Product {...products[19]} />
-				</StyledRow>
+				{shuffledProductsList.map((product, i: number) => {
+					return <Product {...product} key={i} />;
+				})}
 			</StyledProductsContainer>
 			<Footer />
 		</StyledHome>

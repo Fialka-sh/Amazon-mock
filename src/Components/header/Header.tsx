@@ -26,8 +26,6 @@ export default function Header() {
 	const toggle: string = useAppSelector(toggleSignText);
 	const numOfProducts: number = useAppSelector(updatTotalProducts);
 
-	// console.log(user);
-
 	const handelAcountLog = async () => {
 		if (user) {
 			await signOut(auth);

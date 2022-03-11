@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 const StyledProductImage = styled.div`
-	height: 51%;
+	height: 45%;
+	margin-bottom: 9px;
 	& > img {
 		width: 100%;
 		height: 150px;
@@ -13,7 +14,7 @@ const StyledProductImage = styled.div`
 		height: 41%;
 
 		& > img {
-			max-height: 80px;
+			max-height: 120px;
 		}
 	}
 `;

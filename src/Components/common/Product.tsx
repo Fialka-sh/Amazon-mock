@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useAppDispatch } from "../../hooks";
 import { addToCart } from "../../redux/slices/cartSlice";
 
@@ -18,35 +18,42 @@ interface ProductData {
 	quantity: number;
 }
 
-export default function Product(product: ProductData) {
+export default function Product(product: ProductData, key: number) {
 	const { title, price, rating, imgSrc, imgAlt } = product;
-
 	const dispatch = useAppDispatch();
 
 	const [stars, setStars] = useState<string[]>([]);
+
+	const styleProductOptions = {
+		width: [350, 500, 700],
+		grow: [2, 3, 4],
+	};
+
+	let chosenWidth =
+		styleProductOptions.width[useRef(Math.floor(Math.random() * styleProductOptions.width.length)).current];
+	let chosenGrow =
+		styleProductOptions.grow[useRef(Math.floor(Math.random() * styleProductOptions.grow.length)).current];
 
 	useEffect(() => {
 		let tempStars: string[] = [];
 		for (let i = 0; i < rating; i++) {
 			tempStars.push("0");
 		}
-
 		setStars(tempStars);
-		console.log(tempStars);
 	}, [rating]);
 
 	return (
-		<StyledProductContainer>
+		<StyledProductContainer width={chosenWidth} grow={chosenGrow}>
 			<StyledProductInfo>
 				<p>{title}</p>
-				<p>
+				<span>
 					<small>$</small>
 					<strong>{price}</strong>
-				</p>
+				</span>
 
 				<StyledStarContainer>
 					{stars.map((star, i) => {
-						return <StyledStar />;
+						return <StyledStar key={i} />;
 					})}
 				</StyledStarContainer>
 			</StyledProductInfo>
@@ -56,6 +63,7 @@ export default function Product(product: ProductData) {
 			</StyledProductImage>
 
 			<StyledButton
+				addToCartButton
 				onClick={() => {
 					dispatch(addToCart(product));
 				}}

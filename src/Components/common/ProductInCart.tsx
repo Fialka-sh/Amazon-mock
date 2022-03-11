@@ -46,26 +46,17 @@ export default function ProductInCart(props: { product: ProductData; i: number }
 	return (
 		<StyledProductInCartContainer key={i}>
 			<StyledProductInCartImage>
-				{/* <div className='product_img'> */}
 				<img src={product?.imgSrc} alt={product?.imgAlt} />
-
-				{/* </div> */}
 			</StyledProductInCartImage>
 
 			<StyledProductInCartInfo>
-				<StyledProductInCartPrInfoText>
-					{/* <p className='product_info_title'>  */}
-					{product?.title}
-					{/* </p> */}
-				</StyledProductInCartPrInfoText>
+				<StyledProductInCartPrInfoText>{product?.title}</StyledProductInCartPrInfoText>
 
 				<StyledInStockText>In Stock</StyledInStockText>
 
 				<StyledProductInCartBtns>
 					<StyledQuantitySelect
-						// <select
 						name='quantity '
-						// id='quantity_select'
 						value={product?.quantity}
 						onChange={(e: React.FormEvent<HTMLSelectElement>) => {
 							getNewAmount(e.currentTarget.value);
@@ -76,7 +67,6 @@ export default function ProductInCart(props: { product: ProductData; i: number }
 						<option value='3'>3</option>
 						<option value='4'>4</option>
 						<option value='5'>5</option>
-						{/* </select> */}
 					</StyledQuantitySelect>
 
 					<span className='product_info_btn_span'>|</span>
@@ -93,10 +83,8 @@ export default function ProductInCart(props: { product: ProductData; i: number }
 			</StyledProductInCartInfo>
 
 			<StyledProductInCartPrice>
-				{/* <div className='product_price'> */}
 				<strong>$</strong>
 				<strong>{product?.price * product?.quantity}</strong>
-				{/* </div> */}
 			</StyledProductInCartPrice>
 		</StyledProductInCartContainer>
 	);

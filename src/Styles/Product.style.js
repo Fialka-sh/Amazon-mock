@@ -4,7 +4,8 @@ const StyledProductContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	height: 100%;
-	width: 100%;
+	width: ${(props) => props.width + "px"};
+	flex-grow: ${(props) => props.grow};
 	margin: 10px;
 	background-color: white;
 	box-sizing: border-box;
@@ -20,12 +21,17 @@ export const StyledProductInfo = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	height: 25%;
-	margin-bottom: 15px;
-	padding: 15px;
+	height: 120px;
+	padding: 10px 15px 0px 15px;
 
 	p {
-		margin-bottom: 5px;
+		min-height: 1.7em;
+		max-height: 3.2em;
+		overflow: hidden;
+		line-height: 1.5em;
+	}
+	span {
+		margin-top: 2px;
 	}
 
 	@media screen and (max-width: 786px) {

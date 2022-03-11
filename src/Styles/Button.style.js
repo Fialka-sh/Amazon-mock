@@ -1,12 +1,23 @@
 import styled, { css } from "styled-components";
 
 export const StyledButton = styled.button`
-	margin: 0 auto 10px auto;
-	padding: 6px 3px;
-	background-color: rgb(255, 216, 20);
-	font-size: 10px;
-	font-weight: 300;
+	width: 120px;
+	border: none;
+	border-radius: 10px;
+	padding: 6px 25px;
+	background-color: #f08804;
+	font-size: 12px;
 
+	${(props) =>
+		props.addToCartButton &&
+		css`
+			margin: 10px auto;
+
+			:hover {
+				transform: scale(1.05);
+				background-color: #febd69;
+			}
+		`}
 	${(props) =>
 		props.acountFormButton &&
 		css`
@@ -22,12 +33,11 @@ export const StyledButton = styled.button`
 			border: 0.5px solid lightgray;
 			background-color: rgb(241, 238, 228);
 		`}
-		
 	${(props) =>
 		props.checkoutButton &&
 		css`
 			width: 180px;
-			border: none;
+			margin-top: 0px;
 			padding: 5px;
 
 			@media (max-width: 786px) {
@@ -36,7 +46,7 @@ export const StyledButton = styled.button`
 				padding: 5px;
 			}
 		`}
-		${(props) =>
+	${(props) =>
 		props.removeProductButton &&
 		css`
 			margin: 0px;

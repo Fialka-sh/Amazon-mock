@@ -19,11 +19,7 @@ export default function Cart() {
 					Subtotel ({numOfProducts} items) : <strong>${totalToPay}</strong>
 				</p>
 				<div className='cartContainer__checkOut_btn'>
-					<StyledButton
-						checkoutButton
-						//  className='checkoutBtn'
-						type='button'
-					>
+					<StyledButton checkoutButton type='button'>
 						Proceed to checkout
 					</StyledButton>
 				</div>

@@ -18,12 +18,12 @@ const StyledCartCheckOut = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
-	height: 90px;
+	height: 95px;
 	padding: 12px;
 	background-color: white;
 
 	p {
-		margin-bottom: 25px;
+		margin-bottom: 12px;
 	}
 	@media (max-width: 786px) {
 		height: 90px;

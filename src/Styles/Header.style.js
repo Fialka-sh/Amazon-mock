@@ -32,6 +32,8 @@ const StyledHeaderTopSearch = styled.div`
 	justify-content: center;
 	align-items: center;
 	width: 60%;
+	margin: 0px;
+	padding: 0px;
 
 	@media screen and (min-width: 1000px) {
 		width: 75%;

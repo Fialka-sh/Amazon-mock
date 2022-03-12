@@ -18,22 +18,30 @@ export const StyledCartCheckOut = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
-	height: 95px;
+	height: 85px;
 	padding: 12px;
 	background-color: white;
 
 	p {
-		margin-bottom: 12px;
+		margin-bottom: 20px;
+	}
+	@media (max-width: 890px) {
+		height: 94px;
+		p {
+			margin-bottom: 15px;
+		}
 	}
 	@media (max-width: 786px) {
-		height: 90px;
+		height: 83px;
 		margin-bottom: 15px;
-		padding: 12px;
+		p {
+			margin-bottom: 20px;
+		}
 	}
 `;
 
 export const StyledCart = styled.div`
-	width: 80%;
+	width: 70%;
 	margin-right: 15px;
 	padding: 10px;
 	background-color: white;

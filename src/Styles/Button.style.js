@@ -39,12 +39,11 @@ const StyledButton = styled.button`
 	${(props) =>
 		props.checkoutButton &&
 		css`
-			width: 180px;
+			width: 100%;
 			margin-top: 0px;
 			padding: 5px;
 
 			@media (max-width: 786px) {
-				width: 100%;
 				border: none;
 				padding: 5px;
 			}
@@ -58,6 +57,7 @@ const StyledButton = styled.button`
 			color: rgb(22, 125, 144);
 			text-decoration: underline;
 			font-size: 10px;
+			padding-left: 0px;
 		`}
 `;
 

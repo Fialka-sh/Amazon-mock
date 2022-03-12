@@ -21,7 +21,6 @@ const StyledAccountContainer = styled.div`
 		font-size: 12px;
 	}
 `;
-export default StyledAccountContainer;
 
 export const StyledFormContainer = styled.div`
 	display: flex;
@@ -87,3 +86,5 @@ export const StyledRegisterDivider = styled.div`
 		content: "";
 	}
 `;
+
+export default StyledAccountContainer;

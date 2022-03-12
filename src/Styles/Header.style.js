@@ -10,12 +10,14 @@ const StyledHeader = styled.div`
 	height: 90px;
 	background: rgb(0, 0, 0);
 `;
-const StyledHeaderTop = styled.div`
+
+export const StyledHeaderTop = styled.div`
 	display: flex;
 	justify-content: space-between;
 	height: 60px;
 `;
-const StyledHeaderTopLogo = styled.img`
+
+export const StyledHeaderTopLogo = styled.img`
 	width: 100px;
 	margin: 0 20px;
 	margin-top: 16px;
@@ -27,30 +29,31 @@ const StyledHeaderTopLogo = styled.img`
 		margin-top: 20px;
 	}
 `;
-const StyledHeaderTopSearch = styled.div`
+
+export const StyledHeaderTopSearch = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 60%;
-	margin: 0px;
-	padding: 0px;
+	width: 55%;
 
 	@media screen and (min-width: 1000px) {
 		width: 75%;
 	}
 `;
-const StyledHeaderTopcostumizedSearchIcon = styled(SearchIcon)`
-	transform: scale(1.5);
+
+export const StyledHeaderTopcostumizedSearchIcon = styled(SearchIcon)`
+	margin-top: 0px;
+	transform: scale(1.54);
 	border-radius: 0px 4px 4px 0px;
 	padding: 3px;
 	background-color: #febd69;
 
 	@media screen and (max-width: 786px) {
-		transform: scale(1.35);
-		margin: -5px;
+		transform: scale(1.38);
 	}
 `;
-const StyledHeaderTopNav = styled.div`
+
+export const StyledHeaderTopNav = styled.div`
 	display: flex;
 	max-width: 30%;
 	color: white;
@@ -59,14 +62,15 @@ const StyledHeaderTopNav = styled.div`
 		display: none;
 	}
 `;
-const StyleHeaderTopNavOptions = styled.div`
+
+export const StyleHeaderTopNavOptions = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: flex-start;
 	align-items: center;
 	width: 80px;
-	margin: 2px 0px;
+	margin: 2px 0px 2px 4px;
 	border-radius: 3px;
 	color: white;
 
@@ -85,7 +89,8 @@ const StyleHeaderTopNavOptions = styled.div`
 		border: 1px solid white;
 	}
 `;
-const StyledHeaderTopCart = styled.div`
+
+export const StyledHeaderTopCart = styled.div`
 	display: flex;
 	justify-content: space-around;
 	flex-direction: column;
@@ -121,10 +126,11 @@ const StyledHeaderTopCart = styled.div`
 	}
 `;
 
-const StyledHeaderTopCostumizedCartIcon = styled(ShoppingCartIcon)`
+export const StyledHeaderTopCostumizedCartIcon = styled(ShoppingCartIcon)`
 	color: white;
 `;
-const StyledHeaderMenuStripe = styled.div`
+
+export const StyledHeaderMenuStripe = styled.div`
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
@@ -146,14 +152,3 @@ const StyledHeaderMenuStripe = styled.div`
 `;
 
 export default StyledHeader;
-export {
-	StyledHeaderTop,
-	StyledHeaderMenuStripe,
-	StyledHeaderTopSearch,
-	StyledHeaderTopNav,
-	StyledHeaderTopCart,
-	StyledHeaderTopLogo,
-	StyledHeaderTopcostumizedSearchIcon,
-	StyledHeaderTopCostumizedCartIcon,
-	StyleHeaderTopNavOptions,
-};

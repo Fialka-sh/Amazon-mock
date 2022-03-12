@@ -14,7 +14,7 @@ const StyledCartContainer = styled.div`
 	}
 `;
 
-const StyledCartCheckOut = styled.div`
+export const StyledCartCheckOut = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
@@ -32,7 +32,7 @@ const StyledCartCheckOut = styled.div`
 	}
 `;
 
-const StyledCart = styled.div`
+export const StyledCart = styled.div`
 	width: 80%;
 	margin-right: 15px;
 	padding: 10px;
@@ -56,10 +56,9 @@ const StyledCart = styled.div`
 	}
 `;
 
-const StyledCartTotal = styled.div`
+export const StyledCartTotal = styled.div`
 	padding: 5px 10px 10px 10px;
 	text-align: right;
 `;
 
 export default StyledCartContainer;
-export { StyledCartCheckOut, StyledCart, StyledCartTotal };

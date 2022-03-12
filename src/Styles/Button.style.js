@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-export const StyledButton = styled.button`
+const StyledButton = styled.button`
 	width: 120px;
 	border: none;
 	border-radius: 10px;
@@ -11,8 +11,11 @@ export const StyledButton = styled.button`
 	${(props) =>
 		props.addToCartButton &&
 		css`
+			color: black;
 			margin: 10px auto;
-
+			:active {
+				color: black;
+			}
 			:hover {
 				transform: scale(1.05);
 				background-color: #febd69;

@@ -8,8 +8,6 @@ const StyledProductInCartContainer = styled.div`
 	padding-top: 5px;
 `;
 
-export default StyledProductInCartContainer;
-
 export const StyledProductInCartInfo = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -47,3 +45,5 @@ export const StyledProductInCartPrice = styled.div`
 	padding: 10px;
 	text-align: right;
 `;
+
+export default StyledProductInCartContainer;

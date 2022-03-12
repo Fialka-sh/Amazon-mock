@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import StarIcon from "@mui/icons-material/Star";
 
-export const StyledStarContainer = styled.div`
+const StyledStarContainer = styled.div`
 	@media screen and (max-width: 786px) {
 		transform: scale(0.8);
 	}

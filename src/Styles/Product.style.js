@@ -6,7 +6,7 @@ const StyledProductContainer = styled.div`
 	height: 100%;
 	width: ${(props) => props.width + "px"};
 	flex-grow: ${(props) => props.grow};
-	margin: 10px;
+	margin: 7px;
 	background-color: white;
 	box-sizing: border-box;
 
@@ -15,7 +15,6 @@ const StyledProductContainer = styled.div`
 		box-shadow: 0 0 5px 0.5px gray;
 	}
 `;
-export default StyledProductContainer;
 
 export const StyledProductInfo = styled.div`
 	display: flex;
@@ -47,3 +46,5 @@ export const StyledProductInfo = styled.div`
 		}
 	}
 `;
+
+export default StyledProductContainer;

@@ -19,8 +19,6 @@ const StyledProductImage = styled.div`
 	}
 `;
 
-export default StyledProductImage;
-
 export const StyledProductInCartImage = styled.div`
 	margin: 10px;
 
@@ -38,3 +36,5 @@ export const StyledAccountImage = styled.div`
 		object-fit: contain;
 	}
 `;
+
+export default StyledProductImage;

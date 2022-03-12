@@ -69,7 +69,7 @@ export default function ProductInCart(props: { product: ProductData; i: number }
 						<option value='5'>5</option>
 					</StyledQuantitySelect>
 
-					<span className='product_info_btn_span'>|</span>
+					<span>|</span>
 
 					<StyledButton
 						removeProductButton

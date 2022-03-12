@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-export const StyledButton = styled.button`
+const StyledButton = styled.button`
 	width: 120px;
 	border: none;
 	border-radius: 10px;
@@ -11,8 +11,11 @@ export const StyledButton = styled.button`
 	${(props) =>
 		props.addToCartButton &&
 		css`
+			color: black;
 			margin: 10px auto;
-
+			:active {
+				color: black;
+			}
 			:hover {
 				transform: scale(1.05);
 				background-color: #febd69;
@@ -36,12 +39,11 @@ export const StyledButton = styled.button`
 	${(props) =>
 		props.checkoutButton &&
 		css`
-			width: 180px;
+			width: 100%;
 			margin-top: 0px;
 			padding: 5px;
 
 			@media (max-width: 786px) {
-				width: 100%;
 				border: none;
 				padding: 5px;
 			}
@@ -55,6 +57,7 @@ export const StyledButton = styled.button`
 			color: rgb(22, 125, 144);
 			text-decoration: underline;
 			font-size: 10px;
+			padding-left: 0px;
 		`}
 `;
 

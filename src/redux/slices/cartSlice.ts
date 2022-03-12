@@ -88,7 +88,7 @@ export const updateTotaleToPay = (state: RootState) => {
 	state.cart.cart.forEach((product) => {
 		tempTotal += product.quantity * product.price;
 	});
-	return tempTotal;
+	return tempTotal.toFixed(2);
 };
 
 export const { addToCart, removeFromCart, updateProductQuantity } = cartSlice.actions;

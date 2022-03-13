@@ -16,11 +16,12 @@ export const StyledSearchSelect = styled.select`
 	border-right: none;
 	border-radius: 4px 0px 0px 4px;
 	padding: 4.8px 3px;
+	background-color: white;
 	color: black;
 	font-size: 12px;
 
 	@media screen and (max-width: 786px) {
-		transform: scale(1.26);
+		transform: scale(1.3);
 		border: none;
 	}
 `;

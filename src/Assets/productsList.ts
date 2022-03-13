@@ -14,7 +14,7 @@ const products: ProductData[] = [
 		id: "1atv",
 		title:
 			'Sceptre 24" Professional Thin 75Hz 1080p LED Monitor 2x HDMI VGA Build-in Speakers, Machine Black (E248W-19203R Series)',
-		price: 200,
+		price: 200.01,
 		rating: 4,
 		imgSrc: "https://m.media-amazon.com/images/I/71rXSVqET9L._AC_UL640_QL65_.jpg",
 		imgAlt: "T.V screen",
@@ -25,7 +25,7 @@ const products: ProductData[] = [
 		id: "22bchair",
 		title:
 			"Gaming Chair 350lb Big and Tall High Back Office Chair Ergonomic Racing Reclining Chair with 4D Armrests Swivel Tilt Rocker (White) ",
-		price: 150,
+		price: 150.3,
 		rating: 5,
 		imgSrc: "https://m.media-amazon.com/images/I/51kgTjI3RBL._AC_UL640_QL65_.jpg",
 		imgAlt: "Gaming chair",
@@ -35,7 +35,7 @@ const products: ProductData[] = [
 	{
 		id: "33webcam",
 		title: "Logitech C920x HD Pro Webcam, Full HD 1080p/30fps Video Calling, Clear Stereo Audio, HD Light Correction ",
-		price: 100,
+		price: 100.0,
 		rating: 5,
 		imgSrc: "https://m.media-amazon.com/images/I/71iNwni9TsL._AC_UL640_QL65_.jpg",
 		imgAlt: "Webcam",
@@ -45,7 +45,7 @@ const products: ProductData[] = [
 	{
 		id: "44watch",
 		title: "FITVII Smart Fitness Tracker Watch, Smartwatch with Heart Rate, Blood Pressure Monitor ",
-		price: 200,
+		price: 200.23,
 		rating: 1,
 		imgSrc: "https://m.media-amazon.com/images/I/61sXk7iPfYL._AC_UY436_QL65_.jpg",
 		imgAlt: "Fitness Tracker Watch",
@@ -55,7 +55,7 @@ const products: ProductData[] = [
 	{
 		id: "55ringtoy",
 		title: "Sassy Stacks of Circles Stacking Ring STEM Learning Toy, Age 6+ Months, Multi, 9 Piece Set",
-		price: 50,
+		price: 50.0,
 		rating: 3,
 		imgSrc: "https://m.media-amazon.com/images/I/71NMrhZel6L._AC_UL640_QL65_.jpg",
 		imgAlt: "circles",
@@ -65,7 +65,7 @@ const products: ProductData[] = [
 	{
 		id: "6keyboard",
 		title: "MK270 Wireless Keyboard and Mouse Combo",
-		price: 100,
+		price: 100.0,
 		rating: 2,
 		imgSrc: "https://m.media-amazon.com/images/I/61pUul1oDlL._AC_UL640_QL65_.jpg",
 		imgAlt: "wireless keyboard",
@@ -76,7 +76,7 @@ const products: ProductData[] = [
 		id: "77pilatise",
 		title:
 			"ProBody Pilates Ball Exercise Ball Yoga Ball, Multiple Sizes. Fitness, Balance, Workout at Home, Office and Physical Therapy w/ Pump",
-		price: 50,
+		price: 50.34,
 		rating: 3,
 		imgSrc: "https://m.media-amazon.com/images/I/817GBemAdHL._AC_UL320_.jpg",
 		imgAlt: "wireless keyboard",
@@ -107,7 +107,7 @@ const products: ProductData[] = [
 	{
 		id: "23ChildCarrier",
 		title: "Deuter Kid Comfort Child Carrier and Backpack",
-		price: 320,
+		price: 320.0,
 		rating: 4,
 		imgSrc: "https://m.media-amazon.com/images/I/81nXcaa9W1L._AC_UL640_QL65_.jpg",
 		imgAlt: "Child Carrier",
@@ -118,7 +118,7 @@ const products: ProductData[] = [
 		id: "41IndoorDoorwayGym",
 		title:
 			"Gym1 - 6 Piece Indoor Doorway Gym Set for Kids - Indoor Swing for Kids Includes Kids Swing Chair, Rings, Hanging Trapeze, Ladder, Swinging Rope & Pullup Bar - Sensory Swing Set Accessory Playground",
-		price: 200,
+		price: 200.43,
 		rating: 6,
 		imgSrc: "https://m.media-amazon.com/images/I/61ArPVMP0rL._AC_UL640_QL65_.jpg",
 		imgAlt: "Indoor Doorway Gym",
@@ -151,7 +151,7 @@ const products: ProductData[] = [
 		id: "17xerciseStrap",
 		title:
 			"MJIYA Yoga Stretch Exercise Strap with 10 Flexible Loops Thicken Exercise Band Gravity Fitness Stretching Strap Physical Therapist Recommended Exercises and Pilates Workouts",
-		price: 8.0,
+		price: 8.25,
 		rating: 4,
 		imgSrc: "https://m.media-amazon.com/images/I/71wIouI5G-L._AC_UY436_QL65_.jpg",
 		imgAlt: "exercise Strap",
@@ -193,7 +193,7 @@ const products: ProductData[] = [
 		id: "416Yoga Dome",
 		title:
 			"The Hot Inflatable Yoga Dome | Portable, Lightweight & Easy Set Up Home Yoga Studio | Hot Air Bubble Tent | Personal Hot Yoga Equipment for Indoor & Outdoor",
-		price: 899,
+		price: 899.54,
 		rating: 3,
 		imgSrc: "https://m.media-amazon.com/images/I/51W0m0c-43L._AC_UY436_QL65_.jpg",
 		imgAlt: "Yoga Dome",

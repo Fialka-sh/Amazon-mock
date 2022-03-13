@@ -89,7 +89,7 @@ export default function ProductInCart(props: { product: ProductData; i: number }
 
 			<StyledProductInCartPrice>
 				<strong>$</strong>
-				<strong>{product?.price * product?.quantity}</strong>
+				<strong>{(product?.price * product?.quantity).toFixed(2)}</strong>
 			</StyledProductInCartPrice>
 		</StyledProductInCartContainer>
 	);

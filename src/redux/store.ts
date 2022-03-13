@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import cartReducer from "./slices/cartSlice";
+import productsSlice from "./slices/productsSlice";
 import userSlice from "./slices/userSlice";
 
 //===  one way
@@ -7,6 +8,7 @@ export const store = configureStore({
 	reducer: {
 		cart: cartReducer,
 		user: userSlice,
+		products: productsSlice,
 	},
 });
 

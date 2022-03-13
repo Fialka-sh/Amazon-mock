@@ -5,6 +5,7 @@ interface ProductData {
 	rating: number;
 	imgSrc: string;
 	imgAlt: string;
+	category: string;
 	quantity: number;
 }
 
@@ -17,6 +18,7 @@ const products: ProductData[] = [
 		rating: 4,
 		imgSrc: "https://m.media-amazon.com/images/I/71rXSVqET9L._AC_UL640_QL65_.jpg",
 		imgAlt: "T.V screen",
+		category: "Electronics",
 		quantity: 0,
 	},
 	{
@@ -27,6 +29,7 @@ const products: ProductData[] = [
 		rating: 5,
 		imgSrc: "https://m.media-amazon.com/images/I/51kgTjI3RBL._AC_UL640_QL65_.jpg",
 		imgAlt: "Gaming chair",
+		category: "Gadgets",
 		quantity: 0,
 	},
 	{
@@ -36,6 +39,7 @@ const products: ProductData[] = [
 		rating: 5,
 		imgSrc: "https://m.media-amazon.com/images/I/71iNwni9TsL._AC_UL640_QL65_.jpg",
 		imgAlt: "Webcam",
+		category: "Gadgets",
 		quantity: 0,
 	},
 	{
@@ -45,6 +49,7 @@ const products: ProductData[] = [
 		rating: 1,
 		imgSrc: "https://m.media-amazon.com/images/I/61sXk7iPfYL._AC_UY436_QL65_.jpg",
 		imgAlt: "Fitness Tracker Watch",
+		category: "Gadgets",
 		quantity: 0,
 	},
 	{
@@ -54,6 +59,7 @@ const products: ProductData[] = [
 		rating: 3,
 		imgSrc: "https://m.media-amazon.com/images/I/71NMrhZel6L._AC_UL640_QL65_.jpg",
 		imgAlt: "circles",
+		category: "Kids",
 		quantity: 0,
 	},
 	{
@@ -63,6 +69,7 @@ const products: ProductData[] = [
 		rating: 2,
 		imgSrc: "https://m.media-amazon.com/images/I/61pUul1oDlL._AC_UL640_QL65_.jpg",
 		imgAlt: "wireless keyboard",
+		category: "Gadgets",
 		quantity: 0,
 	},
 	{
@@ -73,6 +80,7 @@ const products: ProductData[] = [
 		rating: 3,
 		imgSrc: "https://m.media-amazon.com/images/I/817GBemAdHL._AC_UL320_.jpg",
 		imgAlt: "wireless keyboard",
+		category: "Sport",
 		quantity: 0,
 	},
 	{
@@ -82,6 +90,7 @@ const products: ProductData[] = [
 		rating: 5,
 		imgSrc: "https://m.media-amazon.com/images/I/61b3WBoA2KL._AC_UL640_QL65_.jpg",
 		imgAlt: "4 Door Cabinet",
+		category: "Furniture",
 		quantity: 0,
 	},
 	{
@@ -92,6 +101,7 @@ const products: ProductData[] = [
 		rating: 3,
 		imgSrc: "https://m.media-amazon.com/images/I/51R2zL77DzL._AC_UY436_QL65_.jpg",
 		imgAlt: "Mac Book Pro Charger",
+		category: "Gadgets",
 		quantity: 0,
 	},
 	{
@@ -101,6 +111,7 @@ const products: ProductData[] = [
 		rating: 4,
 		imgSrc: "https://m.media-amazon.com/images/I/81nXcaa9W1L._AC_UL640_QL65_.jpg",
 		imgAlt: "Child Carrier",
+		category: "Kids",
 		quantity: 0,
 	},
 	{
@@ -111,6 +122,7 @@ const products: ProductData[] = [
 		rating: 6,
 		imgSrc: "https://m.media-amazon.com/images/I/61ArPVMP0rL._AC_UL640_QL65_.jpg",
 		imgAlt: "Indoor Doorway Gym",
+		category: "Sports",
 		quantity: 0,
 	},
 	{
@@ -121,6 +133,7 @@ const products: ProductData[] = [
 		rating: 3,
 		imgSrc: "https://m.media-amazon.com/images/I/91pjXpQkk8L._AC_UL640_QL65_.jpg",
 		imgAlt: "Space Puzzle",
+		category: "Kids",
 		quantity: 0,
 	},
 	{
@@ -131,6 +144,7 @@ const products: ProductData[] = [
 		rating: 4,
 		imgSrc: "https://m.media-amazon.com/images/I/71uVgwkpo-L._AC_UL640_QL65_.jpg",
 		imgAlt: "Puzzles",
+		category: "Kids",
 		quantity: 0,
 	},
 	{
@@ -140,7 +154,8 @@ const products: ProductData[] = [
 		price: 8.0,
 		rating: 4,
 		imgSrc: "https://m.media-amazon.com/images/I/71wIouI5G-L._AC_UY436_QL65_.jpg",
-		imgAlt: "xercise Strap",
+		imgAlt: "exercise Strap",
+		category: "Sport",
 		quantity: 0,
 	},
 	{
@@ -150,6 +165,7 @@ const products: ProductData[] = [
 		rating: 5,
 		imgSrc: "https://m.media-amazon.com/images/I/61N+F3sIz2S._AC_UY695_.jpg",
 		imgAlt: "Salomon Women",
+		category: "Outdoor",
 		quantity: 0,
 	},
 	{
@@ -160,6 +176,7 @@ const products: ProductData[] = [
 		rating: 5,
 		imgSrc: "https://m.media-amazon.com/images/I/61dAlGwKxEL._AC_UY436_QL65_.jpg",
 		imgAlt: "Tents",
+		category: "Outdoor",
 		quantity: 0,
 	},
 	{
@@ -169,6 +186,7 @@ const products: ProductData[] = [
 		rating: 5,
 		imgSrc: "https://m.media-amazon.com/images/I/81zbIt0p5qL._AC_UX695_.jpg",
 		imgAlt: "Salomon Men",
+		category: "Outdoor",
 		quantity: 0,
 	},
 	{
@@ -179,6 +197,7 @@ const products: ProductData[] = [
 		rating: 3,
 		imgSrc: "https://m.media-amazon.com/images/I/51W0m0c-43L._AC_UY436_QL65_.jpg",
 		imgAlt: "Yoga Dome",
+		category: "Sport",
 		quantity: 0,
 	},
 
@@ -190,6 +209,7 @@ const products: ProductData[] = [
 		rating: 4,
 		imgSrc: "https://m.media-amazon.com/images/I/71V9-iEwmkL._AC_UL640_QL65_.jpg",
 		imgAlt: "Deep Fryer",
+		category: "Kitchen",
 		quantity: 0,
 	},
 
@@ -201,6 +221,7 @@ const products: ProductData[] = [
 		rating: 5,
 		imgSrc: "https://m.media-amazon.com/images/I/41yhLeVymcL._AC_UL640_QL65_.jpg",
 		imgAlt: "Barn Door",
+		category: "Furniture",
 		quantity: 0,
 	},
 
@@ -212,6 +233,7 @@ const products: ProductData[] = [
 		rating: 4,
 		imgSrc: "https://m.media-amazon.com/images/I/61cMFoUubiL._AC_UL640_QL65_.jpg",
 		imgAlt: "Candle Holders",
+		category: "Furniture",
 		quantity: 0,
 	},
 
@@ -222,6 +244,7 @@ const products: ProductData[] = [
 		rating: 4,
 		imgSrc: "https://m.media-amazon.com/images/I/61qbuPPQqyL._AC_UL640_QL65_.jpg",
 		imgAlt: "Penne Rigate Pasta",
+		category: "Kitchen",
 		quantity: 0,
 	},
 
@@ -233,6 +256,7 @@ const products: ProductData[] = [
 		rating: 4,
 		imgSrc: "https://m.media-amazon.com/images/I/61rViSAqspL._AC_UL640_QL65_.jpg",
 		imgAlt: "Pasta Bowls",
+		category: "Kitchen",
 		quantity: 0,
 	},
 
@@ -244,6 +268,7 @@ const products: ProductData[] = [
 		rating: 2,
 		imgSrc: "https://m.media-amazon.com/images/I/71a6iogzbZL._AC_UL640_QL65_.jpg",
 		imgAlt: "Serving Cart",
+		category: "Kitchen",
 		quantity: 0,
 	},
 
@@ -255,6 +280,7 @@ const products: ProductData[] = [
 		rating: 4,
 		imgSrc: "https://m.media-amazon.com/images/I/61NvuMCSaRL._AC_UY436_QL65_.jpg",
 		imgAlt: "Dome Tent",
+		category: "Outdoor",
 		quantity: 0,
 	},
 	{
@@ -265,6 +291,7 @@ const products: ProductData[] = [
 		rating: 5,
 		imgSrc: "https://m.media-amazon.com/images/I/61KE1ohGXRL._AC_SX679_.jpg",
 		imgAlt: "Indoor Cycling Bike",
+		category: "Sport",
 		quantity: 0,
 	},
 	{
@@ -274,6 +301,7 @@ const products: ProductData[] = [
 		rating: 4,
 		imgSrc: "https://m.media-amazon.com/images/I/91xajJWygpL._AC_UL640_QL65_.jpg",
 		imgAlt: "Ramen",
+		category: "Kitchen",
 		quantity: 0,
 	},
 ];

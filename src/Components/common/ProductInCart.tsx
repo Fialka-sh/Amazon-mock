@@ -1,8 +1,7 @@
 import React from "react";
 import { useAppDispatch } from "../../hooks";
 
-import { removeFromCart } from "../../redux/slices/cartSlice";
-import { updateProductQuantity } from "../../redux/slices/cartSlice";
+import { UPDATE_PRODUCT_QUANTITY, REMOVE_FROM_CART } from "../../redux/slices/cartSlice";
 
 import { StyledProductInCartImage } from "../../Styles/Image.style";
 import StyledProductInCartContainer, {
@@ -10,9 +9,10 @@ import StyledProductInCartContainer, {
 	StyledProductInCartPrice,
 	StyledProductInCartPrInfoText,
 	StyledInStockText,
+	StyledCategoryText,
 	StyledProductInCartBtns,
 } from "../../Styles/ProductInCart.style";
-import { StyledQuantitySelect } from "../../Styles/Select.style";
+import StyledQuantitySelect from "../../Styles/Select.style";
 import StyledButton from "../../Styles/Button.style";
 
 type ProductData = {
@@ -22,6 +22,7 @@ type ProductData = {
 	rating: number;
 	imgSrc: string;
 	imgAlt: string;
+	category: string;
 	quantity: number;
 };
 
@@ -40,7 +41,7 @@ export default function ProductInCart(props: { product: ProductData; i: number }
 			id: product.id,
 			quantity: quantity,
 		};
-		dispatch(updateProductQuantity({ ...objectTr }));
+		dispatch(UPDATE_PRODUCT_QUANTITY({ ...objectTr }));
 	};
 
 	return (
@@ -53,6 +54,10 @@ export default function ProductInCart(props: { product: ProductData; i: number }
 				<StyledProductInCartPrInfoText>{product?.title}</StyledProductInCartPrInfoText>
 
 				<StyledInStockText>In Stock</StyledInStockText>
+				<StyledCategoryText>
+					<em>Category: </em>
+					{product?.category}
+				</StyledCategoryText>
 
 				<StyledProductInCartBtns>
 					<StyledQuantitySelect
@@ -74,7 +79,7 @@ export default function ProductInCart(props: { product: ProductData; i: number }
 					<StyledButton
 						removeProductButton
 						onClick={() => {
-							dispatch(removeFromCart(i));
+							dispatch(REMOVE_FROM_CART(i));
 						}}
 					>
 						Remove from cart

@@ -25,7 +25,6 @@ export default function Login() {
 	const LogInToAccount = async () => {
 		try {
 			const user = await signInWithEmailAndPassword(auth, email, password);
-
 			if (user) {
 				navigate("/");
 			}

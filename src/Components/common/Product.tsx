@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useAppDispatch } from "../../hooks";
-import { addToCart } from "../../redux/slices/cartSlice";
+import { ADD_TO_CART } from "../../redux/slices/cartSlice";
 
 import StyledStarContainer, { StyledStar } from "../../Styles/Star.style";
 
@@ -15,6 +15,7 @@ interface ProductData {
 	rating: number;
 	imgSrc: string;
 	imgAlt: string;
+	category: string;
 	quantity: number;
 }
 
@@ -65,7 +66,7 @@ export default function Product(product: ProductData, key: number) {
 			<StyledButton
 				addToCartButton
 				onClick={() => {
-					dispatch(addToCart(product));
+					dispatch(ADD_TO_CART(product));
 				}}
 				type='button'
 			>

@@ -1,9 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-import { useAppSelector } from "../../hooks";
+import { useAppDispatch, useAppSelector } from "../../hooks";
 import { updatTotalProducts } from "../../redux/slices/cartSlice";
 import { toggleSignText } from "../../redux/slices/userSlice";
+import { SHOW_PRODUCTS } from "../../redux/slices/productsSlice";
 
 import { auth } from "../../Config/firebase";
 import { signOut } from "firebase/auth";
@@ -16,13 +17,18 @@ import StyledHeader, {
 	StyledHeaderTopSearch,
 	StyledHeaderTopcostumizedSearchIcon,
 	StyledHeaderTopNav,
+	StyledHeaderTopNavSign,
 	StyledHeaderTopCart,
 	StyledHeaderTopCostumizedCartIcon,
 	StyleHeaderTopNavOptions,
 } from "../../Styles/Header.style";
+import { StyledSearchSelect } from "../../Styles/Select.style";
 
 export default function Header() {
 	const user = useAppSelector((state) => state.user.currentUser);
+	const categoryToShow = useAppSelector((state) => state.products.categoryToShow);
+	const dispatch = useAppDispatch();
+	const navigate = useNavigate();
 	const toggle: string = useAppSelector(toggleSignText);
 	const numOfProducts: number = useAppSelector(updatTotalProducts);
 
@@ -30,6 +36,11 @@ export default function Header() {
 		if (user) {
 			await signOut(auth);
 		}
+	};
+
+	const getCategoryToShow = (value: string) => {
+		dispatch(SHOW_PRODUCTS(value));
+		navigate("/");
 	};
 
 	return (
@@ -45,20 +56,40 @@ export default function Header() {
 				</Link>
 
 				<StyledHeaderTopSearch>
+					<StyledSearchSelect
+						name='category '
+						value={categoryToShow}
+						onChange={(e: React.FormEvent<HTMLSelectElement>) => {
+							getCategoryToShow(e.currentTarget.value);
+						}}
+					>
+						<option value='All'>All</option>
+						<option value='Sport'>Sport</option>
+						<option value='Kitchen'>Kitchen</option>
+						<option value='Furniture'>Furniture</option>
+						<option value='Kids'>Kids</option>
+						<option value='Outdoor'>Outdoor</option>
+						<option value='Electronics'>Electronics</option>
+						<option value='Gadgets'>Gadgets</option>
+					</StyledSearchSelect>
+
 					<StyledInput searchInput type='text'></StyledInput>
 
 					<StyledHeaderTopcostumizedSearchIcon></StyledHeaderTopcostumizedSearchIcon>
 				</StyledHeaderTopSearch>
 
-				<StyleHeaderTopNavOptions>
-					<span>Hello {user.name}</span>
+				<StyledHeaderTopNavSign>
+					<StyleHeaderTopNavOptions>
+						<span>Hello {user.name}</span>
 
-					<span onClick={handelAcountLog}>
-						<Link to='/Login' style={{ color: "white", textDecoration: "none" }}>
-							{toggle}
-						</Link>
-					</span>
-				</StyleHeaderTopNavOptions>
+						<span onClick={handelAcountLog}>
+							<Link to='/Login' style={{ color: "white", textDecoration: "none" }}>
+								{toggle}
+							</Link>
+						</span>
+					</StyleHeaderTopNavOptions>
+				</StyledHeaderTopNavSign>
+
 				<StyledHeaderTopNav>
 					<StyleHeaderTopNavOptions>
 						<span>Returns</span>
@@ -78,6 +109,7 @@ export default function Header() {
 					</div>
 				</StyledHeaderTopCart>
 			</StyledHeaderTop>
+
 			<StyledHeaderMenuStripe>
 				<p>All</p>
 				<p>Today's Deals</p>

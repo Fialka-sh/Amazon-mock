@@ -8,7 +8,7 @@ type AddressState = {
 	num: number;
 };
 type UserData = {
-	name: string;
+	name: string | null;
 	email: string | null;
 	address: AddressState;
 };
@@ -30,15 +30,10 @@ const userSlice = createSlice({
 	name: "user",
 	initialState,
 	reducers: {
-		// REGISTER_USER: (state: typeof initialState, action: PayloadAction<string>) => {
-		// 	let registeredUserEmail = action.payload;
-
-		// 	state.currentUser = { ...state.currentUser, email: registeredUserEmail };
-		// },
 		LOGIN_USER: (state: typeof initialState, action: PayloadAction<string | null>) => {
 			let loggedUserEmail = action.payload;
 
-			state.currentUser = { ...state.currentUser, email: loggedUserEmail };
+			state.currentUser = { ...state.currentUser, name: loggedUserEmail, email: loggedUserEmail };
 		},
 
 		SAVE_LOGGED_USER_NAME: (state: typeof initialState, action: PayloadAction<string>) => {

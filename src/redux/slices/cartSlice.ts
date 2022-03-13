@@ -8,6 +8,7 @@ type ProductData = {
 	rating: number;
 	imgSrc: string;
 	imgAlt: string;
+	category: string;
 	quantity: number;
 };
 
@@ -28,7 +29,7 @@ const cartSlice = createSlice({
 	name: "cart",
 	initialState,
 	reducers: {
-		addToCart: (state: typeof initialState, action: PayloadAction<ProductData>) => {
+		ADD_TO_CART: (state: typeof initialState, action: PayloadAction<ProductData>) => {
 			let chosenProduct: ProductData = action.payload;
 			let flag: boolean = false;
 			let tempCart = state.cart.map((product) => {
@@ -52,7 +53,7 @@ const cartSlice = createSlice({
 			state.cart = [...tempCart];
 		},
 
-		updateProductQuantity: (state: typeof initialState, action: PayloadAction<ProductToUPdate>) => {
+		UPDATE_PRODUCT_QUANTITY: (state: typeof initialState, action: PayloadAction<ProductToUPdate>) => {
 			let chosenProductId: string = action.payload.id;
 			let newAmount: number = action.payload.quantity;
 
@@ -67,7 +68,7 @@ const cartSlice = createSlice({
 			state.cart = [...tempCart];
 		},
 
-		removeFromCart: (state: typeof initialState, action: PayloadAction<number>) => {
+		REMOVE_FROM_CART: (state: typeof initialState, action: PayloadAction<number>) => {
 			let tempCart: ProductData[] = state.cart.filter((product, i) => i !== action.payload);
 			state.cart = [...tempCart];
 		},
@@ -91,5 +92,5 @@ export const updateTotaleToPay = (state: RootState) => {
 	return tempTotal.toFixed(2);
 };
 
-export const { addToCart, removeFromCart, updateProductQuantity } = cartSlice.actions;
+export const { ADD_TO_CART, REMOVE_FROM_CART, UPDATE_PRODUCT_QUANTITY } = cartSlice.actions;
 export default cartSlice.reducer;

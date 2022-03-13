@@ -48,6 +48,10 @@ export const StyledInStockText = styled.small`
 	color: green;
 `;
 
+export const StyledCategoryText = styled.small`
+	padding-top: 3px;
+`;
+
 export const StyledProductInCartPrice = styled.div`
 	width: 80px;
 	padding: 10px;

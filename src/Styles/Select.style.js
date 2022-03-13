@@ -10,15 +10,18 @@ const StyledQuantitySelect = styled.select`
 	box-shadow: 0px 2px 3px gray;
 `;
 export const StyledSearchSelect = styled.select`
-	width: 50px;
+	width: 100px;
 	transform: scale(1.37);
 	border-top: 1px solid black;
 	border-right: none;
 	border-radius: 4px 0px 0px 4px;
-	padding: 4.5px 3px;
+	padding: 4.8px 3px;
+	background-color: white;
+	color: black;
+	font-size: 12px;
 
 	@media screen and (max-width: 786px) {
-		transform: scale(1.26);
+		transform: scale(1.3);
 		border: none;
 	}
 `;

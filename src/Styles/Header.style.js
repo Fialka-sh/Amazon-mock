@@ -40,7 +40,9 @@ export const StyledHeaderTopSearch = styled.div`
 	@media screen and (max-width: 786px) {
 		position: absolute;
 		top: 68px;
-		width: 100%;
+		left: 6%;
+		margin: 0 auto;
+		width: 90%;
 	}
 `;
 

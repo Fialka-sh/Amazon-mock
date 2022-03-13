@@ -12,7 +12,7 @@ export const StyledProductInCartInfo = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
-	width: 70%;
+	width: 80%;
 	padding: 0px 10px;
 	font-size: 15px;
 	@media (max-width: 786px) {
@@ -58,8 +58,13 @@ export const StyledProductInCartPrice = styled.div`
 	text-align: right;
 	@media (max-width: 786px) {
 		width: 60px;
-		padding: 8px;
-		font-size: 14px;
+		padding: 0px;
+	}
+	@media (max-width: 400px) {
+		position: relative;
+		top: 48px;
+		right: 120px;
+		font-size: 12px;
 	}
 `;
 

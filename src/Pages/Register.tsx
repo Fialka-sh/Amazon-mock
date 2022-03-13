@@ -39,21 +39,21 @@ export default function Login() {
 		// }
 	};
 	const checkRePassword = (value: string) => {
-		let rePassword: string = value;
-
-		if (password === "") {
-			console.log("no password");
-			// alert("please enter password first");
-		} else if (password !== rePassword) {
-			console.log("no match");
-			// alert("The password aren't the same");
-		}
+		// let rePassword: string = value;
+		// if (password === "") {
+		// console.log("no password");
+		// alert("please enter password first");
+		// } else if (password !== rePassword) {
+		// console.log("no match");
+		// alert("The password aren't the same");
+		// }
 	};
 
 	const createAcount = async () => {
 		try {
 			const user = await createUserWithEmailAndPassword(auth, email, password);
 			dispatch(SAVE_LOGGED_USER_NAME(name));
+			console.log(user);
 
 			if (user) {
 				dispatch(SAVE_LOGGED_USER_NAME(""));
@@ -61,7 +61,8 @@ export default function Login() {
 				navigate("/login");
 			}
 		} catch (error) {
-			alert({ message: getErrorMessage(error) });
+			console.log({ message: getErrorMessage(error) });
+			alert("Message: Email already in use");
 		}
 	};
 
@@ -89,6 +90,7 @@ export default function Login() {
 						}}
 						name='emailInput'
 						type='text'
+						placeholder='Up to 5 characters'
 					></StyledInput>
 					<label htmlFor='emailInput'>
 						<small>Email</small>

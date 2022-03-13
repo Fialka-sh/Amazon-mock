@@ -1,11 +1,12 @@
 import React, { useState, useMemo } from "react";
+import { useAppSelector } from "../hooks";
 
 import Product from "../Components/common/Product";
 import Slider from "../Components/common/Slider";
 import Footer from "../Components/footer/Footer";
 
 import bannersList from "../Assets/bannersList";
-import products from "../Assets/productsList";
+// import products from "../Assets/productsList";
 
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
@@ -14,6 +15,8 @@ import StyledHome, { StyledProductsContainer } from "../Styles/Home.style";
 import StyledBannerContainer, { StyledArrowsContainer } from "../Styles/Banner.style";
 
 export default function Home() {
+	const productsToShow = useAppSelector((state) => state.products.productsToShow);
+
 	const [bannerIToShow, setBannerIToShow] = useState<number>(0);
 	let chosenBanner: string = bannersList[bannerIToShow];
 
@@ -26,7 +29,7 @@ export default function Home() {
 	};
 
 	const shuffledProductsList = useMemo(() => {
-		let tempProducts = [...products];
+		let tempProducts = [...productsToShow];
 
 		let currentIndex = tempProducts.length;
 		let randomIndex = 0;
@@ -37,7 +40,7 @@ export default function Home() {
 			[tempProducts[currentIndex], tempProducts[randomIndex]] = [tempProducts[randomIndex], tempProducts[currentIndex]];
 		}
 		return tempProducts;
-	}, []);
+	}, [productsToShow]);
 
 	return (
 		<StyledHome>

@@ -17,6 +17,7 @@ import StyledHeader, {
 	StyledHeaderTopSearch,
 	StyledHeaderTopcostumizedSearchIcon,
 	StyledHeaderTopNav,
+	StyledHeaderTopNavSign,
 	StyledHeaderTopCart,
 	StyledHeaderTopCostumizedCartIcon,
 	StyleHeaderTopNavOptions,
@@ -77,15 +78,18 @@ export default function Header() {
 					<StyledHeaderTopcostumizedSearchIcon></StyledHeaderTopcostumizedSearchIcon>
 				</StyledHeaderTopSearch>
 
-				<StyleHeaderTopNavOptions>
-					<span>Hello {user.name}</span>
+				<StyledHeaderTopNavSign>
+					<StyleHeaderTopNavOptions>
+						<span>Hello {user.name}</span>
 
-					<span onClick={handelAcountLog}>
-						<Link to='/Login' style={{ color: "white", textDecoration: "none" }}>
-							{toggle}
-						</Link>
-					</span>
-				</StyleHeaderTopNavOptions>
+						<span onClick={handelAcountLog}>
+							<Link to='/Login' style={{ color: "white", textDecoration: "none" }}>
+								{toggle}
+							</Link>
+						</span>
+					</StyleHeaderTopNavOptions>
+				</StyledHeaderTopNavSign>
+
 				<StyledHeaderTopNav>
 					<StyleHeaderTopNavOptions>
 						<span>Returns</span>

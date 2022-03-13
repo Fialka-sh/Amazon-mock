@@ -9,6 +9,7 @@ import StyledProductInCartContainer, {
 	StyledProductInCartPrice,
 	StyledProductInCartPrInfoText,
 	StyledInStockText,
+	StyledCategoryText,
 	StyledProductInCartBtns,
 } from "../../Styles/ProductInCart.style";
 import StyledQuantitySelect from "../../Styles/Select.style";
@@ -53,7 +54,10 @@ export default function ProductInCart(props: { product: ProductData; i: number }
 				<StyledProductInCartPrInfoText>{product?.title}</StyledProductInCartPrInfoText>
 
 				<StyledInStockText>In Stock</StyledInStockText>
-				<span>{product?.category}</span>
+				<StyledCategoryText>
+					<em>Category: </em>
+					{product?.category}
+				</StyledCategoryText>
 
 				<StyledProductInCartBtns>
 					<StyledQuantitySelect

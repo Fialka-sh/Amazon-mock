@@ -8,6 +8,7 @@ const StyledHeader = styled.div`
 	top: 0;
 	flex-direction: column;
 	height: 90px;
+	margin-bottom: 10px;
 	background: rgb(0, 0, 0);
 `;
 
@@ -25,19 +26,21 @@ export const StyledHeaderTopLogo = styled.img`
 
 	@media (max-width: 786px) {
 		height: 30px;
-		margin: 0px;
 		margin-top: 20px;
 	}
 `;
 
 export const StyledHeaderTopSearch = styled.div`
+	position: static;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 55%;
+	width: 100%;
 
-	@media screen and (min-width: 1000px) {
-		width: 75%;
+	@media screen and (max-width: 786px) {
+		position: absolute;
+		top: 68px;
+		width: 100%;
 	}
 `;
 
@@ -55,7 +58,7 @@ export const StyledHeaderTopcostumizedSearchIcon = styled(SearchIcon)`
 
 export const StyledHeaderTopNav = styled.div`
 	display: flex;
-	max-width: 30%;
+	max-width: 40%;
 	color: white;
 
 	@media screen and (max-width: 786px) {
@@ -74,11 +77,15 @@ export const StyleHeaderTopNavOptions = styled.div`
 	border-radius: 3px;
 	color: white;
 
+	@media (max-width: 786px) {
+		width: 120px;
+	}
 	span {
 		font-size: 10px;
 	}
 
 	span:nth-child(2) {
+		margin-top: 3px;
 		font-size: 13px;
 		font-weight: 700;
 		:hover {
@@ -87,6 +94,14 @@ export const StyleHeaderTopNavOptions = styled.div`
 	}
 	:hover {
 		border: 1px solid white;
+	}
+`;
+export const StyledHeaderTopNavSign = styled.div`
+	max-width: 40%;
+	display: flex;
+
+	div {
+		width: 120px;
 	}
 `;
 
@@ -145,6 +160,7 @@ export const StyledHeaderMenuStripe = styled.div`
 		margin: 2px 7px;
 	}
 	@media screen and (max-width: 786px) {
+		height: 50px;
 		p {
 			display: none;
 		}

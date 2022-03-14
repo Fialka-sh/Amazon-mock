@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import { useAppDispatch, useAppSelector } from "../../hooks";
@@ -8,6 +8,8 @@ import { SHOW_PRODUCTS } from "../../redux/slices/productsSlice";
 
 import { auth } from "../../Config/firebase";
 import { signOut } from "firebase/auth";
+
+import { categories } from "../../Assets/categoryList";
 
 import StyledInput from "../../Styles/Input.style";
 import StyledHeader, {
@@ -24,6 +26,7 @@ import StyledHeader, {
 	StyleHeaderTopNavOption,
 } from "../../Styles/Header.style";
 import { StyledSearchSelect } from "../../Styles/Select.style";
+import Popup from "../common/Popup";
 
 export default function Header() {
 	const user = useAppSelector((state) => state.user.currentUser);
@@ -32,6 +35,8 @@ export default function Header() {
 	const navigate = useNavigate();
 	const toggle: string = useAppSelector(toggleSignText);
 	const numOfProducts: number = useAppSelector(updatTotalProducts);
+
+	const [displayPopupState, setDisplayPopupState] = useState<string>("none");
 
 	const handelAcountLog = async () => {
 		if (user) {
@@ -42,16 +47,31 @@ export default function Header() {
 	const getCategoryToShow = (value: string) => {
 		dispatch(SHOW_PRODUCTS(value));
 		navigate("/");
+
+		if (displayPopupState === "block") setDisplayPopupState("none");
+	};
+
+	const changePopupDisplay = (value: string) => {
+		setDisplayPopupState(value);
 	};
 
 	return (
 		<StyledHeader>
 			<StyledHeaderTop>
-				<StyledHeaderTopCategoryMenu>
+				<StyledHeaderTopCategoryMenu
+					onClick={() => {
+						changePopupDisplay("block");
+					}}
+				>
 					<hr />
 					<hr />
 					<hr />
 				</StyledHeaderTopCategoryMenu>
+				<Popup
+					displayPopup={displayPopupState}
+					changePopupDisplay={changePopupDisplay}
+					getCategoryToShow={getCategoryToShow}
+				/>
 				<Link to='/'>
 					<StyledHeaderTopLogo
 						width='150'
@@ -69,14 +89,13 @@ export default function Header() {
 							getCategoryToShow(e.currentTarget.value);
 						}}
 					>
-						<option value='All'>All</option>
-						<option value='Sport'>Sport</option>
-						<option value='Kitchen'>Kitchen</option>
-						<option value='Furniture'>Furniture</option>
-						<option value='Kids'>Kids</option>
-						<option value='Outdoor'>Outdoor</option>
-						<option value='Electronics'>Electronics</option>
-						<option value='Gadgets'>Gadgets</option>
+						{categories.map((category, i) => {
+							return (
+								<option key={i} value={category}>
+									{category}
+								</option>
+							);
+						})}
 					</StyledSearchSelect>
 
 					<StyledInput searchInput type='text'></StyledInput>

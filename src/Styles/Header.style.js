@@ -7,81 +7,94 @@ const StyledHeader = styled.div`
 	position: sticky;
 	top: 0;
 	flex-direction: column;
-	height: 90px;
+	height: 60px;
 	margin-bottom: 10px;
-	background: rgb(0, 0, 0);
+	background: #131921;
 `;
 
 export const StyledHeaderTop = styled.div`
 	display: flex;
 	justify-content: space-between;
-	height: 60px;
+	align-items: center;
+	height: 40px;
+
+	@media (min-width: 786px) {
+		height: 55px;
+		padding-top: 5px;
+	}
+`;
+
+export const StyledHeaderTopCategoryMenu = styled.div`
+	width: 22px;
+	color: white;
+	padding: 2px 2px 2px 5px;
+	hr {
+		margin: 4px 0;
+	}
+	@media (min-width: 786px) {
+		display: none;
+	}
 `;
 
 export const StyledHeaderTopLogo = styled.img`
 	width: 100px;
-	margin: 0 20px;
-	margin-top: 16px;
+	height: 30px;
 	object-fit: contain;
-
-	@media (max-width: 786px) {
-		height: 30px;
-		margin-top: 20px;
-	}
+	margin-top: 20px;
 `;
 
 export const StyledHeaderTopSearch = styled.div`
-	position: static;
+	position: absolute;
+	top: 45px;
+	left: 6%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 100%;
+	width: 90%;
 
-	@media screen and (max-width: 786px) {
-		position: absolute;
-		top: 68px;
-		left: 6%;
+	@media screen and (min-width: 786px) {
+		position: static;
+		width: 75%;
 		margin: 0 auto;
-		width: 90%;
 	}
 `;
 
 export const StyledHeaderTopcostumizedSearchIcon = styled(SearchIcon)`
 	margin-top: 0px;
-	transform: scale(1.54);
-	border-radius: 0px 4px 4px 0px;
+	margin-left: -5px;
+	transform: scale(1.2);
+	border-radius: 4px;
 	padding: 3px;
 	background-color: #febd69;
 
-	@media screen and (max-width: 786px) {
-		transform: scale(1.38);
+	@media screen and (min-width: 786px) {
+		border-radius: 0px 4px 4px 0px;
 	}
 `;
 
 export const StyledHeaderTopNav = styled.div`
-	display: flex;
-	max-width: 40%;
-	color: white;
+	display: none;
 
-	@media screen and (max-width: 786px) {
-		display: none;
+	@media screen and (min-width: 786px) {
+		display: flex;
+		color: white;
 	}
 `;
 
-export const StyleHeaderTopNavOptions = styled.div`
+export const StyleHeaderTopNavOption = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: flex-start;
 	align-items: center;
-	width: 80px;
 	margin: 2px 0px 2px 4px;
 	border-radius: 3px;
 	color: white;
 
-	@media (max-width: 786px) {
-		width: 120px;
+	@media (min-width: 786px) {
+		width: 60px;
 	}
+
 	span {
 		font-size: 10px;
 	}
@@ -99,46 +112,55 @@ export const StyleHeaderTopNavOptions = styled.div`
 	}
 `;
 export const StyledHeaderTopNavSign = styled.div`
-	max-width: 40%;
+	width: 80%;
 	display: flex;
+	justify-content: flex-end;
+	padding-right: 10px;
 
-	div {
+	@media (min-width: 786px) {
 		width: 120px;
+		& div {
+			width: 120px;
+		}
 	}
 `;
 
 export const StyledHeaderTopCart = styled.div`
-	display: flex;
-	justify-content: space-around;
-	flex-direction: column;
-	margin: 2px 15px 2px 0px;
-	border-radius: 3px;
-	padding: 0px 4px 10px 4px;
+	margin: 2px 10px 2px 0px;
 	color: white;
+
+	& > div > span {
+		display: none;
+	}
+
 	:hover {
 		border: 1px solid white;
+		border-radius: 3px;
 	}
 
 	p {
 		position: relative;
-		top: 3px;
+		top: 5px;
 		left: 7px;
 		color: #f08804;
-		font-weight: 600;
+		font-weight: 500;
 	}
-	& > div {
+
+	@media screen and (min-width: 786px) {
+		margin-top: -5px;
 		display: flex;
-		align-items: flex-end;
-	}
-	& > div > span {
-		margin-bottom: 3px;
-		margin-left: -2px;
-	}
-	@media screen and (max-width: 786px) {
-		margin-right: 7px;
+		justify-content: space-around;
+		flex-direction: column;
 
 		& > div > span {
-			display: none;
+			display: block;
+		}
+		& > div {
+			display: flex;
+			align-items: flex-end;
+		}
+		& > div > span {
+			margin-bottom: 3px;
 		}
 	}
 `;

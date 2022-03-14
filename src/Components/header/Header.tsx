@@ -11,7 +11,7 @@ import { signOut } from "firebase/auth";
 
 import StyledInput from "../../Styles/Input.style";
 import StyledHeader, {
-	StyledHeaderMenuStripe,
+	StyledHeaderTopCategoryMenu,
 	StyledHeaderTop,
 	StyledHeaderTopLogo,
 	StyledHeaderTopSearch,
@@ -20,7 +20,8 @@ import StyledHeader, {
 	StyledHeaderTopNavSign,
 	StyledHeaderTopCart,
 	StyledHeaderTopCostumizedCartIcon,
-	StyleHeaderTopNavOptions,
+	StyledHeaderMenuStripe,
+	StyleHeaderTopNavOption,
 } from "../../Styles/Header.style";
 import { StyledSearchSelect } from "../../Styles/Select.style";
 
@@ -46,6 +47,11 @@ export default function Header() {
 	return (
 		<StyledHeader>
 			<StyledHeaderTop>
+				<StyledHeaderTopCategoryMenu>
+					<hr />
+					<hr />
+					<hr />
+				</StyledHeaderTopCategoryMenu>
 				<Link to='/'>
 					<StyledHeaderTopLogo
 						width='150'
@@ -79,26 +85,27 @@ export default function Header() {
 				</StyledHeaderTopSearch>
 
 				<StyledHeaderTopNavSign>
-					<StyleHeaderTopNavOptions>
+					<StyleHeaderTopNavOption>
 						<span>Hello {user.name}</span>
+						{/* <span>Hello User</span> */}
 
 						<span onClick={handelAcountLog}>
 							<Link to='/Login' style={{ color: "white", textDecoration: "none" }}>
 								{toggle}
 							</Link>
 						</span>
-					</StyleHeaderTopNavOptions>
+					</StyleHeaderTopNavOption>
 				</StyledHeaderTopNavSign>
 
 				<StyledHeaderTopNav>
-					<StyleHeaderTopNavOptions>
+					<StyleHeaderTopNavOption>
 						<span>Returns</span>
 						<span>& Orders</span>
-					</StyleHeaderTopNavOptions>
-					<StyleHeaderTopNavOptions>
+					</StyleHeaderTopNavOption>
+					<StyleHeaderTopNavOption>
 						<span>Your</span>
 						<span>Prime</span>
-					</StyleHeaderTopNavOptions>
+					</StyleHeaderTopNavOption>
 				</StyledHeaderTopNav>
 
 				<StyledHeaderTopCart>

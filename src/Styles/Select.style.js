@@ -9,20 +9,29 @@ const StyledQuantitySelect = styled.select`
 	background-color: rgb(248, 247, 242);
 	box-shadow: 0px 2px 3px gray;
 `;
-export const StyledSearchSelect = styled.select`
-	width: 100px;
-	transform: scale(1.37);
-	border-top: 1px solid black;
-	border-right: none;
-	border-radius: 4px 0px 0px 4px;
-	padding: 4.8px 3px;
-	background-color: white;
-	color: black;
-	font-size: 12px;
 
-	@media screen and (max-width: 786px) {
-		transform: scale(1.3);
-		border: none;
+export const StyledSearchSelect = styled.select`
+	display: none;
+
+	@media screen and (min-width: 786px) {
+		z-index: 1;
+		display: block;
+		margin-right: -6px;
+		border-left: #f3f3f3;
+		border-top: #f3f3f3;
+		border-bottom: #f3f3f3;
+		border-radius: 4px 0px 0px 4px;
+		padding: 6.7px 3px;
+		background-color: #f3f3f3;
+		color: black;
+		font-size: 12px;
+
+		:hover {
+			background-color: #dadada;
+			border-left: #dadada;
+			border-top: #dadada;
+			border-bottom: #dadada;
+		}
 	}
 `;
 

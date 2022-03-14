@@ -12,17 +12,12 @@ const StyledInput = styled.input`
 	${(props) =>
 		props.searchInput &&
 		css`
-			width: 90%;
-			margin: 1px 0px;
+			width: 95%;
+			height: 30px;
+			margin-bottom: 0px;
+			border-radius: 6px;
 			padding: 10px 17px;
 			color: gray;
-
-			@media (max-width: 786px) {
-				width: 65%;
-				& {
-					padding: 8.5px;
-				}
-			}
 		`}
 `;
 

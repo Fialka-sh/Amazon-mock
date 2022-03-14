@@ -3,12 +3,12 @@ import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 const StyledHeader = styled.div`
-	z-index: 100;
+	z-index: 40;
 	position: sticky;
 	top: 0;
 	flex-direction: column;
 	height: 60px;
-	margin-bottom: 10px;
+	margin-bottom: 25px;
 	background: #131921;
 `;
 
@@ -25,7 +25,7 @@ export const StyledHeaderTop = styled.div`
 `;
 
 export const StyledHeaderTopCategoryMenu = styled.div`
-	width: 22px;
+	width: 25px;
 	color: white;
 	padding: 2px 2px 2px 5px;
 	hr {
@@ -184,7 +184,7 @@ export const StyledHeaderMenuStripe = styled.div`
 		margin: 2px 7px;
 	}
 	@media screen and (max-width: 786px) {
-		height: 50px;
+		height: 45px;
 		p {
 			display: none;
 		}

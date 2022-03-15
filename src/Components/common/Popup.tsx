@@ -1,18 +1,23 @@
 import React from "react";
 import { categories } from "../../Assets/categoryList";
-import { StyledCategoryPopUp, StyledCategoryPopUpHeader, StyledCategoryPopUpBody } from "../../Styles/Popup.style";
+import {
+	StyledCategoryPopUp,
+	StyledCategoryPopUpClose,
+	StyledCategoryPopUpHeader,
+	StyledCategoryPopUpBody,
+} from "../../Styles/Popup.style";
 
 export default function Popup(props: { displayPopup: string; changePopupDisplay: any; getCategoryToShow: any }) {
 	return (
 		<StyledCategoryPopUp display={props.displayPopup}>
+			<StyledCategoryPopUpClose
+				onClick={() => {
+					props.changePopupDisplay("none");
+				}}
+			>
+				<p>X</p>
+			</StyledCategoryPopUpClose>
 			<StyledCategoryPopUpHeader>
-				<div
-					onClick={() => {
-						props.changePopupDisplay("none");
-					}}
-				>
-					<p>X</p>
-				</div>
 				<div>
 					<span>Browse</span>
 					<h2>Amazon</h2>

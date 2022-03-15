@@ -17,6 +17,7 @@ export const StyledHeaderTop = styled.div`
 	justify-content: space-between;
 	align-items: center;
 	height: 40px;
+	padding-top: 10px;
 
 	@media (min-width: 786px) {
 		height: 55px;
@@ -25,9 +26,9 @@ export const StyledHeaderTop = styled.div`
 `;
 
 export const StyledHeaderTopCategoryMenu = styled.div`
-	width: 25px;
+	width: 40px;
 	color: white;
-	padding: 2px 2px 2px 5px;
+	padding: 2px 2px 2px 10px;
 	hr {
 		margin: 4px 0;
 	}

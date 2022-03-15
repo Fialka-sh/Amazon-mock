@@ -31,22 +31,18 @@ const cartSlice = createSlice({
 	reducers: {
 		ADD_TO_CART: (state: typeof initialState, action: PayloadAction<ProductData>) => {
 			let chosenProduct: ProductData = action.payload;
+
 			let flag: boolean = false;
 			let tempCart = state.cart.map((product) => {
 				if (product.id === chosenProduct.id) {
 					flag = true;
-
-					let newQuantity = product.quantity + 1;
-					let updateProduct = { ...product, quantity: newQuantity };
-
-					return updateProduct;
+					return chosenProduct;
 				} else {
 					return product;
 				}
 			});
 
 			if (!flag) {
-				chosenProduct = { ...chosenProduct, quantity: 1 };
 				tempCart = [{ ...chosenProduct }, ...state.cart];
 			}
 

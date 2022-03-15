@@ -1,13 +1,15 @@
 import styled from "styled-components";
 
 const StyledQuantitySelect = styled.select`
-	width: 40px;
-	margin-right: 10px;
+	width: 55px;
+	margin: 10px 0px;
+	/* margin-right: 10px; */
 	border-radius: 5px;
 	border-color: rgb(212, 205, 205);
-	padding: 1px;
+	padding: 3px;
 	background-color: rgb(248, 247, 242);
 	box-shadow: 0px 2px 3px gray;
+	font-size: 10px;
 `;
 
 export const StyledSearchSelect = styled.select`

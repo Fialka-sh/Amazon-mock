@@ -17,6 +17,7 @@ function getErrorMessage(error: unknown) {
 	}
 	return String(error);
 }
+
 export default function Login() {
 	const navigate = useNavigate();
 	const [email, setEmail] = useState<string>("");

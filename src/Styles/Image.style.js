@@ -19,6 +19,28 @@ const StyledProductImage = styled.div`
 	}
 `;
 
+export const StyledProductInfoImage = styled.div`
+	/* border: 1px solid green; */
+	height: 200px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	& > img {
+		object-fit: contain;
+		width: 180px;
+		height: 180px;
+	}
+	/* @media (max-width: 786px) {
+		margin: 10px;
+		& > img {
+			width: 120px;
+			height: 120px;
+			object-fit: contain;
+		}
+	
+	} */
+`;
+
 export const StyledProductInCartImage = styled.div`
 	margin: 10px;
 

@@ -14,6 +14,7 @@ import Home from "./Pages/Home";
 import Cart from "./Pages/Cart";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
+import ProductInfo from "./Pages/ProductInfo";
 
 export const App: React.FC = () => {
 	const dispatch = useAppDispatch();
@@ -36,6 +37,7 @@ export const App: React.FC = () => {
 				<Route path='/checkout' element={<Cart />} />
 				<Route path='/login' element={<Login />} />
 				<Route path='/register' element={<Register />} />
+				<Route path='/ProductInfo' element={<ProductInfo />} />
 			</Routes>
 		</div>
 	);

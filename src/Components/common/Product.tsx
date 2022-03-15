@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useAppDispatch } from "../../hooks";
-import { ADD_TO_CART } from "../../redux/slices/cartSlice";
+import { useNavigate } from "react-router-dom";
 
+// import { ADD_TO_CART } from "../../redux/slices/cartSlice";
+import { SHOW_PRODUCT_INFO } from "../../redux/slices/productsSlice";
 import StyledStarContainer, { StyledStar } from "../../Styles/Star.style";
 
 import StyledButton from "../../Styles/Button.style";
@@ -22,7 +24,7 @@ interface ProductData {
 export default function Product(product: ProductData, key: number) {
 	const { title, price, rating, imgSrc, imgAlt } = product;
 	const dispatch = useAppDispatch();
-
+	const navigate = useNavigate();
 	const [stars, setStars] = useState<string[]>([]);
 
 	const styleProductOptions = {
@@ -43,6 +45,10 @@ export default function Product(product: ProductData, key: number) {
 		setStars(tempStars);
 	}, [rating]);
 
+	const showProductInfo = () => {
+		dispatch(SHOW_PRODUCT_INFO(product));
+		navigate("/ProductInfo");
+	};
 	return (
 		<StyledProductContainer width={chosenWidth} grow={chosenGrow}>
 			<StyledProductInfo>
@@ -63,14 +69,8 @@ export default function Product(product: ProductData, key: number) {
 				<img src={imgSrc} alt={imgAlt} />
 			</StyledProductImage>
 
-			<StyledButton
-				addToCartButton
-				onClick={() => {
-					dispatch(ADD_TO_CART(product));
-				}}
-				type='button'
-			>
-				Add to cart
+			<StyledButton showProductButton onClick={showProductInfo} type='button'>
+				Show Product
 			</StyledButton>
 		</StyledProductContainer>
 	);

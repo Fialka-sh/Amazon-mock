@@ -9,10 +9,26 @@ const StyledButton = styled.button`
 	font-size: 12px;
 
 	${(props) =>
-		props.addToCartButton &&
+		props.showProductButton &&
 		css`
+			width: 150px;
 			color: black;
 			margin: 10px auto;
+			:active {
+				color: black;
+			}
+			:hover {
+				transform: scale(1.05);
+				background-color: #febd69;
+			}
+		`}
+	${(props) =>
+		props.addToCartButton &&
+		css`
+			background-color: #ebc129;
+			color: black;
+			margin: 10px auto;
+			border-radius: 5px;
 			:active {
 				color: black;
 			}

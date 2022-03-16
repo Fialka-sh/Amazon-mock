@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { ShowPriceDecimals, ShowPriceWithNoDecimals, showPrimeryPrice } from "../Assets/calculatePrice";
 import Select from "../Components/common/Select";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { ADD_TO_CART } from "../redux/slices/cartSlice";
-import StyledButton from "../Styles/Button.style";
+import { UPDATE_PRODUCT_QUANTITY } from "../redux/slices/productsSlice";
 
+import StyledButton from "../Styles/Button.style";
 import { StyledProductInfoImage } from "../Styles/Image.style";
 import {
 	StyledProductInfoContainer,
@@ -31,6 +33,13 @@ export default function ProductInfo() {
 		setStars(tempStars);
 	}, [rating]);
 
+	const getNewAmount = (value: string) => {
+		console.log(value);
+
+		let quantity: number = parseInt(value);
+		dispatch(UPDATE_PRODUCT_QUANTITY(quantity));
+	};
+
 	return (
 		<StyledProductInfoContainer>
 			<StyledStarContainer>
@@ -49,12 +58,12 @@ export default function ProductInfo() {
 				<StyledProductInfoPrice>
 					<div>
 						<small>$</small>
-						<span>{price.toFixed(0)}</span>
-						<span>{((price % 10) * 100).toFixed(0)}</span>
+						<span>{ShowPriceWithNoDecimals(price)}</span>
+						<span>{ShowPriceDecimals(price)}</span>
 					</div>
 					<p>
-						<span>${(price * 0.8 + 35).toFixed(2)}</span> Save <em>${(price * 0.8 + 35 - price).toFixed(2)} </em>(
-						{(((price * 0.8 + 35 - price) * 100) / (price * 0.8 + 35)).toFixed(0)}%)
+						<span>${showPrimeryPrice(price)}</span> Save <em>${(price * 0.8 + 35 - price).toFixed(2)} </em>(
+						{showPrimeryPrice(price)}%)
 					</p>
 				</StyledProductInfoPrice>
 
@@ -62,7 +71,7 @@ export default function ProductInfo() {
 
 				<StyledInStockText>In Stock.</StyledInStockText>
 
-				<Select />
+				<Select getAmount={getNewAmount} product={product} />
 
 				<p>
 					This item ships to <strong>Israel</strong>

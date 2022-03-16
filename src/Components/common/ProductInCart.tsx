@@ -12,8 +12,9 @@ import StyledProductInCartContainer, {
 	StyledCategoryText,
 	StyledProductInCartBtns,
 } from "../../Styles/ProductInCart.style";
-import StyledQuantitySelect from "../../Styles/Select.style";
+// import StyledQuantitySelect from "../../Styles/Select.style";
 import StyledButton from "../../Styles/Button.style";
+import Select from "./Select";
 
 type ProductData = {
 	id: string;
@@ -26,7 +27,7 @@ type ProductData = {
 	quantity: number;
 };
 
-type ProductToUPdate = {
+type ProductToUpdate = {
 	id: string;
 	quantity: number;
 };
@@ -36,10 +37,10 @@ export default function ProductInCart(props: { product: ProductData; i: number }
 	const dispatch = useAppDispatch();
 
 	const getNewAmount = (value: string) => {
-		let quantity: number = parseInt(value);
-		let objectTr: ProductToUPdate = {
+		let newQuantity: number = parseInt(value);
+		let objectTr: ProductToUpdate = {
 			id: product.id,
-			quantity: quantity,
+			quantity: newQuantity,
 		};
 		dispatch(UPDATE_PRODUCT_QUANTITY({ ...objectTr }));
 	};
@@ -60,7 +61,9 @@ export default function ProductInCart(props: { product: ProductData; i: number }
 				</StyledCategoryText>
 
 				<StyledProductInCartBtns>
-					<StyledQuantitySelect
+					<Select getAmount={getNewAmount} product={product} />
+
+					{/* <StyledQuantitySelect
 						name='quantity '
 						value={product?.quantity}
 						onChange={(e: React.FormEvent<HTMLSelectElement>) => {
@@ -72,7 +75,7 @@ export default function ProductInCart(props: { product: ProductData; i: number }
 						<option value='3'>3</option>
 						<option value='4'>4</option>
 						<option value='5'>5</option>
-					</StyledQuantitySelect>
+					</StyledQuantitySelect> */}
 
 					<span>|</span>
 

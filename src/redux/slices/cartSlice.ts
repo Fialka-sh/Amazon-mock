@@ -31,6 +31,7 @@ const cartSlice = createSlice({
 	reducers: {
 		ADD_TO_CART: (state: typeof initialState, action: PayloadAction<ProductData>) => {
 			let chosenProduct: ProductData = action.payload;
+			console.log(chosenProduct);
 
 			let flag: boolean = false;
 			let tempCart = state.cart.map((product) => {
@@ -51,11 +52,11 @@ const cartSlice = createSlice({
 
 		UPDATE_PRODUCT_QUANTITY: (state: typeof initialState, action: PayloadAction<ProductToUPdate>) => {
 			let chosenProductId: string = action.payload.id;
-			let newAmount: number = action.payload.quantity;
+			let newquantity: number = action.payload.quantity;
 
 			let tempCart = state.cart.map((product, i) => {
 				if (product.id === chosenProductId) {
-					let updateProduct = { ...product, quantity: newAmount };
+					let updateProduct = { ...product, quantity: newquantity };
 
 					return updateProduct;
 				} else return product;

@@ -30,7 +30,7 @@ const initialState: ProductsState = {
 		imgSrc: "",
 		imgAlt: "",
 		category: "",
-		quantity: 0,
+		quantity: 1,
 	},
 };
 
@@ -51,7 +51,7 @@ const productsSlice = createSlice({
 		},
 		SHOW_PRODUCT_INFO: (state: typeof initialState, action: PayloadAction<ProductData>) => {
 			let productShown: ProductData = action.payload;
-			state.productToShow = { ...productShown };
+			state.productToShow = { ...productShown, quantity: 1 };
 		},
 		UPDATE_PRODUCT_QUANTITY: (state: typeof initialState, action: PayloadAction<number>) => {
 			state.productToShow = { ...state.productToShow, quantity: action.payload };

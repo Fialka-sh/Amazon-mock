@@ -9,11 +9,12 @@ import StyledStarContainer, { StyledStar } from "../../Styles/Star.style";
 import StyledButton from "../../Styles/Button.style";
 import StyledProductContainer, { StyledProductInfo } from "../../Styles/Product.style";
 import StyledProductImage from "../../Styles/Image.style";
+import { showPriceAfterDiscount } from "../../Assets/calculatePrice";
 
 interface ProductData {
 	id: string;
 	title: string;
-	price: number;
+	primery_price: number;
 	rating: number;
 	imgSrc: string;
 	imgAlt: string;
@@ -22,7 +23,7 @@ interface ProductData {
 }
 
 export default function Product(product: ProductData, key: number) {
-	const { title, price, rating, imgSrc, imgAlt } = product;
+	const { title, primery_price, rating, imgSrc, imgAlt } = product;
 	const dispatch = useAppDispatch();
 	const navigate = useNavigate();
 	const [stars, setStars] = useState<string[]>([]);
@@ -55,7 +56,7 @@ export default function Product(product: ProductData, key: number) {
 				<p>{title}</p>
 				<span>
 					<small>$</small>
-					<strong>{price}</strong>
+					<strong>{showPriceAfterDiscount(primery_price)}</strong>
 				</span>
 
 				<StyledStarContainer>

@@ -1,15 +1,11 @@
 import React from "react";
-import {
-	// useAppDispatch,
-	useAppSelector,
-} from "../../hooks";
-// import { UPDATE_PRODUCT_QUANTITY } from "../../redux/slices/productsSlice";
+
 import StyledQuantitySelect from "../../Styles/Select.style";
 
 type ProductData = {
 	id: string;
 	title: string;
-	price: number;
+	primery_price: number;
 	rating: number;
 	imgSrc: string;
 	imgAlt: string;
@@ -17,14 +13,6 @@ type ProductData = {
 	quantity: number;
 };
 export default function Select(props: { getAmount: Function; product: ProductData }): JSX.Element {
-	// const product = useAppSelector((state) => state.products.productToShow);
-	// const dispatch = useAppDispatch();
-
-	// const getNewAmount = (value: string) => {
-	// 	let quantity: number = parseInt(value);
-	// 	dispatch(UPDATE_PRODUCT_QUANTITY(quantity));
-	// };
-
 	return (
 		<StyledQuantitySelect
 			name='quantity '

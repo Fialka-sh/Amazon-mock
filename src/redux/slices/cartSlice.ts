@@ -1,10 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { showPriceAfterDiscount } from "../../Assets/calculatePrice";
 import type { RootState } from "../store";
 
 type ProductData = {
 	id: string;
 	title: string;
-	price: number;
+	primery_price: number;
 	rating: number;
 	imgSrc: string;
 	imgAlt: string;
@@ -31,7 +32,6 @@ const cartSlice = createSlice({
 	reducers: {
 		ADD_TO_CART: (state: typeof initialState, action: PayloadAction<ProductData>) => {
 			let chosenProduct: ProductData = action.payload;
-			console.log(chosenProduct);
 
 			let flag: boolean = false;
 			let tempCart = state.cart.map((product) => {
@@ -74,7 +74,6 @@ const cartSlice = createSlice({
 
 export const updatTotalProducts = (state: RootState) => {
 	let numOfProducts: number = 0;
-
 	state.cart.cart.forEach((product) => {
 		numOfProducts += product.quantity;
 	});
@@ -84,7 +83,9 @@ export const updatTotalProducts = (state: RootState) => {
 export const updateTotaleToPay = (state: RootState) => {
 	let tempTotal = 0;
 	state.cart.cart.forEach((product) => {
-		tempTotal += product.quantity * product.price;
+		let productPriceAfterDiscount = showPriceAfterDiscount(product.primery_price);
+
+		tempTotal += product.quantity * productPriceAfterDiscount;
 	});
 	return tempTotal.toFixed(2);
 };

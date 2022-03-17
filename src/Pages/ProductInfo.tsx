@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { ShowPriceDecimals, ShowPriceWithNoDecimals, showPrimeryPrice } from "../Assets/calculatePrice";
+import {
+	showDiscount,
+	showDiscountPrecentage,
+	ShowPriceDecimals,
+	ShowPriceWithNoDecimals,
+	showPrimeryPrice,
+} from "../Assets/calculatePrice";
 import Select from "../Components/common/Select";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { ADD_TO_CART } from "../redux/slices/cartSlice";
@@ -22,7 +28,7 @@ import StyledStarContainer, { StyledStar } from "../Styles/Star.style";
 export default function ProductInfo() {
 	const dispatch = useAppDispatch();
 	const product = useAppSelector((state) => state.products.productToShow);
-	const { title, price, rating, imgSrc, imgAlt } = product;
+	const { title, primery_price, rating, imgSrc, imgAlt } = product;
 	const [stars, setStars] = useState<string[]>([]);
 
 	useEffect(() => {
@@ -58,12 +64,12 @@ export default function ProductInfo() {
 				<StyledProductInfoPrice>
 					<div>
 						<small>$</small>
-						<span>{ShowPriceWithNoDecimals(price)}</span>
-						<span>{ShowPriceDecimals(price)}</span>
+						<span>{ShowPriceWithNoDecimals(primery_price)}</span>
+						<span>{ShowPriceDecimals(primery_price)}</span>
 					</div>
 					<p>
-						<span>${showPrimeryPrice(price)}</span> Save <em>${(price * 0.8 + 35 - price).toFixed(2)} </em>(
-						{showPrimeryPrice(price)}%)
+						<span>${showPrimeryPrice(primery_price)}</span> Save <em>${showDiscount(primery_price)} </em>(
+						{showDiscountPrecentage(primery_price)}%)
 					</p>
 				</StyledProductInfoPrice>
 
@@ -113,17 +119,3 @@ export default function ProductInfo() {
 		</StyledProductInfoContainer>
 	);
 }
-
-//  <StyledQuantitySelect
-// 					name='quantity '
-// 					value={quantity}
-// 					onChange={(e: React.FormEvent<HTMLSelectElement>) => {
-// 						getNewAmount(e.currentTarget.value);
-// 					}}
-// 				>
-// 					<option value='1'> Qty: 1</option>
-// 					<option value='2'>Qty: 2</option>
-// 					<option value='3'>Qty: 3</option>
-// 					<option value='4'> Qty:4</option>
-// 					<option value='5'> Qty:5</option>
-// 				</StyledQuantitySelect>

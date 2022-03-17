@@ -5,7 +5,6 @@ export const calculatePriceAfterDiscount = (price: number, discount: number) => 
 };
 export const FixPriceWith2DecimalsAndNoRound = (price: number) => {
 	let priceWith2Decimals = price.toString().slice(0, price.toString().indexOf(".") + 3);
-	console.log(priceWith2Decimals);
 	return parseFloat(priceWith2Decimals);
 };
 

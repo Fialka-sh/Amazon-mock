@@ -28,13 +28,16 @@ const StyledButton = styled.button`
 			background-color: #ebc129;
 			color: black;
 			margin: 10px auto;
-			border-radius: 5px;
+			border-radius: 10px;
 			:active {
 				color: black;
 			}
 			:hover {
 				transform: scale(1.05);
 				background-color: #febd69;
+			}
+			@media (min-width: 786px) {
+				width: 150px;
 			}
 		`}
 	${(props) =>

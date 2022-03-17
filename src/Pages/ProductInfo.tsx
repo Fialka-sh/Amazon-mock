@@ -21,6 +21,9 @@ import {
 	StyledProductInfoBtns,
 	StyledProductInfo,
 	StyledProductAdditionalInfo,
+	StyledProductInfoTop,
+	StyledBreadcrumbs,
+	StyledProductInfoTablePriceArea,
 } from "../Styles/ProductInfo.style";
 
 import StyledStarContainer, { StyledStar } from "../Styles/Star.style";
@@ -45,6 +48,9 @@ export default function ProductInfo() {
 	};
 
 	return (
+		<div>
+			<StyledBreadcrumbs>
+
 		<StyledProductInfoContainer>
 			<StyledStarContainer>
 				{stars.map((star, i) => {
@@ -78,42 +84,106 @@ export default function ProductInfo() {
 				<Select getAmount={getNewAmount} product={product} />
 
 				<p>
-					This item ships to <strong>Israel</strong>
+					{product.category} {">"} {product.imgAlt}
 				</p>
+			</StyledBreadcrumbs>
+			<StyledProductInfoContainer>
+				<StyledProductInfoTop>
+					<StyledStarContainer>
+						{stars.map((star, i) => {
+							return <StyledStar stylestar='styledstarinproductinfo' key={i} />;
+						})}
+					</StyledStarContainer>
 
-				<StyledProductInfoBtns>
-					<StyledButton
-						addToCartButton
-						onClick={() => {
-							dispatch(ADD_TO_CART(product));
-						}}
-						type='button'
-					>
-						Add to Cart
-					</StyledButton>
-				</StyledProductInfoBtns>
+					<StyledProductInfoText>{title}</StyledProductInfoText>
 
-				<StyledProductAdditionalInfo>
-					<table>
-						<tbody>
-							<tr>
-								<td>Ships from</td>
-								<td>Amazon.com</td>
-							</tr>
-							<tr>
-								<td>Sold by </td>
-								<td>Amazon.com</td>
-							</tr>
-						</tbody>
-					</table>
+					<StyledProductInfoTablePriceArea>
+						<hr />
+						<table>
+							<tbody>
+								<tr>
+									<td>List Price:</td>
+									<td>${price}</td>
+								</tr>
+								<tr>
+									<td>Price:</td>
+									<td>${(price * 0.8 + 35).toFixed(2)}</td>
+								</tr>
+								<tr>
+									<td>You Save:</td>
+									<td>
+										${showDiscount(price)} {showDiscountPrecentage(price)}%
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<span>No import Fees Deposits & $11.45 Shipping to Israel</span>
+
+						<hr />
+					</StyledProductInfoTablePriceArea>
+				</StyledProductInfoTop>
+
+				<StyledProductInfoImage>
+					<img src={imgSrc} alt={imgAlt} />
+				</StyledProductInfoImage>
+
+				<StyledProductInfo>
+					<StyledProductInfoPrice>
+						<div>
+							<small>$</small>
+							<span>{ShowPriceWithNoDecimals(price)}</span>
+							<span>{ShowPriceDecimals(price)}</span>
+						</div>
+						<p>
+							<span>${showPrimeryPrice(price)}</span> Save <em>${showDiscount(price)} </em>(
+							{showDiscountPrecentage(price)}%)
+						</p>
+					</StyledProductInfoPrice>
+
+					<span>No import Fees Deposits & $11.45 Shipping to Israel</span>
+
+					<StyledInStockText>In Stock.</StyledInStockText>
+
+					<Select getAmount={getNewAmount} product={product} />
 
 					<p>
-						Return policy: <span>Eligible for return, Refund of Replacement</span>
+						This item ships to <strong>Israel</strong>
 					</p>
-					<p>Gift-wrap available</p>
-				</StyledProductAdditionalInfo>
-			</StyledProductInfo>
-			<hr />
-		</StyledProductInfoContainer>
+
+					<StyledProductInfoBtns>
+						<StyledButton
+							addToCartButton
+							onClick={() => {
+								dispatch(ADD_TO_CART(product));
+							}}
+							type='button'
+						>
+							Add to Cart
+						</StyledButton>
+					</StyledProductInfoBtns>
+
+					<StyledProductAdditionalInfo>
+						<table>
+							<tbody>
+								<tr>
+									<td>Ships from</td>
+									<td>Amazon.com</td>
+								</tr>
+								<tr>
+									<td>Sold by </td>
+									<td>Amazon.com</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<p>
+							Return policy: <span>Eligible for return, Refund of Replacement</span>
+						</p>
+						<p>Gift-wrap available</p>
+					</StyledProductAdditionalInfo>
+				</StyledProductInfo>
+				<hr />
+			</StyledProductInfoContainer>
+		</div>
 	);
 }

@@ -62,7 +62,6 @@ export default function ProductInCart(props: { product: ProductData; i: number }
 
 				<StyledProductInCartBtns>
 					<Select getAmount={getNewAmount} product={product} />
-
 					<span>|</span>
 
 					<StyledButton

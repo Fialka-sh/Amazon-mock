@@ -20,7 +20,6 @@ const StyledProductImage = styled.div`
 `;
 
 export const StyledProductInfoImage = styled.div`
-	/* border: 1px solid green; */
 	height: 200px;
 	display: flex;
 	justify-content: center;
@@ -30,15 +29,14 @@ export const StyledProductInfoImage = styled.div`
 		width: 180px;
 		height: 180px;
 	}
-	/* @media (max-width: 786px) {
-		margin: 10px;
+	@media (min-width: 786px) {
+		order: 1;
+		height: 250px;
 		& > img {
-			width: 120px;
-			height: 120px;
-			object-fit: contain;
+			width: 250px;
+			height: 250px;
 		}
-	
-	} */
+	}
 `;
 
 export const StyledProductInCartImage = styled.div`

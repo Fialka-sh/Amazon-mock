@@ -1,50 +1,107 @@
 import styled from "styled-components";
 
+export const StyledBreadcrumbs = styled.div`
+	display: none;
+	@media (min-width: 786px) {
+		display: block;
+		height: 25px;
+		padding: 6px;
+		padding-left: 12px;
+		font-size: 13px;
+		color: gray;
+	}
+`;
+
 export const StyledProductInfoContainer = styled.div`
 	display: flex;
 	flex-direction: column;
-	padding: 20px 10px;
+	margin: 0px auto;
+	padding: 20px;
 	background-color: white;
 	font-size: 13px;
+	max-width: 500px;
 	height: 100vh;
+
+	@media (min-width: 786px) {
+		max-width: 100vw;
+		flex-direction: row;
+
+		hr {
+			display: none;
+		}
+	}
 `;
 
 export default StyledProductInfoContainer;
 
+export const StyledProductInfoTop = styled.div`
+	display: flex;
+	flex-direction: column;
+
+	@media (min-width: 786px) {
+		width: 80%;
+		order: 2;
+		padding: 5px 10px;
+	}
+`;
+
 export const StyledProductInfoText = styled.p`
-	/* background-color: pink; */
-	/* height: 3em; */
 	line-height: 1.3em;
-	/* overflow: hidden;  */
+
+	@media (min-width: 786px) {
+		order: 1;
+		line-height: 1.5em;
+		font-size: 20px;
+	}
+`;
+
+export const StyledProductInfoTablePriceArea = styled.div`
+	display: none;
+
+	@media (min-width: 786px) {
+		order: 3;
+		display: block;
+		padding: 10px 0px;
+
+		table {
+			margin: 10px 0px;
+		}
+		& > hr {
+			margin-top: 10px;
+		}
+	}
 `;
 
 export const StyledProductInfo = styled.div`
 	margin: 15px 0px;
-	/* background-color: aqua; */
+
+	@media (min-width: 786px) {
+		order: 3;
+		margin: 0px;
+		border: 1px solid gray;
+		border-radius: 8px;
+		padding: 8px;
+	}
 `;
 export const StyledProductInfoPrice = styled.div`
 	display: flex;
 	padding: 5px 0px;
-	/* background-color: white; */
 	font-size: 22px;
 
 	small {
 		position: relative;
 		top: -7px;
 		padding-right: 1px;
-		/* background-color: aqua; */
 		font-size: 11px;
 	}
 	& :nth-child(3) {
 		position: relative;
 		top: -7px;
-		/* padding-right: 3px; */
 		font-size: 11px;
-		/* background-color: yellow; */
 	}
 	p {
+		display: block;
 		align-self: flex-end;
-		/* background-color: red; */
 		padding-left: 3px;
 		padding-bottom: 2px;
 		color: #6b6868;
@@ -53,56 +110,30 @@ export const StyledProductInfoPrice = styled.div`
 	p > span {
 		text-decoration: line-through;
 	}
-	/* width: 80px;
-	padding: 10px;
-	text-align: right;
-	@media (max-width: 786px) {
-		width: 60px;
-		padding: 0px;
+
+	@media (min-width: 786px) {
+		p {
+			display: none;
+		}
 	}
-	@media (max-width: 400px) {
-		position: relative;
-		top: 48px;
-		right: 120px;
-		font-size: 12px;
-	} */
 `;
 
 export const StyledInStockText = styled.small`
-	/* background-color: gray; */
 	display: block;
 	margin-top: 15px;
 	padding-top: 5px;
 	color: green;
 `;
 
-export const StyledProductInfoBtns = styled.div`
-	/* border: 1px solid blue; */
-	/* display: flex;
-	justify-content: start;
-	align-items: center;
-	margin-top: 15px;
-
-	span {
-		margin-right: 10px;
-		color: rgb(212, 200, 200);
-	}
-	@media (max-width: 786px) {
-		span {
-			margin-right: -2px;
-		}
-	} */
-`;
+export const StyledProductInfoBtns = styled.div``;
 
 export const StyledProductAdditionalInfo = styled.div`
-	background-color: white;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
 	height: 100px;
 
 	table {
-		/* border: 1px solid blue; */
 		width: 150px;
 		font-size: 10px;
 	}

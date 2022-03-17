@@ -84,7 +84,7 @@ export const updatTotalProducts = (state: RootState) => {
 export const updateTotaleToPay = (state: RootState) => {
 	let tempTotal = 0;
 	state.cart.cart.forEach((product) => {
-		let productPriceAfterDiscount = showPriceAfterDiscount(product.primery_price);
+		let productPriceAfterDiscount = showPriceAfterDiscount(product.primery_price, product.discount);
 
 		tempTotal += product.quantity * productPriceAfterDiscount;
 	});

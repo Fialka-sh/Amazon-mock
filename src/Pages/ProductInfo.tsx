@@ -1,11 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-	showDiscount,
-	showDiscountPrecentage,
-	ShowPriceDecimals,
-	ShowPriceWithNoDecimals,
-	showPrimeryPrice,
-} from "../Assets/calculatePrice";
+import { showDiscountAmount, ShowDiscountPriceWithNoDecimals, ShowPriceDecimals } from "../Assets/calculatePrice";
 import Select from "../Components/common/Select";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { ADD_TO_CART } from "../redux/slices/cartSlice";
@@ -31,7 +25,7 @@ import StyledStarContainer, { StyledStar } from "../Styles/Star.style";
 export default function ProductInfo() {
 	const dispatch = useAppDispatch();
 	const product = useAppSelector((state) => state.products.productToShow);
-	const { title, primery_price, rating, imgSrc, name } = product;
+	const { title, name, primery_price, discount, rating, imgSrc } = product;
 	const [stars, setStars] = useState<string[]>([]);
 
 	useEffect(() => {
@@ -75,12 +69,16 @@ export default function ProductInfo() {
 								</tr>
 								<tr>
 									<td>Price:</td>
-									<td>${(primery_price * 0.8 + 35).toFixed(2)}</td>
+									<td>
+										${ShowDiscountPriceWithNoDecimals(primery_price, discount)}
+										{"."}
+										{ShowPriceDecimals(primery_price, discount)}
+									</td>
 								</tr>
 								<tr>
 									<td>You Save:</td>
 									<td>
-										${showDiscount(primery_price)} ({showDiscountPrecentage(primery_price)}%)
+										${showDiscountAmount(primery_price, discount)} ({discount}%)
 									</td>
 								</tr>
 							</tbody>
@@ -99,12 +97,11 @@ export default function ProductInfo() {
 					<StyledProductInfoPrice>
 						<div>
 							<small>$</small>
-							<span>{ShowPriceWithNoDecimals(primery_price)}</span>
-							<span>{ShowPriceDecimals(primery_price)}</span>
+							<span>{ShowDiscountPriceWithNoDecimals(primery_price, discount)}</span>
+							<span>{ShowPriceDecimals(primery_price, discount)}</span>
 						</div>
 						<p>
-							<span>${showPrimeryPrice(primery_price)}</span> Save <em>${showDiscount(primery_price)} </em>(
-							{showDiscountPrecentage(primery_price)}%)
+							<span>${primery_price}</span> Save <em>${showDiscountAmount(primery_price, discount)} </em>({discount}%)
 						</p>
 					</StyledProductInfoPrice>
 

@@ -19,10 +19,11 @@ import { showPriceAfterDiscount } from "../../Assets/calculatePrice";
 type ProductData = {
 	id: string;
 	title: string;
+	name: string;
 	primery_price: number;
+	discount: number;
 	rating: number;
 	imgSrc: string;
-	imgAlt: string;
 	category: string;
 	quantity: number;
 };
@@ -48,7 +49,7 @@ export default function ProductInCart(props: { product: ProductData; i: number }
 	return (
 		<StyledProductInCartContainer key={i}>
 			<StyledProductInCartImage>
-				<img src={product?.imgSrc} alt={product?.imgAlt} />
+				<img src={product?.imgSrc} alt={product.name} />
 			</StyledProductInCartImage>
 
 			<StyledProductInCartInfo>

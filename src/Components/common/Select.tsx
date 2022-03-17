@@ -5,10 +5,11 @@ import StyledQuantitySelect from "../../Styles/Select.style";
 type ProductData = {
 	id: string;
 	title: string;
+	name: string;
 	primery_price: number;
+	discount: number;
 	rating: number;
 	imgSrc: string;
-	imgAlt: string;
 	category: string;
 	quantity: number;
 };

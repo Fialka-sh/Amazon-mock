@@ -5,10 +5,11 @@ import type { RootState } from "../store";
 type ProductData = {
 	id: string;
 	title: string;
+	name: string;
 	primery_price: number;
+	discount: number;
 	rating: number;
 	imgSrc: string;
-	imgAlt: string;
 	category: string;
 	quantity: number;
 };

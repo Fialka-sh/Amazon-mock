@@ -13,16 +13,17 @@ import { showPriceAfterDiscount } from "../../Assets/calculatePrice";
 interface ProductData {
 	id: string;
 	title: string;
+	name: string;
 	primery_price: number;
+	discount: number;
 	rating: number;
 	imgSrc: string;
-	imgAlt: string;
 	category: string;
 	quantity: number;
 }
 
 export default function Product(product: ProductData, key: number) {
-	const { title, primery_price, rating, imgSrc, imgAlt } = product;
+	const { title, primery_price, rating, imgSrc, name } = product;
 	const dispatch = useAppDispatch();
 	const navigate = useNavigate();
 	const [stars, setStars] = useState<string[]>([]);
@@ -66,7 +67,7 @@ export default function Product(product: ProductData, key: number) {
 			</StyledProductInfo>
 
 			<StyledProductImage>
-				<img src={imgSrc} alt={imgAlt} />
+				<img src={imgSrc} alt={name} />
 			</StyledProductImage>
 
 			<StyledButton showProductButton onClick={showProductInfo} type='button'>

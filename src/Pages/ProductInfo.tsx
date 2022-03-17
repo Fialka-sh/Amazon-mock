@@ -31,7 +31,7 @@ import StyledStarContainer, { StyledStar } from "../Styles/Star.style";
 export default function ProductInfo() {
 	const dispatch = useAppDispatch();
 	const product = useAppSelector((state) => state.products.productToShow);
-	const { title, primery_price, rating, imgSrc, imgAlt } = product;
+	const { title, primery_price, rating, imgSrc, name } = product;
 	const [stars, setStars] = useState<string[]>([]);
 
 	useEffect(() => {
@@ -51,7 +51,7 @@ export default function ProductInfo() {
 		<div>
 			<StyledBreadcrumbs>
 				<p>
-					{product.category} {">"} {product.imgAlt}
+					{product.category} {">"} {product.name}
 				</p>
 			</StyledBreadcrumbs>
 
@@ -92,7 +92,7 @@ export default function ProductInfo() {
 				</StyledProductInfoTop>
 
 				<StyledProductInfoImage>
-					<img src={imgSrc} alt={imgAlt} />
+					<img src={imgSrc} alt={name} />
 				</StyledProductInfoImage>
 
 				<StyledProductInfo>

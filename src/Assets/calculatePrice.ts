@@ -32,3 +32,7 @@ export const showDiscountPrecentage = (price: number) => {
 
 	return discountPrecentage;
 };
+
+// export const parsePrice = (price) => {
+// 	return
+// }

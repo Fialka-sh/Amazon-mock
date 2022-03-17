@@ -40,8 +40,6 @@ export default function ProductInfo() {
 	}, [rating]);
 
 	const getNewAmount = (value: string) => {
-		console.log(value);
-
 		let quantity: number = parseInt(value);
 		dispatch(UPDATE_PRODUCT_QUANTITY(quantity));
 	};

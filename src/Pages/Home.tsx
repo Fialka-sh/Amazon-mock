@@ -6,7 +6,6 @@ import Slider from "../Components/common/Slider";
 import Footer from "../Components/footer/Footer";
 
 import bannersList from "../Assets/bannersList";
-// import products from "../Assets/productsList";
 
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";

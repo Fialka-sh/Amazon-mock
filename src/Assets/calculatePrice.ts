@@ -17,7 +17,7 @@ export const showPrimeryPrice = (price: number) => {
 export const showDiscount = (price: number) => {
 	let priceAfterDiscount = (price * 0.8 + 35 - price).toFixed(2);
 	let priceAfterDiscountParsed = parseInt(priceAfterDiscount);
-	return price - priceAfterDiscountParsed;
+	return (price - priceAfterDiscountParsed).toFixed(2);
 };
 export const showDiscountPrecentage = (price: number) => {
 	let priceAfterDiscount = (price * 0.8 + 35 - price).toFixed(2);

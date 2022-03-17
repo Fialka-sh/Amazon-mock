@@ -21,11 +21,6 @@ const initialState: UserState = {
 	currentUser: { name: "", email: "", address: { country: "", city: "", street: "", num: 0 } },
 };
 
-// Workaround: cast state instead of declaring variable type
-// const initialState = {
-// 	value: 0
-//   } as CounterState
-
 const userSlice = createSlice({
 	name: "user",
 	initialState,

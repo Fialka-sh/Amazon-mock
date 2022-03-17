@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import { useAppDispatch } from "../../hooks";
 import { useNavigate } from "react-router-dom";
 
-// import { ADD_TO_CART } from "../../redux/slices/cartSlice";
 import { SHOW_PRODUCT_INFO } from "../../redux/slices/productsSlice";
 import StyledStarContainer, { StyledStar } from "../../Styles/Star.style";
 
@@ -76,6 +75,3 @@ export default function Product(product: ProductData, key: number) {
 		</StyledProductContainer>
 	);
 }
-
-//** Other option of spread stars instead of Component **//
-// Array(rating).fill().map(( _ , i )=> <p>🌟'</p>)

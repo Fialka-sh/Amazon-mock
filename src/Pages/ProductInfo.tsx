@@ -50,43 +50,11 @@ export default function ProductInfo() {
 	return (
 		<div>
 			<StyledBreadcrumbs>
-
-		<StyledProductInfoContainer>
-			<StyledStarContainer>
-				{stars.map((star, i) => {
-					return <StyledStar stylestar='styledstarinproductinfo' key={i} />;
-				})}
-			</StyledStarContainer>
-
-			<StyledProductInfoText>{title}</StyledProductInfoText>
-
-			<StyledProductInfoImage>
-				<img src={imgSrc} alt={imgAlt} />
-			</StyledProductInfoImage>
-
-			<StyledProductInfo>
-				<StyledProductInfoPrice>
-					<div>
-						<small>$</small>
-						<span>{ShowPriceWithNoDecimals(primery_price)}</span>
-						<span>{ShowPriceDecimals(primery_price)}</span>
-					</div>
-					<p>
-						<span>${showPrimeryPrice(primery_price)}</span> Save <em>${showDiscount(primery_price)} </em>(
-						{showDiscountPrecentage(primery_price)}%)
-					</p>
-				</StyledProductInfoPrice>
-
-				<span>No import Fees Deposits & $11.45 Shipping to Israel</span>
-
-				<StyledInStockText>In Stock.</StyledInStockText>
-
-				<Select getAmount={getNewAmount} product={product} />
-
 				<p>
 					{product.category} {">"} {product.imgAlt}
 				</p>
 			</StyledBreadcrumbs>
+
 			<StyledProductInfoContainer>
 				<StyledProductInfoTop>
 					<StyledStarContainer>
@@ -103,16 +71,16 @@ export default function ProductInfo() {
 							<tbody>
 								<tr>
 									<td>List Price:</td>
-									<td>${price}</td>
+									<td>${primery_price}</td>
 								</tr>
 								<tr>
 									<td>Price:</td>
-									<td>${(price * 0.8 + 35).toFixed(2)}</td>
+									<td>${(primery_price * 0.8 + 35).toFixed(2)}</td>
 								</tr>
 								<tr>
 									<td>You Save:</td>
 									<td>
-										${showDiscount(price)} {showDiscountPrecentage(price)}%
+										${showDiscount(primery_price)} {showDiscountPrecentage(primery_price)}%
 									</td>
 								</tr>
 							</tbody>
@@ -131,12 +99,12 @@ export default function ProductInfo() {
 					<StyledProductInfoPrice>
 						<div>
 							<small>$</small>
-							<span>{ShowPriceWithNoDecimals(price)}</span>
-							<span>{ShowPriceDecimals(price)}</span>
+							<span>{ShowPriceWithNoDecimals(primery_price)}</span>
+							<span>{ShowPriceDecimals(primery_price)}</span>
 						</div>
 						<p>
-							<span>${showPrimeryPrice(price)}</span> Save <em>${showDiscount(price)} </em>(
-							{showDiscountPrecentage(price)}%)
+							<span>${showPrimeryPrice(primery_price)}</span> Save <em>${showDiscount(primery_price)} </em>(
+							{showDiscountPrecentage(primery_price)}%)
 						</p>
 					</StyledProductInfoPrice>
 

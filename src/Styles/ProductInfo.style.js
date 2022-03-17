@@ -26,7 +26,7 @@ export const StyledProductInfoContainer = styled.div`
 		max-width: 100vw;
 		flex-direction: row;
 
-		hr {
+		& > hr {
 			display: none;
 		}
 	}
@@ -77,6 +77,7 @@ export const StyledProductInfo = styled.div`
 
 	@media (min-width: 786px) {
 		order: 3;
+		height: 70%;
 		margin: 0px;
 		border: 1px solid gray;
 		border-radius: 8px;

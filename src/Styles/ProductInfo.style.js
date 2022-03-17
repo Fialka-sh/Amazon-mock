@@ -64,9 +64,8 @@ export const StyledProductInfoTablePriceArea = styled.div`
 		padding: 10px 0px;
 
 		table {
-			margin: 10px 0px;
-
 			height: 70px;
+			margin: 10px 0px;
 		}
 		td:nth-child(2) {
 			padding-left: 3px;
@@ -77,11 +76,12 @@ export const StyledProductInfoTablePriceArea = styled.div`
 			font-size: 12px;
 		}
 		tr:nth-child(2) > td:nth-child(1) {
-			float: right;
+			vertical-align: top;
+			text-align: end;
 		}
 		tr:nth-child(2) > td:nth-child(2) {
 			color: rgb(177, 39, 4);
-			font-size: 14px;
+			font-size: 16px;
 		}
 		tr:nth-child(3) > td:nth-child(2) {
 			color: rgb(177, 39, 4);

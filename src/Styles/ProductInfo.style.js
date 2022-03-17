@@ -41,7 +41,7 @@ export const StyledProductInfoTop = styled.div`
 	@media (min-width: 786px) {
 		width: 80%;
 		order: 2;
-		padding: 5px 10px;
+		padding: 5px 30px;
 	}
 `;
 
@@ -64,8 +64,30 @@ export const StyledProductInfoTablePriceArea = styled.div`
 		padding: 10px 0px;
 
 		table {
+			height: 70px;
 			margin: 10px 0px;
 		}
+		td:nth-child(2) {
+			padding-left: 3px;
+		}
+		tr:nth-child(1) > td:nth-child(2) {
+			color: gray;
+			text-decoration: line-through;
+			font-size: 12px;
+		}
+		tr:nth-child(2) > td:nth-child(1) {
+			vertical-align: top;
+			text-align: end;
+		}
+		tr:nth-child(2) > td:nth-child(2) {
+			color: rgb(177, 39, 4);
+			font-size: 16px;
+		}
+		tr:nth-child(3) > td:nth-child(2) {
+			color: rgb(177, 39, 4);
+			font-size: 12px;
+		}
+
 		& > hr {
 			margin-top: 10px;
 		}
@@ -140,5 +162,8 @@ export const StyledProductAdditionalInfo = styled.div`
 	}
 	tr :nth-child(1) {
 		color: #6b6868;
+	}
+	small {
+		color: gray;
 	}
 `;

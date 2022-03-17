@@ -80,7 +80,7 @@ export default function ProductInfo() {
 								<tr>
 									<td>You Save:</td>
 									<td>
-										${showDiscount(primery_price)} {showDiscountPrecentage(primery_price)}%
+										${showDiscount(primery_price)} ({showDiscountPrecentage(primery_price)}%)
 									</td>
 								</tr>
 							</tbody>
@@ -145,7 +145,7 @@ export default function ProductInfo() {
 						</table>
 
 						<p>
-							Return policy: <span>Eligible for return, Refund of Replacement</span>
+							Return policy: <small>Eligible for return, Refund of Replacement</small>
 						</p>
 						<p>Gift-wrap available</p>
 					</StyledProductAdditionalInfo>

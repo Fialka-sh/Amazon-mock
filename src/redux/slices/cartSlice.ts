@@ -5,10 +5,11 @@ import type { RootState } from "../store";
 type ProductData = {
 	id: string;
 	title: string;
+	name: string;
 	primery_price: number;
+	discount: number;
 	rating: number;
 	imgSrc: string;
-	imgAlt: string;
 	category: string;
 	quantity: number;
 };
@@ -83,7 +84,7 @@ export const updatTotalProducts = (state: RootState) => {
 export const updateTotaleToPay = (state: RootState) => {
 	let tempTotal = 0;
 	state.cart.cart.forEach((product) => {
-		let productPriceAfterDiscount = showPriceAfterDiscount(product.primery_price);
+		let productPriceAfterDiscount = showPriceAfterDiscount(product.primery_price, product.discount);
 
 		tempTotal += product.quantity * productPriceAfterDiscount;
 	});

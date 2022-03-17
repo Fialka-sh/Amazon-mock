@@ -8,21 +8,22 @@ import StyledStarContainer, { StyledStar } from "../../Styles/Star.style";
 import StyledButton from "../../Styles/Button.style";
 import StyledProductContainer, { StyledProductInfo } from "../../Styles/Product.style";
 import StyledProductImage from "../../Styles/Image.style";
-import { showPriceAfterDiscount } from "../../Assets/calculatePrice";
+import { ShowDiscountPriceWithNoDecimals, ShowPriceDecimals } from "../../Assets/calculatePrice";
 
 interface ProductData {
 	id: string;
 	title: string;
+	name: string;
 	primery_price: number;
+	discount: number;
 	rating: number;
 	imgSrc: string;
-	imgAlt: string;
 	category: string;
 	quantity: number;
 }
 
 export default function Product(product: ProductData, key: number) {
-	const { title, primery_price, rating, imgSrc, imgAlt } = product;
+	const { title, primery_price, discount, rating, imgSrc, name } = product;
 	const dispatch = useAppDispatch();
 	const navigate = useNavigate();
 	const [stars, setStars] = useState<string[]>([]);
@@ -55,7 +56,11 @@ export default function Product(product: ProductData, key: number) {
 				<p>{title}</p>
 				<span>
 					<small>$</small>
-					<strong>{showPriceAfterDiscount(primery_price)}</strong>
+					<strong>
+						{ShowDiscountPriceWithNoDecimals(primery_price, discount)}
+						{"."}
+						{ShowPriceDecimals(primery_price, discount)}
+					</strong>
 				</span>
 
 				<StyledStarContainer>
@@ -66,7 +71,7 @@ export default function Product(product: ProductData, key: number) {
 			</StyledProductInfo>
 
 			<StyledProductImage>
-				<img src={imgSrc} alt={imgAlt} />
+				<img src={imgSrc} alt={name} />
 			</StyledProductImage>
 
 			<StyledButton showProductButton onClick={showProductInfo} type='button'>

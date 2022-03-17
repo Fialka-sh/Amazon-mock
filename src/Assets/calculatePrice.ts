@@ -1,34 +1,32 @@
-export const showPriceAfterDiscount = (price: number) => {
-	let priceAfterDiscount = (price * 0.65 + 35).toFixed(2);
-
-	return parseFloat(priceAfterDiscount);
+export const calculatePriceAfterDiscount = (price: number, discount: number) => {
+	let priceAfterDiscount = (price * (100 - discount)) / 100;
+	let priceAfterDiscountWith2Decimals = FixPriceWith2DecimalsAndNoRound(priceAfterDiscount);
+	return priceAfterDiscountWith2Decimals;
+};
+export const FixPriceWith2DecimalsAndNoRound = (price: number) => {
+	let priceWith2Decimals = price.toString().slice(0, price.toString().indexOf(".") + 3);
+	console.log(priceWith2Decimals);
+	return parseFloat(priceWith2Decimals);
 };
 
-export const ShowPriceWithNoDecimals = (price: number) => {
-	let priceAfterDiscount = Math.floor(price * 0.65 + 35);
+export const showPriceAfterDiscount = (price: number, discount: number) => {
+	let priceAfterDiscount = calculatePriceAfterDiscount(price, discount);
 	return priceAfterDiscount;
 };
 
-export const ShowPriceDecimals = (price: number) => {
-	let priceAfterDiscount = price * 0.65 + 35;
+export const ShowDiscountPriceWithNoDecimals = (price: number, discount: number) => {
+	let priceAfterDiscount = Math.floor(calculatePriceAfterDiscount(price, discount));
+	return priceAfterDiscount;
+};
+
+export const ShowPriceDecimals = (price: number, discount: number) => {
+	let priceAfterDiscount = calculatePriceAfterDiscount(price, discount);
 	let decimals = priceAfterDiscount - Math.floor(priceAfterDiscount);
-	return (decimals * 100).toFixed();
+	return Math.floor(decimals * 100);
 };
 
-export const showPrimeryPrice = (price: number) => {
-	return price;
-};
-
-export const showDiscount = (price: number) => {
-	let discountAmount = (price - price * 0.65 + 35).toFixed(2);
-	let discountAmountParsed = parseInt(discountAmount);
-	return (price - discountAmountParsed).toFixed(2);
-};
-export const showDiscountPrecentage = (price: number) => {
-	let priceAfterDiscount = (price - price * 0.65 + 35).toFixed(2);
-	let priceAfterDiscountParsed = parseInt(priceAfterDiscount);
-
-	let discountPrecentage = (100 - (priceAfterDiscountParsed * 100) / price).toFixed(2);
-
-	return discountPrecentage;
+export const showDiscountAmount = (price: number, discount: number) => {
+	let discountAmount = (price * discount) / 100;
+	let discountAmountWith2Decimals = FixPriceWith2DecimalsAndNoRound(discountAmount);
+	return discountAmountWith2Decimals;
 };

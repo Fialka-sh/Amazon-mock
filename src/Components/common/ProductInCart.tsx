@@ -19,10 +19,11 @@ import { showPriceAfterDiscount } from "../../Assets/calculatePrice";
 type ProductData = {
 	id: string;
 	title: string;
+	name: string;
 	primery_price: number;
+	discount: number;
 	rating: number;
 	imgSrc: string;
-	imgAlt: string;
 	category: string;
 	quantity: number;
 };
@@ -34,6 +35,7 @@ type ProductToUpdate = {
 
 export default function ProductInCart(props: { product: ProductData; i: number }) {
 	const { product, i } = props;
+	const { title, name, primery_price, discount, imgSrc, quantity, category } = product;
 	const dispatch = useAppDispatch();
 
 	const getNewAmount = (value: string) => {
@@ -48,16 +50,16 @@ export default function ProductInCart(props: { product: ProductData; i: number }
 	return (
 		<StyledProductInCartContainer key={i}>
 			<StyledProductInCartImage>
-				<img src={product?.imgSrc} alt={product?.imgAlt} />
+				<img src={imgSrc} alt={name} />
 			</StyledProductInCartImage>
 
 			<StyledProductInCartInfo>
-				<StyledProductInCartPrInfoText>{product?.title}</StyledProductInCartPrInfoText>
+				<StyledProductInCartPrInfoText>{title}</StyledProductInCartPrInfoText>
 
 				<StyledInStockText>In Stock</StyledInStockText>
 				<StyledCategoryText>
 					<em>Category: </em>
-					{product?.category}
+					{category}
 				</StyledCategoryText>
 
 				<StyledProductInCartBtns>
@@ -77,7 +79,7 @@ export default function ProductInCart(props: { product: ProductData; i: number }
 
 			<StyledProductInCartPrice>
 				<strong>$</strong>
-				<strong>{(showPriceAfterDiscount(product.primery_price) * product.quantity).toFixed(2)}</strong>
+				<strong>{(showPriceAfterDiscount(primery_price, discount) * quantity).toFixed(2)}</strong>
 			</StyledProductInCartPrice>
 		</StyledProductInCartContainer>
 	);

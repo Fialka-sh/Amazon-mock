@@ -5,10 +5,11 @@ import products from "../../Assets/productsList";
 type ProductData = {
 	id: string;
 	title: string;
+	name: string;
 	primery_price: number;
+	discount: number;
 	rating: number;
 	imgSrc: string;
-	imgAlt: string;
 	category: string;
 	quantity: number;
 };
@@ -25,10 +26,11 @@ const initialState: ProductsState = {
 	productToShow: {
 		id: "",
 		title: "",
+		name: "",
 		primery_price: 0,
+		discount: 0,
 		rating: 0,
 		imgSrc: "",
-		imgAlt: "",
 		category: "",
 		quantity: 1,
 	},

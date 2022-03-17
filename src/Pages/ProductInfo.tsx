@@ -31,7 +31,7 @@ import StyledStarContainer, { StyledStar } from "../Styles/Star.style";
 export default function ProductInfo() {
 	const dispatch = useAppDispatch();
 	const product = useAppSelector((state) => state.products.productToShow);
-	const { title, price, rating, imgSrc, imgAlt } = product;
+	const { title, primery_price, rating, imgSrc, imgAlt } = product;
 	const [stars, setStars] = useState<string[]>([]);
 
 	useEffect(() => {
@@ -50,6 +50,39 @@ export default function ProductInfo() {
 	return (
 		<div>
 			<StyledBreadcrumbs>
+
+		<StyledProductInfoContainer>
+			<StyledStarContainer>
+				{stars.map((star, i) => {
+					return <StyledStar stylestar='styledstarinproductinfo' key={i} />;
+				})}
+			</StyledStarContainer>
+
+			<StyledProductInfoText>{title}</StyledProductInfoText>
+
+			<StyledProductInfoImage>
+				<img src={imgSrc} alt={imgAlt} />
+			</StyledProductInfoImage>
+
+			<StyledProductInfo>
+				<StyledProductInfoPrice>
+					<div>
+						<small>$</small>
+						<span>{ShowPriceWithNoDecimals(primery_price)}</span>
+						<span>{ShowPriceDecimals(primery_price)}</span>
+					</div>
+					<p>
+						<span>${showPrimeryPrice(primery_price)}</span> Save <em>${showDiscount(primery_price)} </em>(
+						{showDiscountPrecentage(primery_price)}%)
+					</p>
+				</StyledProductInfoPrice>
+
+				<span>No import Fees Deposits & $11.45 Shipping to Israel</span>
+
+				<StyledInStockText>In Stock.</StyledInStockText>
+
+				<Select getAmount={getNewAmount} product={product} />
+
 				<p>
 					{product.category} {">"} {product.imgAlt}
 				</p>

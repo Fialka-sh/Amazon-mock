@@ -5,7 +5,7 @@ import products from "../../Assets/productsList";
 type ProductData = {
 	id: string;
 	title: string;
-	price: number;
+	primery_price: number;
 	rating: number;
 	imgSrc: string;
 	imgAlt: string;
@@ -25,7 +25,7 @@ const initialState: ProductsState = {
 	productToShow: {
 		id: "",
 		title: "",
-		price: 0,
+		primery_price: 0,
 		rating: 0,
 		imgSrc: "",
 		imgAlt: "",

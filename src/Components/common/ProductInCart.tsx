@@ -12,14 +12,14 @@ import StyledProductInCartContainer, {
 	StyledCategoryText,
 	StyledProductInCartBtns,
 } from "../../Styles/ProductInCart.style";
-// import StyledQuantitySelect from "../../Styles/Select.style";
 import StyledButton from "../../Styles/Button.style";
 import Select from "./Select";
+import { showPriceAfterDiscount } from "../../Assets/calculatePrice";
 
 type ProductData = {
 	id: string;
 	title: string;
-	price: number;
+	primery_price: number;
 	rating: number;
 	imgSrc: string;
 	imgAlt: string;
@@ -77,7 +77,7 @@ export default function ProductInCart(props: { product: ProductData; i: number }
 
 			<StyledProductInCartPrice>
 				<strong>$</strong>
-				<strong>{(product?.price * product?.quantity).toFixed(2)}</strong>
+				<strong>{(showPriceAfterDiscount(product.primery_price) * product.quantity).toFixed(2)}</strong>
 			</StyledProductInCartPrice>
 		</StyledProductInCartContainer>
 	);

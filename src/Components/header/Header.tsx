@@ -106,7 +106,6 @@ export default function Header() {
 				<StyledHeaderTopNavSign>
 					<StyleHeaderTopNavOption>
 						<span>Hello {user.name}</span>
-						{/* <span>Hello User</span> */}
 
 						<span onClick={handelAcountLog}>
 							<Link to='/Login' style={{ color: "white", textDecoration: "none" }}>

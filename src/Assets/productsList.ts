@@ -60,7 +60,7 @@ const products: ProductData[] = [
 	{
 		id: "55ringtoy",
 		title: "Sassy Stacks of Circles Stacking Ring STEM Learning Toy, Age 6+ Months, Multi, 9 Piece Set",
-		name: "circles",
+		name: "Circles Stacking Ring",
 		primery_price: 50.09,
 		discount: 15,
 		rating: 3,
@@ -71,7 +71,7 @@ const products: ProductData[] = [
 	{
 		id: "6keyboard",
 		title: "MK270 Wireless Keyboard and Mouse Combo",
-		name: "wireless keyboard",
+		name: "Wireless keyboard",
 		primery_price: 100.54,
 		discount: 15,
 		rating: 2,
@@ -83,7 +83,7 @@ const products: ProductData[] = [
 		id: "77pilatise",
 		title:
 			"ProBody Pilates Ball Exercise Ball Yoga Ball, Multiple Sizes. Fitness, Balance, Workout at Home, Office and Physical Therapy w/ Pump",
-		name: "wireless keyboard",
+		name: "Pilatise",
 		primery_price: 50.34,
 		discount: 15,
 		rating: 3,
@@ -165,7 +165,7 @@ const products: ProductData[] = [
 		id: "17xerciseStrap",
 		title:
 			"MJIYA Yoga Stretch Exercise Strap with 10 Flexible Loops Thicken Exercise Band Gravity Fitness Stretching Strap Physical Therapist Recommended Exercises and Pilates Workouts",
-		name: "exercise Strap",
+		name: "Esxercise Strap",
 		primery_price: 8.25,
 		discount: 15,
 		rating: 4,

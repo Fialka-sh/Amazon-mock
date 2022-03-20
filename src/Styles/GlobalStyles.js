@@ -13,7 +13,7 @@ const GlobleStyles = createGlobalStyle`
 		overflow: visible;
 		width: 100%;
 		background-color:#efecef;
-		font-family: "Amazon Ember", Arial, sans-serif;
+	font-family: "Amazon Ember", Arial, sans-serif;
 
 	}
 	.centerIt {

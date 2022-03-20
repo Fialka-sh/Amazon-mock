@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 const StyledHeader = styled.div`
@@ -16,8 +15,8 @@ export const StyledHeaderTop = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	height: 40px;
-	padding-top: 10px;
+	height: 45px;
+	padding-top: 4px;
 
 	@media (min-width: 786px) {
 		height: 55px;
@@ -25,8 +24,12 @@ export const StyledHeaderTop = styled.div`
 	}
 `;
 
+export const StyledHeaderTopLogoArea = styled.div`
+	display: flex;
+	align-items: center;
+`;
 export const StyledHeaderTopCategoryMenu = styled.div`
-	width: 40px;
+	width: 35px;
 	color: white;
 	padding: 2px 2px 2px 10px;
 	hr {
@@ -44,36 +47,52 @@ export const StyledHeaderTopLogo = styled.img`
 	margin-top: 20px;
 `;
 
-export const StyledHeaderTopSearch = styled.div`
+export const StyledHeaderTopSearchArea = styled.div`
 	position: absolute;
 	top: 45px;
-	left: 6%;
+	left: 9%;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	width: 90%;
+	width: 83%;
 
 	@media screen and (min-width: 786px) {
 		position: static;
-		width: 75%;
-		margin: 0 auto;
+		top: 0px;
+		left: 0px;
+		min-width: 50%;
 	}
 `;
 
-export const StyledHeaderTopcostumizedSearchIcon = styled(SearchIcon)`
-	margin-top: 0px;
-	margin-left: -5px;
-	transform: scale(1.2);
-	border-radius: 4px;
-	padding: 3px;
-	background-color: #febd69;
-
+export const StyledHeaderTopSearchContainer = styled.div`
 	@media screen and (min-width: 786px) {
-		border-radius: 0px 4px 4px 0px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
 	}
 `;
 
 export const StyledHeaderTopNav = styled.div`
+	display: flex;
+`;
+
+export const StyledHeaderTopNavSign = styled.div`
+	width: 80%;
+	display: flex;
+	justify-content: flex-end;
+	padding-right: 10px;
+
+	@media (min-width: 786px) {
+		width: 100px;
+
+		& div {
+			width: 120px;
+		}
+	}
+`;
+export const StyledHeaderTopNavOptions = styled.div`
 	display: none;
 
 	@media screen and (min-width: 786px) {
@@ -110,19 +129,6 @@ export const StyleHeaderTopNavOption = styled.div`
 	}
 	:hover {
 		border: 1px solid white;
-	}
-`;
-export const StyledHeaderTopNavSign = styled.div`
-	width: 80%;
-	display: flex;
-	justify-content: flex-end;
-	padding-right: 10px;
-
-	@media (min-width: 786px) {
-		width: 120px;
-		& div {
-			width: 120px;
-		}
 	}
 `;
 

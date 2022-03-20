@@ -68,4 +68,41 @@ export const StyledCategoryPopUpBody = styled.div`
 	}
 `;
 
-/* display: ${(props) => props.display}; */
+export const StyledSearchAreaPopUp = styled.div`
+	display: ${(props) => props.display};
+	width: 70vw;
+	height: 40vh;
+	border-bottom: 3px solid rgb(35, 47, 62);
+	border-radius: 0px 0px 6px 6px;
+	background-color: white;
+
+	overflow: scroll;
+	:before {
+		content: "";
+		z-index: -1;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		background-color: black;
+		opacity: 0.7;
+	}
+	p {
+		color: gray;
+		padding: 10px 0px 10px 15px;
+		font-size: 14px;
+		font-weight: bold;
+		:hover {
+			text-decoration: underline;
+			color: rgb(35, 47, 62);
+		}
+	}
+	@media screen and (min-width: 786px) {
+		position: absolute;
+		top: 45px;
+		left: 190px;
+		width: 350px;
+		margin: 0 auto;
+	}
+`;

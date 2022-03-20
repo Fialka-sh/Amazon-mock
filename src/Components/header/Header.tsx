@@ -4,29 +4,45 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { updatTotalProducts } from "../../redux/slices/cartSlice";
 import { toggleSignText } from "../../redux/slices/userSlice";
-import { SHOW_PRODUCTS } from "../../redux/slices/productsSlice";
+import { SHOW_PRODUCTS, SHOW_PRODUCT_INFO } from "../../redux/slices/productsSlice";
 
 import { auth } from "../../Config/firebase";
 import { signOut } from "firebase/auth";
 
 import { categories } from "../../Assets/categoryList";
 
-import StyledInput from "../../Styles/Input.style";
 import StyledHeader, {
 	StyledHeaderTopCategoryMenu,
 	StyledHeaderTop,
 	StyledHeaderTopLogo,
-	StyledHeaderTopSearch,
-	StyledHeaderTopcostumizedSearchIcon,
+	StyledHeaderTopSearchArea,
 	StyledHeaderTopNav,
 	StyledHeaderTopNavSign,
 	StyledHeaderTopCart,
 	StyledHeaderTopCostumizedCartIcon,
 	StyledHeaderMenuStripe,
 	StyleHeaderTopNavOption,
+	StyledHeaderTopSearchContainer,
+	StyledHeaderTopNavOptions,
+	StyledHeaderTopLogoArea,
 } from "../../Styles/Header.style";
-import { StyledSearchSelect } from "../../Styles/Select.style";
+import { StyledSearchAreaSelect } from "../../Styles/Select.style";
 import Popup from "../common/Popup";
+import { Search } from "../common/Search";
+import { StyledSearchAreaPopUp } from "../../Styles/Popup.style";
+import products from "../../Assets/productsList";
+
+type ProductData = {
+	id: string;
+	title: string;
+	name: string;
+	primery_price: number;
+	discount: number;
+	rating: number;
+	imgSrc: string;
+	category: string;
+	quantity: number;
+};
 
 export default function Header() {
 	const user = useAppSelector((state) => state.user.currentUser);
@@ -55,84 +71,127 @@ export default function Header() {
 		setDisplayPopupState(value);
 	};
 
+	const [ValueInSearchInput, setValueInSearchInput] = useState("");
+	const [searchPopupDisplay, setSearchPopupDisplay] = useState<string>("none");
+	const [searchPopupResults, setSearchPopupResults] = useState<ProductData[]>([]);
+
+	const searchMatchedProducts = (value: string) => {
+		setSearchPopupDisplay("block");
+		setValueInSearchInput(value);
+
+		if (value === "") {
+			setSearchPopupDisplay("none");
+			setSearchPopupResults([]);
+		} else {
+			let ProductsResults: ProductData[] = products.filter(
+				(product) => product.category === categoryToShow && product.name.toLowerCase().indexOf(value) !== -1
+			);
+			setSearchPopupResults(ProductsResults);
+		}
+	};
+
+	const showProductInfo = (product: ProductData) => {
+		setValueInSearchInput("");
+		dispatch(SHOW_PRODUCT_INFO(product));
+		navigate("/ProductInfo");
+		setSearchPopupDisplay("none");
+	};
+
 	return (
 		<StyledHeader>
 			<StyledHeaderTop>
-				<StyledHeaderTopCategoryMenu
-					onClick={() => {
-						changePopupDisplay("block");
-					}}
-				>
-					<hr />
-					<hr />
-					<hr />
-				</StyledHeaderTopCategoryMenu>
-				<Popup
-					displayPopup={displayPopupState}
-					changePopupDisplay={changePopupDisplay}
-					getCategoryToShow={getCategoryToShow}
-				/>
-				<Link to='/'>
-					<StyledHeaderTopLogo
-						width='150'
-						height='35'
-						src='http://pngimg.com/uploads/amazon/amazon_PNG11.png'
-						alt='Amazon logo'
-					></StyledHeaderTopLogo>
-				</Link>
-
-				<StyledHeaderTopSearch>
-					<StyledSearchSelect
-						name='category '
-						value={categoryToShow}
-						onChange={(e: React.FormEvent<HTMLSelectElement>) => {
-							getCategoryToShow(e.currentTarget.value);
+				<StyledHeaderTopLogoArea>
+					<StyledHeaderTopCategoryMenu
+						onClick={() => {
+							changePopupDisplay("block");
 						}}
 					>
-						{categories.map((category, i) => {
+						<hr />
+						<hr />
+						<hr />
+					</StyledHeaderTopCategoryMenu>
+					<Popup
+						displayPopup={displayPopupState}
+						changePopupDisplay={changePopupDisplay}
+						getCategoryToShow={getCategoryToShow}
+					/>
+					<Link to='/'>
+						<StyledHeaderTopLogo
+							width='150'
+							height='35'
+							src='http://pngimg.com/uploads/amazon/amazon_PNG11.png'
+							alt='Amazon logo'
+						></StyledHeaderTopLogo>
+					</Link>
+				</StyledHeaderTopLogoArea>
+
+				<StyledHeaderTopSearchArea>
+					<StyledHeaderTopSearchContainer>
+						<StyledSearchAreaSelect
+							name='category '
+							value={categoryToShow}
+							onChange={(e: React.FormEvent<HTMLSelectElement>) => {
+								getCategoryToShow(e.currentTarget.value);
+							}}
+						>
+							{categories.map((category, i) => {
+								return (
+									<option key={i} value={category}>
+										{category}
+									</option>
+								);
+							})}
+						</StyledSearchAreaSelect>
+						<Search searchMatchedProducts={searchMatchedProducts} value={ValueInSearchInput} />
+					</StyledHeaderTopSearchContainer>
+					<StyledSearchAreaPopUp display={searchPopupDisplay}>
+						{searchPopupResults.map((result, i) => {
 							return (
-								<option key={i} value={category}>
-									{category}
-								</option>
+								<p
+									onClick={() => {
+										showProductInfo(result);
+									}}
+									key={i}
+								>
+									{result.name}
+								</p>
 							);
 						})}
-					</StyledSearchSelect>
-
-					<StyledInput searchInput type='text'></StyledInput>
-
-					<StyledHeaderTopcostumizedSearchIcon></StyledHeaderTopcostumizedSearchIcon>
-				</StyledHeaderTopSearch>
-
-				<StyledHeaderTopNavSign>
-					<StyleHeaderTopNavOption>
-						<span>Hello {user.name}</span>
-
-						<span onClick={handelAcountLog}>
-							<Link to='/Login' style={{ color: "white", textDecoration: "none" }}>
-								{toggle}
-							</Link>
-						</span>
-					</StyleHeaderTopNavOption>
-				</StyledHeaderTopNavSign>
+					</StyledSearchAreaPopUp>
+				</StyledHeaderTopSearchArea>
 
 				<StyledHeaderTopNav>
-					<StyleHeaderTopNavOption>
-						<span>Returns</span>
-						<span>& Orders</span>
-					</StyleHeaderTopNavOption>
-					<StyleHeaderTopNavOption>
-						<span>Your</span>
-						<span>Prime</span>
-					</StyleHeaderTopNavOption>
-				</StyledHeaderTopNav>
+					<StyledHeaderTopNavSign>
+						<StyleHeaderTopNavOption>
+							<span>Hello {user.name}</span>
 
-				<StyledHeaderTopCart>
-					<p>{numOfProducts}</p>
-					<div>
-						<Link to='checkout'>{<StyledHeaderTopCostumizedCartIcon></StyledHeaderTopCostumizedCartIcon>}</Link>
-						<span>Cart</span>
-					</div>
-				</StyledHeaderTopCart>
+							<span onClick={handelAcountLog}>
+								<Link to='/Login' style={{ color: "white", textDecoration: "none" }}>
+									{toggle}
+								</Link>
+							</span>
+						</StyleHeaderTopNavOption>
+					</StyledHeaderTopNavSign>
+
+					<StyledHeaderTopNavOptions>
+						<StyleHeaderTopNavOption>
+							<span>Returns</span>
+							<span>& Orders</span>
+						</StyleHeaderTopNavOption>
+						<StyleHeaderTopNavOption>
+							<span>Your</span>
+							<span>Prime</span>
+						</StyleHeaderTopNavOption>
+					</StyledHeaderTopNavOptions>
+
+					<StyledHeaderTopCart>
+						<p>{numOfProducts}</p>
+						<div>
+							<Link to='checkout'>{<StyledHeaderTopCostumizedCartIcon></StyledHeaderTopCostumizedCartIcon>}</Link>
+							<span>Cart</span>
+						</div>
+					</StyledHeaderTopCart>
+				</StyledHeaderTopNav>
 			</StyledHeaderTop>
 
 			<StyledHeaderMenuStripe>

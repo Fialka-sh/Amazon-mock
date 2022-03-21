@@ -9,6 +9,7 @@ const StyledQuantitySelect = styled.select`
 	background-color: rgb(248, 247, 242);
 	box-shadow: 0px 2px 3px gray;
 	font-size: 10px;
+	color: black;
 `;
 
 export const StyledSearchAreaSelect = styled.select`

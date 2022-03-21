@@ -16,7 +16,7 @@ export default function Cart() {
 		<StyledCartContainer>
 			<StyledCartCheckOut>
 				<p>
-					Subtotel ({numOfProducts} items) : <strong>${totalToPay}</strong>
+					Subtotal ({numOfProducts} items) : <strong>${totalToPay}</strong>
 				</p>
 				<div className='cartContainer__checkOut_btn'>
 					<StyledButton checkoutButton type='button'>
@@ -35,7 +35,7 @@ export default function Cart() {
 
 				<StyledCartTotal>
 					<p>
-						Subtotel ({numOfProducts} items) : <strong>${totalToPay}</strong>
+						Subtotal ({numOfProducts} items) : <strong>${totalToPay}</strong>
 					</p>
 				</StyledCartTotal>
 			</StyledCart>

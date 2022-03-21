@@ -8,6 +8,7 @@ const StyledHeader = styled.div`
 	flex-direction: column;
 	height: 60px;
 	margin-bottom: 25px;
+	padding-right: 5px;
 	background: #131921;
 `;
 
@@ -79,7 +80,7 @@ export const StyledHeaderTopNav = styled.div`
 `;
 
 export const StyledHeaderTopNavSign = styled.div`
-	width: 80%;
+	width: 90%;
 	display: flex;
 	justify-content: flex-end;
 	padding-right: 10px;
@@ -109,10 +110,11 @@ export const StyleHeaderTopNavOption = styled.div`
 	align-items: center;
 	margin: 2px 0px 2px 4px;
 	border-radius: 3px;
+	padding: 2px;
 	color: white;
 
 	@media (min-width: 786px) {
-		width: 60px;
+		width: 65px;
 	}
 
 	span {

@@ -25,7 +25,7 @@ import StyledStarContainer, { StyledStar } from "../Styles/Star.style";
 export default function ProductInfo() {
 	const dispatch = useAppDispatch();
 	const product = useAppSelector((state) => state.products.productToShow);
-	const { title, name, primery_price, discount, rating, imgSrc } = product;
+	const { title, name, primery_price, discount, rating, category, imgSrc } = product;
 	const [stars, setStars] = useState<string[]>([]);
 
 	useEffect(() => {

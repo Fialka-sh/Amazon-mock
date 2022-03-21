@@ -27,6 +27,17 @@ export default function Home() {
 		} else setBannerIToShow(bannerIToShow + i);
 	};
 
+	const changedBanner: NodeJS.Timeout = setTimeout(() => {
+		let currentBannerIndex = bannerIToShow;
+
+		if (currentBannerIndex === 2) {
+			clearTimeout(changedBanner);
+		} else {
+			currentBannerIndex === bannersList.length - 1 ? (currentBannerIndex = 0) : currentBannerIndex++;
+			setBannerIToShow(currentBannerIndex);
+		}
+	}, 3000);
+
 	const shuffledProductsList = useMemo(() => {
 		let tempProducts = [...productsToShow];
 

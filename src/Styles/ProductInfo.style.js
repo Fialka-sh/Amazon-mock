@@ -1,15 +1,12 @@
 import styled from "styled-components";
 
 export const StyledBreadcrumbs = styled.div`
-	display: none;
-	@media (min-width: 786px) {
-		display: block;
-		height: 25px;
-		padding: 6px;
-		padding-left: 12px;
-		font-size: 13px;
-		color: gray;
-	}
+	display: block;
+	height: 28px;
+	padding: 8px;
+	padding-left: 12px;
+	font-size: 13px;
+	color: gray;
 `;
 
 export const StyledProductInfoContainer = styled.div`
@@ -68,7 +65,7 @@ export const StyledProductInfoTablePriceArea = styled.div`
 			margin: 10px 0px;
 		}
 		td:nth-child(2) {
-			padding-left: 3px;
+			padding-left: 5px;
 		}
 		tr:nth-child(1) > td:nth-child(2) {
 			color: gray;
@@ -76,7 +73,7 @@ export const StyledProductInfoTablePriceArea = styled.div`
 			font-size: 12px;
 		}
 		tr:nth-child(2) > td:nth-child(1) {
-			vertical-align: top;
+			vertical-align: center;
 			text-align: end;
 		}
 		tr:nth-child(2) > td:nth-child(2) {

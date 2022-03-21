@@ -81,12 +81,20 @@ export default function Header() {
 
 		if (value === "") {
 			setSearchPopupDisplay("none");
-			setSearchPopupResults([]);
+			setSearchPopupResults(products);
 		} else {
-			let ProductsResults: ProductData[] = products.filter(
-				(product) => product.category === categoryToShow && product.name.toLowerCase().indexOf(value) !== -1
-			);
-			setSearchPopupResults(ProductsResults);
+			if (categoryToShow === "All") {
+				let searchMatchedProducts: ProductData[] = products.filter(
+					(product) => product.name.toLowerCase().indexOf(value) !== -1
+				);
+				setSearchPopupResults(searchMatchedProducts);
+			} else {
+				let searchMatchedProducts: ProductData[] = products.filter(
+					(product) => product.category === categoryToShow && product.name.toLowerCase().indexOf(value) !== -1
+				);
+
+				setSearchPopupResults(searchMatchedProducts);
+			}
 		}
 	};
 

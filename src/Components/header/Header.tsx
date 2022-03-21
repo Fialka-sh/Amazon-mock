@@ -85,12 +85,13 @@ export default function Header() {
 		} else {
 			if (categoryToShow === "All") {
 				let searchMatchedProducts: ProductData[] = products.filter(
-					(product) => product.name.toLowerCase().indexOf(value) !== -1
+					(product) => product.name.toLowerCase().indexOf(value.toLowerCase()) !== -1
 				);
 				setSearchPopupResults(searchMatchedProducts);
 			} else {
 				let searchMatchedProducts: ProductData[] = products.filter(
-					(product) => product.category === categoryToShow && product.name.toLowerCase().indexOf(value) !== -1
+					(product) =>
+						product.category === categoryToShow && product.name.toLowerCase().indexOf(value.toLowerCase()) !== -1
 				);
 
 				setSearchPopupResults(searchMatchedProducts);

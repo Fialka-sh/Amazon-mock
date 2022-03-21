@@ -1,14 +1,16 @@
 import styled from "styled-components";
 
 export const StyledCategoryPopUp = styled.div`
-	z-index: 5;
+	z-index: 200;
 	position: absolute;
 	top: 0px;
 	display: ${(props) => props.display};
 	width: 80vw;
 	height: 100vh;
+	border: 1px solid;
 	overflow: scroll;
 	background-color: #efecef;
+	animation: showFromLeft 0.5s;
 
 	:before {
 		content: "";
@@ -19,7 +21,7 @@ export const StyledCategoryPopUp = styled.div`
 		width: 100vw;
 		height: 100vh;
 		background-color: black;
-		opacity: 0.9;
+		opacity: 0.7;
 	}
 
 	h3 {
@@ -28,12 +30,20 @@ export const StyledCategoryPopUp = styled.div`
 		font-size: 16px;
 		font-weight: bold;
 	}
+	@keyframes showFromLeft {
+		0% {
+			left: -80vw;
+		}
+		100% {
+			left: 0px;
+		}
+	}
 `;
 
 export const StyledCategoryPopUpClose = styled.div`
 	cursor: pointer;
-	position: fixed;
-	top: 20px;
+	position: absolute;
+	top: 30px;
 	left: 90%;
 	color: white;
 	font-size: larger;
@@ -43,8 +53,8 @@ export const StyledCategoryPopUpHeader = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
-	height: 15%;
-	padding: 10px;
+	height: 120px;
+	padding: 15px;
 	background: #131921;
 	color: white;
 
@@ -60,7 +70,7 @@ export const StyledCategoryPopUpBody = styled.div`
 	font-size: 12px;
 	p {
 		cursor: pointer;
-		padding: 10px 10px 15px 10px;
+		padding: 10px 10px 5px 15px;
 	}
 	p:hover,
 	p:active {
@@ -75,8 +85,8 @@ export const StyledSearchAreaPopUp = styled.div`
 	border-bottom: 3px solid rgb(35, 47, 62);
 	border-radius: 0px 0px 6px 6px;
 	background-color: white;
-
 	overflow: scroll;
+
 	:before {
 		content: "";
 		z-index: -1;

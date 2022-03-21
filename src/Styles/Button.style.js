@@ -6,17 +6,19 @@ const StyledButton = styled.button`
 	border-radius: 10px;
 	padding: 6px 25px;
 	background-color: #f08804;
+	color: black;
 	font-size: 12px;
 
 	${(props) =>
 		props.showProductButton &&
 		css`
 			width: 150px;
-			color: black;
+			/* color: black; */
 			margin: 10px auto;
 			:active {
-				color: black;
+				/* color: black; */
 			}
+
 			:hover {
 				transform: scale(1.05);
 				background-color: #febd69;
@@ -26,11 +28,11 @@ const StyledButton = styled.button`
 		props.addToCartButton &&
 		css`
 			background-color: #ebc129;
-			color: black;
+			/* color: black; */
 			margin: 10px auto;
 			border-radius: 10px;
 			:active {
-				color: black;
+				/* color: black; */
 			}
 			:hover {
 				transform: scale(1.05);

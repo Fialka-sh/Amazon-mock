@@ -26,13 +26,13 @@ const userSlice = createSlice({
 	initialState,
 	reducers: {
 		LOGIN_USER: (state: typeof initialState, action: PayloadAction<string | null>) => {
-			let loggedUserEmail = action.payload;
+			let loggedUserEmail: string | null = action.payload;
 
 			state.currentUser = { ...state.currentUser, name: loggedUserEmail, email: loggedUserEmail };
 		},
 
 		SAVE_LOGGED_USER_NAME: (state: typeof initialState, action: PayloadAction<string>) => {
-			let registeredUserName = action.payload;
+			let registeredUserName: string = action.payload;
 
 			state.currentUser = { ...state.currentUser, name: registeredUserName };
 		},

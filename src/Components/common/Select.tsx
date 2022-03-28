@@ -14,6 +14,7 @@ type ProductData = {
 	quantity: number;
 };
 export default function Select(props: { getAmount: Function; product: ProductData }): JSX.Element {
+	const tempOptionArr = [1, 2, 3, 4, 5];
 	return (
 		<StyledQuantitySelect
 			name='quantity '
@@ -22,11 +23,13 @@ export default function Select(props: { getAmount: Function; product: ProductDat
 				props.getAmount(e.currentTarget.value);
 			}}
 		>
-			<option value='1'>Qty: 1</option>
-			<option value='2'>Qty: 2</option>
-			<option value='3'>Qty: 3</option>
-			<option value='4'>Qty: 4</option>
-			<option value='5'>Qty: 5</option>
+			{tempOptionArr.map((option, i) => {
+				return (
+					<option key={i} value={i}>
+						Qty: {i}
+					</option>
+				);
+			})}
 		</StyledQuantitySelect>
 	);
 }

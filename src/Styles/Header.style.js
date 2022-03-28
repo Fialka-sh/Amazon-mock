@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
-const StyledHeader = styled.div`
+const StyledHeaderContainer = styled.div`
 	z-index: 40;
 	position: sticky;
 	top: 0;
@@ -12,7 +12,9 @@ const StyledHeader = styled.div`
 	background: #131921;
 `;
 
-export const StyledHeaderTop = styled.div`
+export default StyledHeaderContainer;
+
+export const StyledHeader = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -25,30 +27,33 @@ export const StyledHeaderTop = styled.div`
 	}
 `;
 
-export const StyledHeaderTopLogoArea = styled.div`
+export const StyledLogoContainer = styled.div`
 	display: flex;
 	align-items: center;
 `;
-export const StyledHeaderTopCategoryMenu = styled.div`
+
+export const StyledCategoryMenu = styled.div`
 	width: 35px;
 	color: white;
 	padding: 2px 2px 2px 10px;
+
 	hr {
 		margin: 4px 0;
 	}
+
 	@media (min-width: 786px) {
 		display: none;
 	}
 `;
 
-export const StyledHeaderTopLogo = styled.img`
+export const StyledLogo = styled.img`
 	width: 100px;
 	height: 30px;
 	object-fit: contain;
 	margin-top: 20px;
 `;
 
-export const StyledHeaderTopSearchArea = styled.div`
+export const StyledSearchContainer = styled.div`
 	position: absolute;
 	top: 45px;
 	left: 9%;
@@ -66,7 +71,7 @@ export const StyledHeaderTopSearchArea = styled.div`
 	}
 `;
 
-export const StyledHeaderTopSearchContainer = styled.div`
+export const StyledSearchArea = styled.div`
 	@media screen and (min-width: 786px) {
 		display: flex;
 		justify-content: center;
@@ -75,11 +80,11 @@ export const StyledHeaderTopSearchContainer = styled.div`
 	}
 `;
 
-export const StyledHeaderTopNav = styled.div`
+export const StyledNavContainer = styled.div`
 	display: flex;
 `;
 
-export const StyledHeaderTopNavSign = styled.div`
+export const StyledNavSignAccountOption = styled.div`
 	width: 90%;
 	display: flex;
 	justify-content: flex-end;
@@ -93,7 +98,8 @@ export const StyledHeaderTopNavSign = styled.div`
 		}
 	}
 `;
-export const StyledHeaderTopNavOptions = styled.div`
+
+export const StyledNavOptions = styled.div`
 	display: none;
 
 	@media screen and (min-width: 786px) {
@@ -102,7 +108,7 @@ export const StyledHeaderTopNavOptions = styled.div`
 	}
 `;
 
-export const StyleHeaderTopNavOption = styled.div`
+export const StyleNavOption = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -134,7 +140,7 @@ export const StyleHeaderTopNavOption = styled.div`
 	}
 `;
 
-export const StyledHeaderTopCart = styled.div`
+export const StyledCart = styled.div`
 	margin: 2px 10px 2px 0px;
 	color: white;
 
@@ -164,17 +170,19 @@ export const StyledHeaderTopCart = styled.div`
 		& > div > span {
 			display: block;
 		}
+
 		& > div {
 			display: flex;
 			align-items: flex-end;
 		}
+
 		& > div > span {
 			margin-bottom: 3px;
 		}
 	}
 `;
 
-export const StyledHeaderTopCostumizedCartIcon = styled(ShoppingCartIcon)`
+export const StyledCartIcon = styled(ShoppingCartIcon)`
 	color: white;
 `;
 
@@ -192,6 +200,7 @@ export const StyledHeaderMenuStripe = styled.div`
 	p {
 		margin: 2px 7px;
 	}
+
 	@media screen and (max-width: 786px) {
 		height: 45px;
 		p {
@@ -199,5 +208,3 @@ export const StyledHeaderMenuStripe = styled.div`
 		}
 	}
 `;
-
-export default StyledHeader;

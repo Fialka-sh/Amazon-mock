@@ -14,7 +14,7 @@ const StyledCartContainer = styled.div`
 	}
 `;
 
-export const StyledCartCheckOut = styled.div`
+export const StyledCartCheckOutArea = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
@@ -25,15 +25,19 @@ export const StyledCartCheckOut = styled.div`
 	p {
 		margin-bottom: 20px;
 	}
+
 	@media (max-width: 890px) {
 		height: 94px;
+
 		p {
 			margin-bottom: 15px;
 		}
 	}
+
 	@media (max-width: 786px) {
 		height: 83px;
 		margin-bottom: 15px;
+
 		p {
 			margin-bottom: 20px;
 		}
@@ -51,14 +55,17 @@ export const StyledCart = styled.div`
 		font-size: 24px;
 		font-weight: 80;
 	}
+
 	span {
 		display: block;
 		text-align: right;
 	}
+
 	hr {
 		margin-bottom: 10px;
 		border-top: 1px solid gray;
 	}
+
 	@media (max-width: 786px) {
 		width: 100%;
 	}

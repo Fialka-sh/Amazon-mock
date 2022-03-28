@@ -15,6 +15,7 @@ export const StyledProductInCartInfo = styled.div`
 	width: 80%;
 	padding: 0px 10px;
 	font-size: 15px;
+
 	@media (max-width: 786px) {
 		padding-left: 5px;
 	}
@@ -36,6 +37,7 @@ export const StyledProductInCartBtns = styled.div`
 		margin-right: 10px;
 		color: rgb(212, 200, 200);
 	}
+
 	@media (max-width: 786px) {
 		span {
 			margin-right: -2px;
@@ -56,10 +58,12 @@ export const StyledProductInCartPrice = styled.div`
 	width: 80px;
 	padding: 10px;
 	text-align: right;
+
 	@media (max-width: 786px) {
 		width: 60px;
 		padding: 0px;
 	}
+
 	@media (max-width: 400px) {
 		position: relative;
 		top: 48px;

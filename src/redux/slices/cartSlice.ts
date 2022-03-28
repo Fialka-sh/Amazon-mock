@@ -35,13 +35,11 @@ const cartSlice = createSlice({
 			let chosenProduct: ProductData = action.payload;
 
 			let flag: boolean = false;
-			let tempCart = state.cart.map((product) => {
+			let tempCart: ProductData[] = state.cart.map((product) => {
 				if (product.id === chosenProduct.id) {
 					flag = true;
 					return chosenProduct;
-				} else {
-					return product;
-				}
+				} else return product;
 			});
 
 			if (!flag) {
@@ -57,8 +55,7 @@ const cartSlice = createSlice({
 
 			let tempCart = state.cart.map((product, i) => {
 				if (product.id === chosenProductId) {
-					let updateProduct = { ...product, quantity: newquantity };
-
+					let updateProduct: ProductData = { ...product, quantity: newquantity };
 					return updateProduct;
 				} else return product;
 			});
@@ -82,9 +79,9 @@ export const updatTotalProducts = (state: RootState) => {
 };
 
 export const updateTotaleToPay = (state: RootState) => {
-	let tempTotal = 0;
+	let tempTotal: number = 0;
 	state.cart.cart.forEach((product) => {
-		let productPriceAfterDiscount = showPriceAfterDiscount(product.primery_price, product.discount);
+		let productPriceAfterDiscount: number = showPriceAfterDiscount(product.primery_price, product.discount);
 
 		tempTotal += product.quantity * productPriceAfterDiscount;
 	});

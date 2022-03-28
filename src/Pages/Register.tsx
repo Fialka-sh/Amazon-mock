@@ -19,26 +19,22 @@ function getErrorMessage(error: unknown) {
 	return String(error);
 }
 
-export default function Login() {
+export default function Login(): JSX.Element {
 	const dispatch = useAppDispatch();
 	const navigate = useNavigate();
 	const [name, setName] = useState<string>("");
 	const [email, setEmail] = useState<string>("");
 	const [password, setPassword] = useState<string>("");
 
-	const saveName = (value: string) => {
-		setName(value);
-	};
-	const checkEmail = (value: string) => {
-		setEmail(value);
-	};
-	const checkPassword = (value: string) => {
+	const saveName = (value: string): void => setName(value);
+	const checkEmail = (value: string): void => setEmail(value);
+	const checkPassword = (value: string): void => {
 		let passwordEnterd: string = value;
 		// if (passwordEnterd.length === 6) {
 		setPassword(passwordEnterd);
 		// }
 	};
-	const checkRePassword = (value: string) => {
+	const checkRePassword = (value: string): void => {
 		// let rePassword: string = value;
 		// if (password === "") {
 		// console.log("no password");
@@ -49,11 +45,10 @@ export default function Login() {
 		// }
 	};
 
-	const createAcount = async () => {
+	const createAcount = async (): Promise<void> => {
 		try {
 			const user = await createUserWithEmailAndPassword(auth, email, password);
 			dispatch(SAVE_LOGGED_USER_NAME(name));
-			console.log(user);
 
 			if (user) {
 				dispatch(SAVE_LOGGED_USER_NAME(""));
@@ -70,11 +65,7 @@ export default function Login() {
 		<StyledAccountContainer>
 			<StyledAccountContainer acountForm>
 				<StyledAccountImage>
-					<img
-						className='acountForm__header_img'
-						src='https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg'
-						alt='amazon logo'
-					/>
+					<img src='https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg' alt='amazon logo' />
 				</StyledAccountImage>
 
 				<StyledFormContainer>
@@ -91,6 +82,7 @@ export default function Login() {
 						name='emailInput'
 						type='text'
 						placeholder='Up to 5 characters'
+						maxLength='5'
 					></StyledInput>
 					<label htmlFor='emailInput'>
 						<small>Email</small>

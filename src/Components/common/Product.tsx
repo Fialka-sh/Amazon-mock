@@ -1,14 +1,15 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useAppDispatch } from "../../hooks";
 import { useNavigate } from "react-router-dom";
 
 import { SHOW_PRODUCT_INFO } from "../../redux/slices/productsSlice";
-import StyledStarContainer, { StyledStar } from "../../Styles/Star.style";
 
+import { ShowDiscountPriceWithNoDecimals, ShowPriceDecimals } from "../../Assets/calculatePrice";
+
+import StyledStarContainer, { StyledStar } from "../../Styles/Star.style";
 import StyledButton from "../../Styles/Button.style";
 import StyledProductContainer, { StyledProductInfo } from "../../Styles/Product.style";
 import StyledProductImage from "../../Styles/Image.style";
-import { ShowDiscountPriceWithNoDecimals, ShowPriceDecimals } from "../../Assets/calculatePrice";
 
 interface ProductData {
 	id: string;
@@ -21,21 +22,25 @@ interface ProductData {
 	category: string;
 	quantity: number;
 }
+interface ProductOption {
+	width: number[];
+	grow: number[];
+}
 
-export default function Product(product: ProductData, key: number) {
+export default function Product(product: ProductData, key: number): JSX.Element {
 	const { title, primery_price, discount, rating, imgSrc, name } = product;
 	const dispatch = useAppDispatch();
 	const navigate = useNavigate();
 	const [stars, setStars] = useState<string[]>([]);
 
-	const styleProductOptions = {
+	const styleProductOptions: ProductOption = {
 		width: [350, 500, 700],
 		grow: [2, 3, 4],
 	};
 
-	let chosenWidth =
+	let chosenWidth: number =
 		styleProductOptions.width[useRef(Math.floor(Math.random() * styleProductOptions.width.length)).current];
-	let chosenGrow =
+	let chosenGrow: number =
 		styleProductOptions.grow[useRef(Math.floor(Math.random() * styleProductOptions.grow.length)).current];
 
 	useEffect(() => {

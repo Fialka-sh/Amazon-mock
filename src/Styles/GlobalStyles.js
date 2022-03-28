@@ -5,7 +5,7 @@ const GlobleStyles = createGlobalStyle`
 	* {
 		box-sizing: border-box;
 		margin: 0px;
-			padding: 0px;
+		padding: 0px;
 
 	}
 
@@ -13,9 +13,9 @@ const GlobleStyles = createGlobalStyle`
 		overflow: visible;
 		width: 100%;
 		background-color:#efecef;
-	font-family: "Amazon Ember", Arial, sans-serif;
-
+		font-family: "Amazon Ember", Arial, sans-serif;
 	}
+
 	.centerIt {
 		display: flex;
 		justify-content: center;

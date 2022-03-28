@@ -30,6 +30,7 @@ export const StyledCategoryPopUp = styled.div`
 		font-size: 16px;
 		font-weight: bold;
 	}
+
 	@keyframes showFromLeft {
 		0% {
 			left: -80vw;
@@ -68,17 +69,19 @@ export const StyledCategoryPopUpBody = styled.div`
 	background-color: white;
 	line-height: 2.5rem;
 	font-size: 12px;
+
 	p {
 		cursor: pointer;
 		padding: 10px 10px 5px 15px;
 	}
+
 	p:hover,
 	p:active {
 		background-color: lightgray;
 	}
 `;
 
-export const StyledSearchAreaPopUp = styled.div`
+export const StyledHeaderSearchPopUp = styled.div`
 	display: ${(props) => props.display};
 	width: 70vw;
 	height: 40vh;
@@ -103,11 +106,13 @@ export const StyledSearchAreaPopUp = styled.div`
 		padding: 10px 0px 10px 15px;
 		font-size: 14px;
 		font-weight: bold;
+
 		:hover {
 			text-decoration: underline;
 			color: rgb(35, 47, 62);
 		}
 	}
+
 	@media screen and (min-width: 786px) {
 		position: absolute;
 		top: 45px;

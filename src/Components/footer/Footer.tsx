@@ -1,5 +1,3 @@
-import React from "react";
-
 import StyledFooter from "../../Styles/Footer.style";
 
 function Footer() {

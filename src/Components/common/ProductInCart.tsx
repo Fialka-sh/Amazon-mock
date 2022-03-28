@@ -1,7 +1,10 @@
-import React from "react";
 import { useAppDispatch } from "../../hooks";
 
 import { UPDATE_PRODUCT_QUANTITY, REMOVE_FROM_CART } from "../../redux/slices/cartSlice";
+
+import { showPriceAfterDiscount } from "../../Assets/calculatePrice";
+
+import Select from "./Select";
 
 import { StyledProductInCartImage } from "../../Styles/Image.style";
 import StyledProductInCartContainer, {
@@ -13,8 +16,6 @@ import StyledProductInCartContainer, {
 	StyledProductInCartBtns,
 } from "../../Styles/ProductInCart.style";
 import StyledButton from "../../Styles/Button.style";
-import Select from "./Select";
-import { showPriceAfterDiscount } from "../../Assets/calculatePrice";
 
 type ProductData = {
 	id: string;
@@ -38,7 +39,7 @@ export default function ProductInCart(props: { product: ProductData; i: number }
 	const { title, name, primery_price, discount, imgSrc, quantity, category } = product;
 	const dispatch = useAppDispatch();
 
-	const getNewAmount = (value: string) => {
+	const getNewAmount = (value: string): void => {
 		let newQuantity: number = parseInt(value);
 		let objectTr: ProductToUpdate = {
 			id: product.id,
@@ -55,7 +56,6 @@ export default function ProductInCart(props: { product: ProductData; i: number }
 
 			<StyledProductInCartInfo>
 				<StyledProductInCartPrInfoText>{title}</StyledProductInCartPrInfoText>
-
 				<StyledInStockText>In Stock</StyledInStockText>
 				<StyledCategoryText>
 					<em>Category: </em>

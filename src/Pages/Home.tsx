@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import { useState, useMemo } from "react";
 import { useAppSelector } from "../hooks";
 
 import Product from "../Components/common/Product";
@@ -13,13 +13,13 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import StyledHome, { StyledProductsContainer } from "../Styles/Home.style";
 import StyledBannerContainer, { StyledArrowsContainer } from "../Styles/Banner.style";
 
-export default function Home() {
+export default function Home(): JSX.Element {
 	const productsToShow = useAppSelector((state) => state.products.productsToShow);
 
 	const [bannerIToShow, setBannerIToShow] = useState<number>(0);
 	let chosenBanner: string = bannersList[bannerIToShow];
 
-	const changeBanner = (i: number) => {
+	const changeBanner = (i: number): void => {
 		if (i === 1 && bannerIToShow === bannersList.length - 1) {
 			setBannerIToShow(0);
 		} else if (i === -1 && bannerIToShow === 0) {
@@ -27,7 +27,7 @@ export default function Home() {
 		} else setBannerIToShow(bannerIToShow + i);
 	};
 
-	const changedBanner: NodeJS.Timeout = setTimeout(() => {
+	const changedBanner: NodeJS.Timeout = setTimeout((): void => {
 		let currentBannerIndex = bannerIToShow;
 
 		if (currentBannerIndex === 2) {

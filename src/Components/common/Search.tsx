@@ -2,9 +2,9 @@ import React from "react";
 
 import StyledInput from "../../Styles/Input.style";
 import { StyledSearchContainer } from "../../Styles/Search.style";
-import { StyledHeaderTopcostumizedSearchIcon } from "../../Styles/Search.style";
+import { StyledSearchIcon } from "../../Styles/Search.style";
 
-export const Search = (props: { searchMatchedProducts: any; value: string }) => {
+export const Search = (props: { searchMatchedProducts: any; value: string }): JSX.Element => {
 	return (
 		<StyledSearchContainer>
 			<StyledInput
@@ -16,7 +16,7 @@ export const Search = (props: { searchMatchedProducts: any; value: string }) => 
 				}}
 			></StyledInput>
 
-			<StyledHeaderTopcostumizedSearchIcon></StyledHeaderTopcostumizedSearchIcon>
+			<StyledSearchIcon></StyledSearchIcon>
 		</StyledSearchContainer>
 	);
 };

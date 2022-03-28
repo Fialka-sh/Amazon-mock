@@ -12,7 +12,7 @@ const StyledQuantitySelect = styled.select`
 	color: black;
 `;
 
-export const StyledSearchAreaSelect = styled.select`
+export const StyledCategorySelect = styled.select`
 	display: none;
 
 	@media screen and (min-width: 786px) {

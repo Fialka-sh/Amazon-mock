@@ -13,7 +13,6 @@ export const StyledProductsContainer = styled.div`
 	justify-content: center;
 	align-items: center;
 	flex-wrap: wrap;
-
 	padding: 10px;
 
 	@media (max-width: 1000px) {

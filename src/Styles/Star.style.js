@@ -6,6 +6,7 @@ const StyledStarContainer = styled.div`
 		order: 2;
 	}
 `;
+
 export const StyledStar = styled(StarIcon)`
 	color: #febd69;
 	transform: scale(0.7);
@@ -19,9 +20,10 @@ export const StyledStar = styled(StarIcon)`
 	}
 
 	${(props) =>
-		props.stylestar &&
+		props.styledstarinproductinfo &&
 		css`
 			float: right;
+
 			@media screen and (min-width: 786px) {
 				float: left;
 			}

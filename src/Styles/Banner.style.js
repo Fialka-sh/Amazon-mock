@@ -18,9 +18,7 @@ export const StyledBanner = styled.div`
 
 export const StyledArrowsContainer = styled.div`
 	position: relative;
-
 	top: 100px;
-
 	display: flex;
 	justify-content: space-between;
 	align-items: center;

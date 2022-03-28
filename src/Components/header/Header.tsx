@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
 import { useAppDispatch, useAppSelector } from "../../hooks";
+
 import { updatTotalProducts } from "../../redux/slices/cartSlice";
 import { toggleSignText } from "../../redux/slices/userSlice";
 import { SHOW_PRODUCTS, SHOW_PRODUCT_INFO } from "../../redux/slices/productsSlice";
@@ -10,27 +10,28 @@ import { auth } from "../../Config/firebase";
 import { signOut } from "firebase/auth";
 
 import { categories } from "../../Assets/categoryList";
+import products from "../../Assets/productsList";
 
-import StyledHeader, {
-	StyledHeaderTopCategoryMenu,
-	StyledHeaderTop,
-	StyledHeaderTopLogo,
-	StyledHeaderTopSearchArea,
-	StyledHeaderTopNav,
-	StyledHeaderTopNavSign,
-	StyledHeaderTopCart,
-	StyledHeaderTopCostumizedCartIcon,
-	StyledHeaderMenuStripe,
-	StyleHeaderTopNavOption,
-	StyledHeaderTopSearchContainer,
-	StyledHeaderTopNavOptions,
-	StyledHeaderTopLogoArea,
-} from "../../Styles/Header.style";
-import { StyledSearchAreaSelect } from "../../Styles/Select.style";
 import Popup from "../common/Popup";
 import { Search } from "../common/Search";
-import { StyledSearchAreaPopUp } from "../../Styles/Popup.style";
-import products from "../../Assets/productsList";
+
+import StyledHeaderContainer, {
+	StyledHeader,
+	StyledLogoContainer,
+	StyledLogo,
+	StyledSearchContainer,
+	StyledCategoryMenu,
+	StyledSearchArea,
+	StyledNavContainer,
+	StyledNavSignAccountOption,
+	StyledNavOptions,
+	StyleNavOption,
+	StyledCart,
+	StyledCartIcon,
+	StyledHeaderMenuStripe,
+} from "../../Styles/Header.style";
+import { StyledCategorySelect } from "../../Styles/Select.style";
+import { StyledHeaderSearchPopUp } from "../../Styles/Popup.style";
 
 type ProductData = {
 	id: string;
@@ -53,29 +54,28 @@ export default function Header() {
 	const numOfProducts: number = useAppSelector(updatTotalProducts);
 
 	const [displayPopupState, setDisplayPopupState] = useState<string>("none");
+	const [valueInSearchInput, setValueInSearchInput] = useState("");
+	const [searchPopupDisplay, setSearchPopupDisplay] = useState<string>("none");
+	const [searchPopupResults, setSearchPopupResults] = useState<ProductData[]>([]);
 
-	const handelAcountLog = async () => {
+	const handelAcountLog = async (): Promise<void> => {
 		if (user) {
 			await signOut(auth);
 		}
 	};
 
-	const getCategoryToShow = (value: string) => {
+	const getCategoryToShow = (value: string): void => {
 		dispatch(SHOW_PRODUCTS(value));
 		navigate("/");
 
 		if (displayPopupState === "block") setDisplayPopupState("none");
 	};
 
-	const changePopupDisplay = (value: string) => {
+	const changePopupDisplay = (value: string): void => {
 		setDisplayPopupState(value);
 	};
 
-	const [ValueInSearchInput, setValueInSearchInput] = useState("");
-	const [searchPopupDisplay, setSearchPopupDisplay] = useState<string>("none");
-	const [searchPopupResults, setSearchPopupResults] = useState<ProductData[]>([]);
-
-	const searchMatchedProducts = (value: string) => {
+	const searchMatchedProducts = (value: string): void => {
 		setSearchPopupDisplay("block");
 		setValueInSearchInput(value);
 
@@ -107,10 +107,10 @@ export default function Header() {
 	};
 
 	return (
-		<StyledHeader>
-			<StyledHeaderTop>
-				<StyledHeaderTopLogoArea>
-					<StyledHeaderTopCategoryMenu
+		<StyledHeaderContainer>
+			<StyledHeader>
+				<StyledLogoContainer>
+					<StyledCategoryMenu
 						onClick={() => {
 							changePopupDisplay("block");
 						}}
@@ -118,25 +118,25 @@ export default function Header() {
 						<hr />
 						<hr />
 						<hr />
-					</StyledHeaderTopCategoryMenu>
+					</StyledCategoryMenu>
 					<Popup
 						displayPopup={displayPopupState}
 						changePopupDisplay={changePopupDisplay}
 						getCategoryToShow={getCategoryToShow}
 					/>
 					<Link to='/'>
-						<StyledHeaderTopLogo
+						<StyledLogo
 							width='150'
 							height='35'
 							src='http://pngimg.com/uploads/amazon/amazon_PNG11.png'
 							alt='Amazon logo'
-						></StyledHeaderTopLogo>
+						></StyledLogo>
 					</Link>
-				</StyledHeaderTopLogoArea>
+				</StyledLogoContainer>
 
-				<StyledHeaderTopSearchArea>
-					<StyledHeaderTopSearchContainer>
-						<StyledSearchAreaSelect
+				<StyledSearchContainer>
+					<StyledSearchArea>
+						<StyledCategorySelect
 							name='category '
 							value={categoryToShow}
 							onChange={(e: React.FormEvent<HTMLSelectElement>) => {
@@ -150,10 +150,11 @@ export default function Header() {
 									</option>
 								);
 							})}
-						</StyledSearchAreaSelect>
-						<Search searchMatchedProducts={searchMatchedProducts} value={ValueInSearchInput} />
-					</StyledHeaderTopSearchContainer>
-					<StyledSearchAreaPopUp display={searchPopupDisplay}>
+						</StyledCategorySelect>
+						<Search searchMatchedProducts={searchMatchedProducts} value={valueInSearchInput} />
+					</StyledSearchArea>
+
+					<StyledHeaderSearchPopUp display={searchPopupDisplay}>
 						{searchPopupResults.map((result, i) => {
 							return (
 								<p
@@ -166,12 +167,12 @@ export default function Header() {
 								</p>
 							);
 						})}
-					</StyledSearchAreaPopUp>
-				</StyledHeaderTopSearchArea>
+					</StyledHeaderSearchPopUp>
+				</StyledSearchContainer>
 
-				<StyledHeaderTopNav>
-					<StyledHeaderTopNavSign>
-						<StyleHeaderTopNavOption>
+				<StyledNavContainer>
+					<StyledNavSignAccountOption>
+						<StyleNavOption>
 							<span>Hello {user.name}</span>
 
 							<span onClick={handelAcountLog}>
@@ -179,29 +180,29 @@ export default function Header() {
 									{toggle}
 								</Link>
 							</span>
-						</StyleHeaderTopNavOption>
-					</StyledHeaderTopNavSign>
+						</StyleNavOption>
+					</StyledNavSignAccountOption>
 
-					<StyledHeaderTopNavOptions>
-						<StyleHeaderTopNavOption>
+					<StyledNavOptions>
+						<StyleNavOption>
 							<span>Returns</span>
 							<span>& Orders</span>
-						</StyleHeaderTopNavOption>
-						<StyleHeaderTopNavOption>
+						</StyleNavOption>
+						<StyleNavOption>
 							<span>Your</span>
 							<span>Prime</span>
-						</StyleHeaderTopNavOption>
-					</StyledHeaderTopNavOptions>
+						</StyleNavOption>
+					</StyledNavOptions>
 
-					<StyledHeaderTopCart>
+					<StyledCart>
 						<p>{numOfProducts}</p>
 						<div>
-							<Link to='checkout'>{<StyledHeaderTopCostumizedCartIcon></StyledHeaderTopCostumizedCartIcon>}</Link>
+							<Link to='checkout'>{<StyledCartIcon></StyledCartIcon>}</Link>
 							<span>Cart</span>
 						</div>
-					</StyledHeaderTopCart>
-				</StyledHeaderTopNav>
-			</StyledHeaderTop>
+					</StyledCart>
+				</StyledNavContainer>
+			</StyledHeader>
 
 			<StyledHeaderMenuStripe>
 				<p>All</p>
@@ -212,6 +213,6 @@ export default function Header() {
 				<p>Sell</p>
 				<p>Local Dellivery In Israel</p>
 			</StyledHeaderMenuStripe>
-		</StyledHeader>
+		</StyledHeaderContainer>
 	);
 }

@@ -13,35 +13,31 @@ const StyledButton = styled.button`
 		props.showProductButton &&
 		css`
 			width: 150px;
-			/* color: black; */
 			margin: 10px auto;
-			:active {
-				/* color: black; */
-			}
 
 			:hover {
 				transform: scale(1.05);
 				background-color: #febd69;
 			}
 		`}
+
 	${(props) =>
 		props.addToCartButton &&
 		css`
 			background-color: #ebc129;
-			/* color: black; */
 			margin: 10px auto;
 			border-radius: 10px;
-			:active {
-				/* color: black; */
-			}
+
 			:hover {
 				transform: scale(1.05);
 				background-color: #febd69;
 			}
+
 			@media (min-width: 786px) {
 				width: 150px;
 			}
 		`}
+
 	${(props) =>
 		props.acountFormButton &&
 		css`
@@ -50,6 +46,7 @@ const StyledButton = styled.button`
 			border: 1px solid rgb(211, 210, 210);
 			padding: 5px;
 		`}
+
 	${(props) =>
 		props.createAccountButton &&
 		css`
@@ -57,6 +54,7 @@ const StyledButton = styled.button`
 			border: 0.5px solid lightgray;
 			background-color: rgb(241, 238, 228);
 		`}
+
 	${(props) =>
 		props.checkoutButton &&
 		css`
@@ -69,6 +67,7 @@ const StyledButton = styled.button`
 				padding: 5px;
 			}
 		`}
+		
 	${(props) =>
 		props.removeProductButton &&
 		css`

@@ -11,19 +11,19 @@ import StyledAccountContainer, { StyledLoginDivider, StyledFormContainer } from 
 import StyledInput from "../Styles/Input.style";
 import { StyledAccountImage } from "../Styles/Image.style";
 
-function getErrorMessage(error: unknown) {
+function getErrorMessage(error: unknown): string {
 	if (error instanceof Error) {
 		return error.message;
 	}
 	return String(error);
 }
 
-export default function Login() {
+export default function Login(): JSX.Element {
 	const navigate = useNavigate();
 	const [email, setEmail] = useState<string>("");
 	const [password, setPassword] = useState<string>("");
 
-	const LogInToAccount = async () => {
+	const LogInToAccount = async (): Promise<void> => {
 		try {
 			const user = await signInWithEmailAndPassword(auth, email, password);
 			if (user) {

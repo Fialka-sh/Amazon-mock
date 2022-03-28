@@ -7,7 +7,7 @@ export const StyledSearchContainer = styled.div`
 	padding: 6px;
 `;
 
-export const StyledHeaderTopcostumizedSearchIcon = styled(SearchIcon)`
+export const StyledSearchIcon = styled(SearchIcon)`
 	transform: scale(1.2);
 	margin-top: 3px;
 	margin-left: -5px;

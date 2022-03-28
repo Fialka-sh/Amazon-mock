@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { showDiscountAmount, ShowDiscountPriceWithNoDecimals, ShowPriceDecimals } from "../Assets/calculatePrice";
-import Select from "../Components/common/Select";
 import { useAppDispatch, useAppSelector } from "../hooks";
+
 import { ADD_TO_CART } from "../redux/slices/cartSlice";
 import { UPDATE_PRODUCT_QUANTITY } from "../redux/slices/productsSlice";
+
+import Select from "../Components/common/Select";
 
 import StyledButton from "../Styles/Button.style";
 import { StyledProductInfoImage } from "../Styles/Image.style";
@@ -13,30 +15,30 @@ import {
 	StyledInStockText,
 	StyledProductInfoPrice,
 	StyledProductInfoBtns,
-	StyledProductInfo,
+	StyledProductInfoBody,
 	StyledProductAdditionalInfo,
 	StyledProductInfoTop,
 	StyledBreadcrumbs,
-	StyledProductInfoTablePriceArea,
+	StyledProductInfoTablePricesArea,
 } from "../Styles/ProductInfo.style";
 
 import StyledStarContainer, { StyledStar } from "../Styles/Star.style";
 
-export default function ProductInfo() {
+export default function ProductInfo(): JSX.Element {
 	const dispatch = useAppDispatch();
 	const product = useAppSelector((state) => state.products.productToShow);
-	const { title, name, primery_price, discount, rating, category, imgSrc } = product;
+	const { title, name, primery_price, discount, rating, imgSrc } = product;
 	const [stars, setStars] = useState<string[]>([]);
 
 	useEffect(() => {
-		let tempStars: string[] = [];
+		let tempArray: string[] = [];
 		for (let i = 0; i < rating; i++) {
-			tempStars.push("0");
+			tempArray.push("0");
 		}
-		setStars(tempStars);
+		setStars(tempArray);
 	}, [rating]);
 
-	const getNewAmount = (value: string) => {
+	const getNewAmount = (value: string): void => {
 		let quantity: number = parseInt(value);
 		dispatch(UPDATE_PRODUCT_QUANTITY(quantity));
 	};
@@ -53,13 +55,13 @@ export default function ProductInfo() {
 				<StyledProductInfoTop>
 					<StyledStarContainer>
 						{stars.map((star, i) => {
-							return <StyledStar stylestar='styledstarinproductinfo' key={i} />;
+							return <StyledStar styledstarinproductinfo='styledstarinproductinfo' key={i} />;
 						})}
 					</StyledStarContainer>
 
 					<StyledProductInfoText>{title}</StyledProductInfoText>
 
-					<StyledProductInfoTablePriceArea>
+					<StyledProductInfoTablePricesArea>
 						<hr />
 						<table>
 							<tbody>
@@ -86,14 +88,14 @@ export default function ProductInfo() {
 						<span>No import Fees Deposits & $11.45 Shipping to Israel</span>
 
 						<hr />
-					</StyledProductInfoTablePriceArea>
+					</StyledProductInfoTablePricesArea>
 				</StyledProductInfoTop>
 
 				<StyledProductInfoImage>
 					<img src={imgSrc} alt={name} />
 				</StyledProductInfoImage>
 
-				<StyledProductInfo>
+				<StyledProductInfoBody>
 					<StyledProductInfoPrice>
 						<div>
 							<small>$</small>
@@ -146,7 +148,7 @@ export default function ProductInfo() {
 						</p>
 						<p>Gift-wrap available</p>
 					</StyledProductAdditionalInfo>
-				</StyledProductInfo>
+				</StyledProductInfoBody>
 				<hr />
 			</StyledProductInfoContainer>
 		</div>

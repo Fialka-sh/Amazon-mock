@@ -37,9 +37,11 @@ export const StyledFormContainer = styled.div`
 		font-size: 28px;
 		font-weight: 300;
 	}
+
 	@media (max-width: 786px) {
 		margin-bottom: 30px;
 		padding: 15px;
+
 		h2 {
 			margin-bottom: 10px;
 		}
@@ -49,6 +51,7 @@ export const StyledFormContainer = styled.div`
 export const StyledLoginDivider = styled.div`
 	width: 100%;
 	text-align: center;
+
 	h5 {
 		display: inline-block;
 		padding: 0 8px 0 7px;
@@ -56,6 +59,7 @@ export const StyledLoginDivider = styled.div`
 		color: #767676;
 		font-weight: 400;
 	}
+
 	&:after {
 		content: "";
 		display: block;

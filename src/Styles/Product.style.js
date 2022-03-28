@@ -29,6 +29,7 @@ export const StyledProductInfo = styled.div`
 		overflow: hidden;
 		line-height: 1.5em;
 	}
+
 	span {
 		margin-top: 2px;
 	}

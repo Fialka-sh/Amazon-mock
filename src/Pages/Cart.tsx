@@ -1,29 +1,26 @@
-import React from "react";
 import { useAppSelector } from "../hooks";
 import { updatTotalProducts, updateTotaleToPay } from "../redux/slices/cartSlice";
 
 import ProductInCart from "../Components/common/ProductInCart";
 
 import StyledButton from "../Styles/Button.style";
-import StyledCartContainer, { StyledCart, StyledCartCheckOut, StyledCartTotal } from "../Styles/Cart.style";
+import StyledCartContainer, { StyledCart, StyledCartCheckOutArea, StyledCartTotal } from "../Styles/Cart.style";
 
-export default function Cart() {
+export default function Cart(): JSX.Element {
 	const cart = useAppSelector((state) => state.cart.cart);
 	const totalToPay = useAppSelector(updateTotaleToPay);
 	const numOfProducts = useAppSelector(updatTotalProducts);
 
 	return (
 		<StyledCartContainer>
-			<StyledCartCheckOut>
+			<StyledCartCheckOutArea>
 				<p>
 					Subtotal ({numOfProducts} items) : <strong>${totalToPay}</strong>
 				</p>
-				<div className='cartContainer__checkOut_btn'>
-					<StyledButton checkoutButton type='button'>
-						Proceed to checkout
-					</StyledButton>
-				</div>
-			</StyledCartCheckOut>
+				<StyledButton checkoutButton type='button'>
+					Proceed to checkout
+				</StyledButton>
+			</StyledCartCheckOutArea>
 
 			<StyledCart>
 				<h1>Shopping Cart</h1>

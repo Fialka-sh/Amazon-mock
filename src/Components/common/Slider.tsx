@@ -1,4 +1,3 @@
-import React from "react";
 import { StyledBanner } from "../../Styles/Banner.style";
 
 interface bannerProps {
@@ -8,7 +7,7 @@ interface bannerProps {
 function Slider(props: bannerProps): JSX.Element {
 	return (
 		<StyledBanner>
-			<img className='home__banner_img' src={props.banner} alt='top-banner' />
+			<img src={props.banner} alt='top-banner' />
 		</StyledBanner>
 	);
 }
